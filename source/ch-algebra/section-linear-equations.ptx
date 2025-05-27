@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-linear-equations">
+  
+  <title>Linear Equations</title>
+
+  <p>
+    An <term>equation</term> is a statement that two mathematical expressions are equal. A <term>solution</term> of an equation
+    is a value for each variable that makes the equation a true statement. For example, a solution to 
+    the equation <me>2x+3=11</me>
+    is <m>x=4</m>, since <me>2(4)+3 =11</me>. 
+    On the other hand, we see that <m>x=3</m> is <em>not</em> a solution to 
+    the equation, since <me>2(3)+3 \neq 11</me>. 
+    Note that equations could have 
+    more than one variable. For example, the equation <me>x^2+y^2 =25</me> has the solution <m>x=0</m> and <m>y=5</m>,
+    as well as the solution <m>x=-3</m> and <m>y=4</m>. Can you think of any other solutions?
+  </p>
+
+  <p>
+    The set of all solutions of an equation is called its <term>solution set</term>.  To <em>solve</em> an equation means to find its solution set. One way to solve an equation is to apply the following transformations, which don't change the solution set.
+  <ul>
+    <li>
+        <em>Add or subtract</em> any constant on both sides.
+    </li>
+    <li>
+        <em>Multiply or divide</em> by any nonzero constant on both sides.
+    </li>
+  </ul>
+  We can solve all <term>linear equations</term> using these two transformations.</p>
+
+  <p>
+    For example, consider the equation
+    <me>
+      4x+3=15.
+    </me>
+    Subtracting <m>3</m> on both sides gives
+    <me>
+      4x=12.
+    </me>
+    Dividing both sides by <m>4</m> gives
+    <me>
+      x=3.
+    </me>
+    So the only solution to the equation <m>4x+3=15</m> is <m>x=3</m>.  We can write this whole process more compactly as
+    <me>
+      4x+3=15 \ \ \ \Rightarrow \ \ \ 4x=12 \ \ \ \Rightarrow \ \ \ x=3.
+    </me>
+    Here, the "<m>\Rightarrow</m>" symbol is not an equals sign, it is an <em>implication</em> symbol.  It means "if the statement on the left holds, then the statement on the right holds". 
+  </p>
+
+  
+  <exercise>
+
+    <title>Solving linear equations</title>
+
+    <introduction>Solve.</introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=1;
+        $b=Compute(random(1,10,1));
+        $c=Compute(random(-10,10,1));
+        $diff=$c-$b;
+        $x="x";
+
+        $left=Formula("$a*$x+$b")->reduce();
+
+        $ans=Fraction("$diff","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$left"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We subtract <m><var name="$b"/></m> from both sides, as follows:
+        <me>
+          <var name="$left"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=1;
+        $b=Compute(random(1,10,1));
+        $c=0;
+        $sum=$c+$b;
+        $x="x";
+
+        $left=Formula("$a*$x-$b")->reduce();
+
+        $ans=Fraction("$sum","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$left"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We add <m><var name="$b"/></m> to both sides, as follows:
+        <me>
+          <var name="$left"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=non_zero_random(-6,6,2);
+        $b=0;
+        $c=random(-5,-2,1);
+        $d=$c*$a;
+        $ans=$c;
+        $x="x";
+
+        $left=Formula("$a*$x")->reduce();
+
+        
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$left"/>=<var name="$d"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$left"/>=<var name="$d"/> \ \ \ \Rightarrow \ \ \  x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=2;
+        $b=Compute(random(3,9,2));
+        $c=Compute(random(5,15,2));
+        $diff=$c-$b;
+
+        $ans=Fraction("$diff","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$a"/>x+<var name="$b"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We subtract <m><var name="$b"/></m> from both sides, and then divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$a"/>x+<var name="$b"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ <var name="$a"/>x=<var name="$diff"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=3;
+        $b=Compute(random(4,11,3));
+        $c=Compute(random(-5,1,3));
+        $diff=$c-$b;
+
+        $ans=Fraction("$diff","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$a"/>x+<var name="$b"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We subtract <m><var name="$b"/></m> from both sides, and then divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$a"/>x+<var name="$b"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ <var name="$a"/>x=<var name="$diff"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=2;
+        $b=Compute(random(2,10,2));
+        $c=Compute(random(1,11,2));
+        $diff=$c-$b;
+
+        $ans=Fraction("$diff","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$a"/>x+<var name="$b"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We subtract <m><var name="$b"/></m> from both sides, and then divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$a"/>x+<var name="$b"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ <var name="$a"/>x=<var name="$diff"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork> 
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=non_zero_random(-6,6,2);
+        $b=Compute(random(1,10,1));
+        $c=Compute(random(-10,10,1));
+        $sum=$c+$b;
+        $x="x";
+
+        $left=Formula("$a*$x-$b");
+
+        $ans=Fraction("$sum","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$left"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We add <m><var name="$b"/></m> to both sides, and then divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$left"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ <var name="$a"/>x=<var name="$sum"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork> 
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=non_zero_random(-6,6,2);
+        $b=Compute(random(1,10,1));
+        $c=Compute(random(-10,10,1));
+        $sum=$c+$b;
+        $x="x";
+
+        $left=Formula("$a*$x-$b");
+
+        $ans=Fraction("$sum","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$left"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We add <m><var name="$b"/></m> to both sides, and then divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$left"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ <var name="$a"/>x=<var name="$sum"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork> 
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=non_zero_random(-6,6,2);
+        $b=Compute(random(1,10,1));
+        $c=0;
+        $diff=$c-$b;
+        $x="x";
+
+        $left=Formula("$a*$x+$b")->reduce();
+
+        $ans=Fraction("$diff","$a");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$left"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We subtract <m><var name="$b"/></m> from both sides, and then divide both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$left"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ <var name="$a"/>x=<var name="$diff"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=random(2,5,1);
+        $b=0;
+        $c=Compute(random(1,10,1));
+        $diff=$c-$b;
+        $x="x";
+
+        $frac=Fraction(1/$a);
+
+        $ans=$diff*$a;
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$frac"/>x=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We multiply both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$frac"/>x=<var name="$c"/> \ \ \ \Rightarrow \ \ \ x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=random(2,5,1);
+        $b=Compute(random(1,10,1));
+        $c=0;
+        $diff=$c-$b;
+        $x="x";
+
+        $frac=Fraction(1/$a);
+
+        $ans=$diff*$a;
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$frac"/>x+<var name="$b"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We subtract <var name="$b"/> from both sides, and then multiply both sides by <m><var name="$a"/></m>, as follows:
+        <me>
+          <var name="$frac"/>x+<var name="$b"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ 
+          <var name="$frac"/>x=<var name="$diff"/> \ \ \ \Rightarrow \ \ \ 
+          x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        $a=random(3,9,2);
+        $b=Compute(random(1,11,2));
+        $c=Compute(random(2,12,2));
+        $sum=$c+$b;
+        $x="x";
+
+        $frac=Fraction(2/$a);
+        $recip=Fraction($a/2);
+
+        $ans=Fraction($sum*$a/2);
+
+      </pg-code>
+
+      <statement>
+        <p>
+          If <m><var name="$frac"/>x-<var name="$b"/>=<var name="$c"/></m>, then <m>x=</m><var name="$ans" width="10"/>.
+        </p>
+      </statement>
+
+      <solution>
+        We add <var name="$b"/> to both sides, and then multiply both sides by <m><var name="$recip"/></m>, as follows:
+        <me>
+          <var name="$frac"/>x-<var name="$b"/>=<var name="$c"/> \ \ \ \Rightarrow \ \ \ 
+          <var name="$frac"/>x=<var name="$sum"/> \ \ \ \Rightarrow \ \ \ 
+          x=<var name="$ans"/>.
+        </me>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+
+<!--   <p>
+    Several other types of equations are also considered, including rational equations and radical equations. You may wish to review these on your own.
+  </p> -->
+  
+</section>

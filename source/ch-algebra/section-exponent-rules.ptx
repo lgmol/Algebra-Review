@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-exponent-rules">
+  
+  <title>Exponent Rules</title>
+
+  <theorem>
+    <title>Basic Exponent Rules</title>
+    <statement>
+      For all integers <m>m</m> and <m>n</m>, and every real number <m>a</m>, we have
+      <md>
+        <mrow>a^m\cdot a^n \amp =a^{m+n}</mrow>
+        <mrow>\frac{a^m}{a^n} \amp =a^{m-n}</mrow>
+        <mrow>(a^m)^n \amp =a^{m n}</mrow>
+      </md>
+    </statement>
+  </theorem>
+
+  <p>
+    For example, we have
+    <me>
+      2^3\cdot 2^5=2^8=256,
+    </me>
+    and
+    <me>
+      \frac{(x^3)^2}{x}=\frac{x^6}{x^1}=x^{6-1}=x^5.
+    </me>
+
+  </p>
+
+  <p>
+    These exponent rules make intuitive sense, especially when we are dealing with positive exponents.  For example, when <m>m</m> and <m>n</m> are positive, the first rule is justified as follows:
+    <me>
+      a^m\cdot a^n=\underbrace{a\cdot a\cdot \cdots \cdot a}_{m\text{ factors}}\cdot \underbrace{a\cdot a\cdot \cdots \cdot a}_{n\text{ factors}}=\underbrace{a\cdot a\cdot \cdots \cdot a}_{m+n\text{ factors}}=a^{m+n}.
+    </me>
+    <!-- Try using similar reasoning to convince yourself that the other rules hold. -->
+  </p>
+
+  <p>
+    One can think of the second rule as a cancellation property.  For example, we have
+    <me>
+      \frac{a^5}{a^3}=\frac{a^3\cdot a^2}{a^3}=\frac{\cancel{a^3}\cdot a^2}{\cancel{a^3}}=a^2,
+    </me>
+    which matches what we get using the rule directly:
+    <me>
+      \frac{a^5}{a^3}=a^{5-3}=a^2.
+    </me>
+    As another example, we have
+    <me>
+      \frac{a^4}{a^7}=\frac{a^4}{a^4\cdot a^3}=\frac{\cancel{a^4}}{\cancel{a^4}\cdot a^3}=\frac{1}{a^3},
+    </me>
+    which matches what we get using the rule directly:
+    <me>
+      \frac{a^4}{a^7}=a^{4-7}=a^{-3}=\frac{1}{a^3}.
+    </me>
+  </p>
+
+  <exercise>
+    <title>Using basic exponent rules</title>
+
+    <introduction>
+      <p>Simplify.  Do not leave negative exponents in your answer.</p>
+    </introduction>
+
+    <webwork>
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+        Context()->operators->undefine('-', '/', '*');
+
+        TEXT(beginproblem());
+
+        $x = Compute(random(3,5,1));
+        $m = Compute(random(2,5,1));
+        $n = Compute(random(2,5,1));
+        $c = $m+$n;
+        $d = $x**$c;
+
+        $ans = Compute($x**$m * $x**$n);
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m><var name="$x"/>^<var name="$m"/>\cdot <var name="$x"/>^{<var name="$n"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m><var name="$x"/>^<var name="$m"/>\cdot <var name="$x"/>^<var name="$n"/>=<var name="$x"/>^{<var name="$m"/>+<var name="$n"/>}=<var name="$x"/>^<var name="$c"/></m>, which is equal to <var name="$d"/>.
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+        Context()->operators->undefine('+', '-', '/');
+
+        TEXT(beginproblem());
+
+        $x = Compute(random(-4,-2,1));
+        $m = Compute(random(6,9,1));
+        $n = Compute(random(2,4,1));
+        $diff = $m-$n;
+
+        $ans = Compute($x**$m / $x**$n);
+        $dummyans = $ans;
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{(<var name="$x"/>)^<var name="$m"/>}{(<var name="$x"/>)^<var name="$n"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>\displaystyle\frac{(<var name="$x"/>)^<var name="$m"/>}{(<var name="$x"/>)^<var name="$n"/>}=(<var name="$x"/>)^{<var name="$m"/>-<var name="$n"/>}=(<var name="$x"/>)^<var name="$diff"/></m>, which is equal to <var name="$dummyans"/>.
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = 'x';
+        $m = Compute(random(2,9,1));
+        $n = Compute(random(2,9,1));
+        $sum = $m+$n;
+
+        $ans = Formula("$var^{$m + $n}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>x^<var name="$m"/>\cdot x^<var name="$n"/>=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>x^<var name="$m"/>\cdot x^<var name="$n"/>=x^{<var name="$m"/>+<var name="$n"/>}=x^<var name="$sum"/></m>
+        </p>
+      </solution>
+    </webwork> 
+
+    <webwork>
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "x";
+        $m = 4;
+        $n = 9;
+
+        $diff = $n - $m;
+
+        $ans = Formula("1/$var^{$diff}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{x^<var name="$m"/>}{x^<var name="$n"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>\displaystyle\frac{x^<var name="$m"/>}{x^<var name="$n"/>}=x^{<var name="$m"/>-<var name="$n"/>}=x^{-<var name="$diff"/>}=\frac{1}{x^<var name="$diff"/>}</m>
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "x";
+        $n = Compute(random(2,9,1));
+        $neg = -$n;
+
+        $ans = Formula("$var^{$n}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{1}{x^<var name="$neg"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\displaystyle\frac{1}{x^<var name="$neg"/>}=\frac{1}{\frac{1}{x^<var name="$n"/>}}=x^<var name="$n"/></m></p>
+      </solution>
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextLimitedPolynomial.pl",
+          "PGML.pl"
+        );
+
+        Context("LimitedPolynomial");
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "x";
+        $m = Compute(random(2,5,1));
+        $n = Compute(random(2,5,1));
+        $prod=$m*$n;
+
+        $ans = Formula("$var^{$m*$n}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\left(x^<var name="$m"/>\right)^<var name="$n"/>=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\left(x^<var name="$m"/>\right)^<var name="$n"/>=x^{<var name="$m"/>\cdot <var name="$n"/>}=x^<var name="$prod"/></m></p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+        Context()->variables->add(y => 'Real');
+
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "y";
+        $n = 3;
+
+        $ans = Formula("1/$var^{$n}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\left(y^<var name="$n"/>\right)^{-1}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\displaystyle\left(y^<var name="$n"/>\right)^{-1}=y^{-<var name="$n"/>}=\frac{1}{y^<var name="$n"/>}</m></p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Numeric");
+        Context()->variables->add(z => 'Real');
+
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "z";
+        $m = Compute(random(-5,-2,1));
+        $n = Compute(random(-5,-2,1));
+        $prod = $m * $n;
+
+        $ans = Formula("$var^{$m*$n}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\left(z^<var name="$m"/>\right)^<var name="$n"/>=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\left(z^<var name="$m"/>\right)^<var name="$n"/>=z^{(<var name="$m"/>)\cdot (<var name="$n"/>)}=z^<var name="$prod"/></m></p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextFraction.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Fraction");
+        Context()->operators->undefine('+', '-');
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "x";
+        $n = Compute(random(3,9,1));
+        $diff = $n-1;
+        $num = Formula("$var^$diff");
+        $den = Formula("2");
+
+        $ans = Fraction($num,$den);
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Try to write the answer so it only contains one occurrence of $var!") if $student == $correct &amp; count($var, $str) > 1;
+            Value->Error("Correct, but remember to reduce the coefficients 5 and 10, which have a common factor!") if $student == $correct &amp; count("5", $str) > 0;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{5x^<var name="$n"/>}{10x}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\displaystyle\frac{5x^<var name="$n"/>}{10x}=\frac{5}{10}\cdot\frac{x^<var name="$n"/>}{x}=\frac{1}{2}\cdot x^<var name="$diff"/>=\frac{x^<var name="$diff"/>}{2}</m></p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextFraction.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var = "y";
+        $m=Compute(random(2,5,1));
+        $n=Compute(random(6,9,1));
+        $diff = $n-$m;
+        $a=Compute(random(2,9,1));
+
+
+
+        $ans = Fraction($a, "$var^{$diff}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Try to write the answer so it only contains one occurrence of $var!") if $student == $correct &amp; count($var, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle<var name="$a"/>y^<var name="$m"/>y^{-<var name="$n"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\displaystyle<var name="$a"/>y^<var name="$m"/>y^{-<var name="$n"/>}=<var name="$a"/>y^{-<var name="$diff"/>}=\frac{<var name="$a"/>}{y^<var name="$diff"/>}</m></p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextFraction.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var1 = "x";
+        $var2 = "y";
+        $a = Compute(random(3,5,2));
+        $b = Compute(random(3,5,1));
+        $b2 = 2*$b;
+        $c = Compute(random(3,9,1));
+        $xpower = 2*$b-$a;
+        $ypower = $c-1;
+
+        $ans = Fraction("1", "$var1^$xpower*$var2^$ypower");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $var1!") if $student == $correct &amp; count($var1, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $var2!") if $student == $correct &amp; count($var2, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{x^<var name="$a"/>y}{\left(x^2\right)^<var name="$b"/>y^<var name="$c"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\displaystyle\frac{x^<var name="$a"/>y}{\left(x^2\right)^<var name="$b"/>y^<var name="$c"/>}=\frac{x^<var name="$a"/>}{x^<var name="$b2"/>}\cdot \frac{y}{y^<var name="$c"/>}=\frac{1}{x^<var name="$xpower"/>}\cdot \frac{1}{y^<var name="$ypower"/>}=\frac{1}{x^<var name="$xpower"/>y^<var name="$ypower"/>}</m></p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        loadMacros(
+          "PGstandard.pl",
+          "MathObjects.pl",
+          "contextFraction.pl",
+          "contextLimitedPowers.pl",
+          "PGML.pl"
+        );
+
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $var1 = "x";
+        $var2 = "y";
+        $a=Compute(random(2,9,1));
+        $b=Compute(random(2,5,1));
+        $c=Compute(random(2,5,1));
+        $xpower=$b+$c;
+        $d=Compute(random(2,5,1));
+        $e=Compute(random(2,5,1));
+        $ypower=$d+$e;
+
+        $ans = Fraction("$a$var1^{$xpower}","$var2^{$ypower}");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $var1!") if $student == $correct &amp; count($var1, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $var2!") if $student == $correct &amp; count($var2, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{<var name="$a"/>x^<var name="$b"/>y^{-<var name="$d"/>}}{x^{-<var name="$c"/>}y^<var name="$e"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p><m>\displaystyle\frac{<var name="$a"/>x^<var name="$b"/>y^{-<var name="$d"/>}}{x^{-<var name="$c"/>}y^<var name="$e"/>}=<var name="$a"/>x^{<var name="$b"/>-(-<var name="$c"/>)}y^{-<var name="$d"/>-<var name="$e"/>}=<var name="$a"/>x^<var name="$xpower$"/>y^{-<var name="$ypower"/>}=\frac{<var name="$a"/>x^<var name="$xpower"/>}{y^<var name="$ypower"/>}</m></p>
+      </solution>
+      
+    </webwork>
+
+  </exercise>
+
+  <theorem>
+    <title>Distributive Laws</title>
+    <statement>
+      For all real numbers <m>a</m> and <m>b</m>, and every integer <m>n</m>, we have
+      <md>
+        <mrow>\left(ab\right)^n \amp =a^n\cdot b^n</mrow>
+        <mrow>\left(\frac{a}{b}\right)^n \amp =\frac{a^n}{b^n}</mrow>
+      </md>
+    </statement>
+  </theorem>
+
+  <p>
+    For example, we have
+    <me>
+      (xy)^3=x^3y^3,
+    </me>
+    and 
+    <me>
+      \left(\frac{3x}{y^4}\right)^2=\frac{(3x)^2}{(y^4)^2}=\frac{3^2\cdot x^2}{y^8}=\frac{9x^2}{y^8}.
+    </me>
+  </p>
+
+  <exercise>
+
+    <title>Using distributive laws</title>
+
+    <introduction>
+      <p>Simplify.  Do not leave negative exponents in your answer.</p>
+    </introduction>
+
+    <webwork>
+        
+        <pg-code>
+        Context("LimitedPolynomial-Strict");
+        Context()->variables->add(y => 'Real');
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,7,1));
+
+        $ans = Formula("$x^$a*$y^$a");
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(xy\right)^<var name="$a"/>=</m><var name="$ans" width="15" /></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            (xy)^<var name="$a"/>=x^<var name="$a"/> y^<var name="$a"/>
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+        
+      <pg-code>
+        Context("LimitedPolynomial-Strict");
+        Context()->variables->add(y => 'Real');
+
+        $y = "y";
+        $a = Compute(random(2,4,1));
+        $b = Compute(random(2,3,1));
+        
+        $ba = $b**$a;
+
+        $ans = Formula("$ba*$y^$a");
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$b"/>y\right)^<var name="$a"/>=</m><var name="$ans" width="15" /></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \left(<var name="$b"/>y\right)^<var name="$a"/>=<var name="$b"/>^<var name="$a"/>y^<var name="$a"/>=<var name="$ba"/>y^<var name="$a"/>
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+        
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+
+        LimitedPowers::OnlyPositiveIntegers();
+
+        $x = "x";
+        $a = Compute(random(2,4,1));
+        $b = Compute(random(2,3,1));
+        $c = Compute(random(2,5,1));
+        
+        $ba = $b**$a;
+        $ac = $a*$c;
+
+        $ans = Fraction("$ba","$x^$ac");
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$b"/>x^{-<var name="$c"/>}\right)^<var name="$a"/>=</m><var name="$ans" width="15" /></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        Context()->flags->set(singlePowers=>1);
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,5,1));
+        $b = Compute(random(2,5,1));
+        $ab = $a*$b;
+
+        $ans = Fraction("1","$x^$ab*$y^$b");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $x!") if $student == $correct &amp; count($x, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $y!") if $student == $correct &amp; count($y, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\left(\frac{x^{-<var name="$a"/>}}{y}\right)^<var name="$b"/>=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\left(\frac{x^{-<var name="$a"/>}}{y}\right)^<var name="$b"/>
+            =\frac{\left(x^{-<var name="$a"/>}\right)^<var name="$b"/>}{y^<var name="$b"/>}
+            =\frac{x^{-<var name="$ab"/>}}{y^<var name="$b"/>}
+            =\frac{1}{x^<var name="$ab"/>y^<var name="$b"/>}
+          </m>
+        </p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+        
+      <pg-code>
+        Context("LimitedPolynomial-Strict");
+        Context()->variables->add(y => 'Real');
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,5,1));
+        $b = Compute(random(2,5,1));
+        $c = Compute(random(2,3,1));
+        $d = Compute(random(2,3,1));
+        
+        $cd = $c**$d;
+        $ad = $a*$d;
+        $bd = $b*$d;
+
+        $ans = Formula("$cd*$x^$ad*$y^$bd");
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$c"/>x^<var name="$a"/>y^<var name="$b"/>\right)^<var name="$d"/>=</m><var name="$ans" width="15" /></p>
+      </statement>
+
+      <hint>
+        The distributive law for multiplication works for any number of factors.  E.g., with three factors, we have
+        <me>
+          (abc)^n=a^n\cdot b^n\cdot c^n.
+        </me>
+      </hint>
+
+      <solution>
+        <p>
+          <m>
+            \left(<var name="$c"/>x^<var name="$a"/>y^<var name="$b"/>\right)^<var name="$d"/>
+            =<var name="$c"/>^<var name="$d"/>\left(x^<var name="$a"/>\right)^<var name="$d"/>\left(y^<var name="$b"/>\right)^<var name="$d"/>
+            =<var name="$cd"/>x^<var name="$ad"/>y^<var name="$bd"/>
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        Context()->flags->set(singlePowers=>1);
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,4,2));
+        $b = Compute(random(3,5,2));
+        $c = Compute(random(5,6,1));
+        $d = Compute(random(2,3,1));
+
+        $a2 = $a**2;
+        $b2 = $b**2;
+        $c2 = $c*2;
+        $d2 = $d*2;
+        $power = 2*($c-$d);
+
+        $ans = Fraction("$a^2 $x^$power","$b^2");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $x!") if $student == $correct &amp; count($x, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $y!") if $student == $correct &amp; count($y, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\left(\frac{<var name="$a"/>x^<var name="$c"/>}{<var name="$b"/>x^<var name="$d"/>}\right)^2=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\left(\frac{<var name="$a"/>x^<var name="$c"/>}{<var name="$b"/>x^<var name="$d"/>}\right)^2
+            =\frac{\left(<var name="$a"/>x^<var name="$c"/>\right)^2}{\left(<var name="$b"/>x^<var name="$d"/>\right)^2}
+            =\frac{<var name="$a2"/>x^<var name="$c2"/>}{<var name="$b2"/>x^<var name="$d2"/>}
+            =\frac{<var name="$a2"/>x^<var name="$power"/>}{<var name="$b2"/>}
+          </m>
+        </p>
+      </solution>
+      
+    </webwork>
+
+  </exercise>
+
+  <p>
+    It is often helpful to remember the following rule:
+    <me>
+      \left(\frac{a}{b}\right)^{-n}=\left(\frac{b}{a}\right)^n.
+    </me>
+    Essentially, when we raise a fraction to a negative exponent, we can take the reciprocal of the fraction and make the exponent positive.  
+    This is justified by the distributive law as follows:
+    <me>
+      \left(\frac{a}{b}\right)^{-n}=\frac{a^{-n}}{b^{-n}}=\frac{\frac{1}{a^n}}{\frac{1}{b^n}}=\frac{1}{a^n}\cdot \frac{b^n}{1}=\frac{b^n}{a^n}=\left(\frac{b}{a}\right)^n.
+    </me>
+  </p>
+
+  <exercise>
+    
+    <title>Using distributive laws (more)</title>
+
+    <introduction>
+      <p>Simplify.  Do not leave negative exponents in your answer.</p>
+    </introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        Context()->flags->set(singlePowers=>1);
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,5,1));
+        $b = Compute(random(2,5,1));
+        $c = Compute(random(2,4,1));
+
+        $ac = $a*$c;
+        $bc = $b*$c;
+
+        $ans = Fraction("$y^$bc","$x^$ac");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $x!") if $student == $correct &amp; count($x, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $y!") if $student == $correct &amp; count($y, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\left(\frac{x^<var name="$a"/>}{y^<var name="$b"/>}\right)^{-<var name="$c"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\left(\frac{x^<var name="$a"/>}{y^<var name="$b"/>}\right)^{-<var name="$c"/>}
+            =\left(\frac{y^<var name="$b"/>}{x^<var name="$a"/>}\right)^{<var name="$c"/>}
+            =\frac{\left(y^<var name="$b"/>\right)^<var name="$c"/>}{\left(x^<var name="$a"/>\right)^<var name="$c"/>}
+            =\frac{y^<var name="$bc"/>}{x^<var name="$ac"/>}
+          </m>
+        </p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        Context()->flags->set(singlePowers=>1);
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,5,1));
+        $b = Compute(random(2,5,1));
+        $c = Compute(random(2,5,1));
+        $d = Compute(random(2,3,1));
+
+        $a2 = $a**2;
+
+        $bd = $b*$d;
+
+        $xpower = $b*$d-2;
+        $ypower = $c*$d;
+
+        $ans = Fraction("$a $y^$ypower","$x^$xpower");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $x!") if $student == $correct &amp; count($x, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $y!") if $student == $correct &amp; count($y, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p><m>\displaystyle\frac{\left(<var name="$a"/>x\right)^2}{<var name="$a"/>\left(x^<var name="$b"/>y^{-<var name="$c"/>}\right)^<var name="$d"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{\left(<var name="$a"/>x\right)^2}{<var name="$a"/>\left(x^<var name="$b"/>y^{-<var name="$c"/>}\right)^<var name="$d"/>}
+            =\frac{<var name="$a2"/>x^2}{<var name="$a"/>x^<var name="$bd"/>y^{-<var name="$ypower"/>}}
+            =\frac{<var name="$a"/>y^<var name="$ypower"/>}{x^<var name="$xpower"/>}
+          </m>
+        </p>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+        Context()->operators->undefine('-', '+');
+        Context()->flags->set(singlePowers=>1);
+        LimitedPowers::OnlyPositiveIntegers();
+
+        TEXT(beginproblem());
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        $x = "x";
+        $y = "y";
+        $a = Compute(random(2,3,1));
+        $b = Compute(random(2,5,1));
+        $c = Compute(random(2,5,1));
+
+        $a2 = 2*$a;
+        $ac = $c**$a;
+        $xpower = $a2+$b;
+
+        $ans = Fraction("$x^$xpower","$ac");
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $x!") if $student == $correct &amp; count($x, $str) > 1;
+            Value->Error("Correct, but remember to simplify as much as possible.  Write the answer so it only contains one occurrence of $y!") if $student == $correct &amp; count($y, $str) > 1;
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>
+            \displaystyle\frac{\left(\frac{<var name="$c"/>}{x^2}\right)^{-<var name="$a"/>}}{\frac{1}{x^<var name="$b"/>}}=
+          </m>
+          <var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{\left(\frac{<var name="$c"/>}{x^2}\right)^{-<var name="$a"/>}}{\frac{1}{x^<var name="$b"/>}}
+            =\left(\frac{x^2}{<var name="$c"/>}\right)^{<var name="$a"/>}\cdot \frac{x^<var name="$b"/>}{1} 
+            =\frac{x^<var name="$a2"/>}{<var name="$ac"/>}\cdot \frac{x^<var name="$b"/>}{1} 
+            =\frac{x^<var name="$xpower"/>}{<var name="$ac"/>}
+          </m>
+        </p>
+      </solution>
+      
+    </webwork>
+
+  </exercise>
+
+
+</section>

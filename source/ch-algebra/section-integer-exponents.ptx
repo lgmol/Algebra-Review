@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="integer-exponents">
+  <title>Integer Exponents</title>
+  <p> If <m>a</m> is any real number and <m>n</m> is a positive integer (i.e., one of the counting numbers <m>1,2,3,\ldots</m>), then we define
+    <me>a^n=\underbrace{a\cdot a\cdot \cdots \cdot a}_{n\text{ factors}}.</me>
+    In this expression, the number <m>a</m> is called the <em>base</em>, and the number <m>n</m> is called the <em>exponent</em>.  We read <m>a^n</m> as "<m>a</m> to the <m>n</m>", or "<m>a</m> raised to the power <m>n</m>".
+  </p>
+
+  <p>For example, we have
+    <me>3^4=3\cdot 3\cdot 3\cdot 3=81,</me>
+    and
+    <me>
+      3^1=3.
+    </me>
+    (In fact, <m>a^1=a</m> for every real number <m>a</m>.)
+  </p>
+
+  <exercise xml:id="exercise-positive-integer-exponents">
+    <title>Positive Integer Exponents</title>
+    <introduction>
+
+      <figure xml:id="figure-video-positive-integer-exponents">
+        <caption>Positive integer exponents</caption>
+        <video youtube="L5hKJsRHNEE"/>
+      </figure>
+
+      <p>Evaluate without the use of a calculator.</p>
+    </introduction>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = Compute(random(2,7, 1));
+        $b = 3;
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m><var name="$a"/>^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m><var name="$a"/>^<var name="$b"/> =<var name="$a"/>\cdot<var name="$a"/>\cdot <var name="$a"/>= <var name="$c"/></m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = Compute(random(2,7, 1));
+        $b = 2;
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m><var name="$a"/>^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m><var name="$a"/>^<var name="$b"/> =<var name="$a"/>\cdot<var name="$a"/>= <var name="$c"/></m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = 2;
+        $b = Compute(random(5,8,1));
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m><var name="$a"/>^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m><var name="$a"/>^<var name="$b"/> = \underbrace{<var name="$a"/>\cdot <var name="$a"/>\cdot \cdots \cdot <var name="$a"/>}_{<var name="$b"/>\text{ times}}=<var name="$c"/></m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = Compute(random(-5,-2,1));
+        $b = 3;
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m>(<var name="$a"/>)^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m>(<var name="$a"/>)^<var name="$b"/> = (<var name="$a"/>)\cdot (<var name="$a"/>)\cdot (<var name="$a"/>)=<var name="$c"/></m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = Compute(random(-12,-2,1));
+        $b = 2;
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m>(<var name="$a"/>)^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m>(<var name="$a"/>)^<var name="$b"/> = (<var name="$a"/>)\cdot (<var name="$a"/>)=<var name="$c"/></m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = Compute(random(2,12,1));
+        $b = 2;
+        $c = -1*$a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m>-<var name="$a"/>^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m>-<var name="$a"/>^<var name="$b"/> = -(<var name="$a"/>^<var name="$b"/>)=-(<var name="$a"/>\cdot <var name="$a"/>)=<var name="$c"/></m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = -1;
+        $b = Compute(random(3,19,2));
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m>(<var name="$a"/>)^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m>(<var name="$a"/>)^<var name="$b"/> = <var name="$c"/></m> since <m><var name="$b"/></m> is <em>odd</em>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = -1;
+        $b = Compute(random(4,20,2));
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m>(<var name="$a"/>)^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m>(<var name="$a"/>)^<var name="$b"/> = <var name="$c"/></m> since <m><var name="$b"/></m> is <em>even</em>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = 0;
+        $b = Compute(random(30,99,1));
+        $c = $a**$b;
+      </pg-code>
+
+      <statement>
+        <p><m><var name="$a"/>^<var name="$b"/>=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m><var name="$a"/>^<var name="$b"/> = \underbrace{<var name="$a"/>\cdot <var name="$a"/>\cdot \cdots \cdot <var name="$a"/>}_{<var name="$b"/>\text{ times}}=0</m>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $b = Compute(random(3,5,2));
+        $a = Compute(random(1,2,1));
+        $a3 = Compute($a**3);
+        $b3 = Compute($b**3);
+        $c = Fraction($a3,$b3);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(\frac{<var name="$a"/>}{<var name="$b"/>}\right)^3=</m><var name="$c" width="10"/></p>
+      </statement>
+
+<!--             <answer>
+        <p><m>\frac{<var name="$a3"/>}{<var name="$b3"/>}</m></p>
+      </answer> -->
+
+      <solution>
+        <p>
+          <m>
+            \left(\frac{<var name="$a"/>}{<var name="$b"/>}\right)^3
+            =\left(\frac{<var name="$a"/>}{<var name="$b"/>}\right)\cdot \left(\frac{<var name="$a"/>}{<var name="$b"/>}\right)\cdot \left(\frac{<var name="$a"/>}{<var name="$b"/>}\right)
+            =\frac{<var name="$a"/>\cdot <var name="$a"/>\cdot <var name="$a"/>}{<var name="$b"/>\cdot <var name="$b"/>\cdot <var name="$b"/>}
+            =\frac{<var name="$a3"/>}{<var name="$b3"/>}</m>.</p>
+      </solution>
+    </webwork>
+
+  </exercise>
+
+  <p>
+    If <m>a\neq 0</m>, then we define
+    <me>a^0=1</me>
+    and
+    <me>a^{-n}=\frac{1}{a^n}.</me>
+  </p>
+
+  <p>For example, we have
+    <me>3^0=1,</me>
+    and
+    <me>3^{-2}=\frac{1}{3^2}=\frac{1}{9}.</me>
+  </p>
+
+  <p>Note that raising a number to the power of negative one is the same as taking its reciprocal.  For example, we have
+    <me>5^{-1}=\frac{1}{5},</me>
+    and
+    <me>\left(\frac{3}{4}\right)^{-1}=\frac{1}{\left(\frac{3}{4}\right)^1}=\frac{1}{\frac{3}{4}}=\frac{4}{3}</me>
+  </p>
+
+  <exercise xml:id="exercise-zero-and-negative-integer-exponents">
+
+    <title>Zero and Negative Integer Exponents</title>
+    
+    <introduction>
+      
+      <figure xml:id="figure-zero-and-negative-integer-exponents">
+        <caption>Zero and negative integer exponents</caption>
+        <video youtube="TX9NUYsfaeU"/>
+      </figure>
+      
+      <p>Evaluate without the use of a calculator.</p>
+    
+    </introduction>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = Compute(random(2,3,1));
+        $exponent = Compute(random(2,4,1));
+        $ans = Fraction($base)**(-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>{<var name="$base"/>}^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            {<var name="$base"/>}^{-{<var name="$exponent"/>}}=\frac{1}{{<var name="$base"/>}^{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = Compute(random(2,10,1));
+        $exponent = Compute(random(1,1,1));
+        $ans = Fraction($base)**(-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>{<var name="$base"/>}^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            {<var name="$base"/>}^{-{<var name="$exponent"/>}}=\frac{1}{{<var name="$base"/>}^{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = Compute(random(-10,-1,1));
+        $exponent = Compute(random(0,0,1));
+        $ans = (Fraction($base))**($exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>(<var name="$base"/>)^{<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            (<var name="$base"/>)^{{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+        <p>
+          (Remember that every nonzero number raised to the power of <m>0</m> is <m>1</m>.)
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+
+        $num = 2;
+        $den = Compute(random(3,9,2));
+
+        $base = Fraction($num, $den);
+
+        $exponent = 1;
+
+        $ans = $base ** (-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=\frac{1}{\left(<var name="$base"/>\right)^{<var name="$exponent"/>}}=\frac{1}{<var name="$base"/>}=\frac{<var name="$den"/>}{<var name="$num"/>}
+          </m>.
+        </p>
+<!--               <p>
+          (Remember that dividing by a fraction is the same as multiplying by its reciprocal.)
+        </p> -->
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+
+        $num = 8;
+        $den = Compute(random(3,13,2));
+
+        $base = Fraction($num, $den);
+
+        $exponent = 1;
+
+        $ans = $base ** (-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=\frac{1}{\left(<var name="$base"/>\right)^{<var name="$exponent"/>}}=\frac{1}{<var name="$base"/>}=\frac{<var name="$den"/>}{<var name="$num"/>}
+          </m>.
+        </p>
+<!--               <p>
+          (Remember that dividing by a fraction is the same as multiplying by its reciprocal.)
+        </p> -->
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+
+        $num = 3;
+        $den = Compute(random(2,8,3));
+
+        $base = Fraction($num, $den);
+
+        $exponent = 2;
+
+        $mid = $base ** $exponent;
+
+        $ans = $base ** (-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=\frac{1}{\left(<var name="$base"/>\right)^{<var name="$exponent"/>}}=\frac{1}{<var name="$mid"/>}={<var name="$ans"/>}
+          </m>.
+        </p>
+<!--               <p>
+          (Remember that dividing by a fraction is the same as multiplying by its reciprocal.)
+        </p> -->
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+
+        $num = 2;
+        $den = 3;
+
+        $base = Fraction($num, $den);
+
+        $exponent = Compute(random(3,4,1));
+
+        $mid = $base ** $exponent;
+
+        $ans = $base ** (-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \left(<var name="$base"/>\right)^{-<var name="$exponent"/>}=\frac{1}{\left(<var name="$base"/>\right)^{<var name="$exponent"/>}}=\frac{1}{<var name="$mid"/>}={<var name="$ans"/>}
+          </m>.
+        </p>
+<!--               <p>
+          (Remember that dividing by a fraction is the same as multiplying by its reciprocal.)
+        </p> -->
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        Context("LimitedNumeric");
+        $a = -1;
+        $b = Compute(random(4,20,2));
+        $c = $a**(-$b);
+      </pg-code>
+
+      <statement>
+        <p><m>(<var name="$a"/>)^{-<var name="$b"/>}=</m><var name="$c" width="5" /></p>
+      </statement>
+
+      <solution>
+        <p><m>(<var name="$a"/>)^{-<var name="$b"/>} =\frac{1}{(<var name="$a"/>)^{<var name="$b"/>}}=\frac{1}{1}= <var name="$c"/></m> since <m><var name="$b"/></m> is <em>even</em>.</p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = pi;
+        $exponent = Compute(random(0,0,1));
+        $ans = (Fraction($base))**($exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>\pi^{<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \pi^{{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+        <p>
+          (Remember that every nonzero number raised to the power of <m>0</m> is <m>1</m>.)
+        </p>
+      </solution>
+    </webwork>
+
+  </exercise>
+
+  <p>
+    The next checkpoint shows that one must be very careful with order of operations!
+  </p>
+
+  <exercise xml:id="exercise-negative-integer-exponents-and-order-of-operations">
+
+    <title>Negative Integer Exponents and Order of Operations</title>
+    <introduction>
+
+      <figure xml:id="figure-negative-integer-exponents-and-order-of-operations">
+        <caption>Zero and negative integer exponents</caption>
+        <video youtube="UwOWR9RkPSk"/>
+      </figure>
+      
+      <p>Evaluate without the use of a calculator.</p>
+    
+    </introduction>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = 2;
+        $exponent = 4;
+        $ans = (Fraction($base))**(-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>{<var name="$base"/>}^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            {<var name="$base"/>}^{-{<var name="$exponent"/>}}=\frac{1}{{<var name="$base"/>}^{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = -2;
+        $exponent = 4;
+        $ans = (Fraction($base))**(-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>{(<var name="$base"/>)}^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            {(<var name="$base"/>)}^{-{<var name="$exponent"/>}}=\frac{1}{{(<var name="$base"/>)}^{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = 2;
+        $exponent = 4;
+        $ans = -(Fraction($base))**(-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>-{<var name="$base"/>}^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            -{<var name="$base"/>}^{-{<var name="$exponent"/>}}=-{(<var name="$base"/>)}^{-{<var name="$exponent"/>}}=-\frac{1}{{(<var name="$base"/>)}^{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = 2;
+        $exponent = 4;
+        $ans = -(Fraction(-$base))**(-$exponent);
+      </pg-code>
+
+      <statement>
+        <p><m>-{(-<var name="$base"/>)}^{-<var name="$exponent"/>}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            -{(-<var name="$base"/>)}^{-{<var name="$exponent"/>}}=-\frac{1}{{(-<var name="$base"/>)}^{<var name="$exponent"/>}}={<var name="$ans"/>}
+          </m>.
+        </p>
+      </solution>
+    </webwork>
+
+  </exercise>
+
+  <p>
+    Finally, for every number <m>a</m>, nonzero number <m>b</m>, and integer <m>n</m>, we have
+    <me>
+      \frac{a}{b^{-n}}=\frac{a}{\frac{1}{b^n}}=a\cdot\frac{b^n}{1}=a\cdot b^n,
+    </me>
+    where we used the fact that dividing by a fraction is the same as multiplying by its reciprocal.  Essentially, when we have a negative exponent in the denominator of a fraction, we can move it to the numerator and make it positive.  It is often helpful to remember this rule:
+    <me>
+      \frac{a}{b^{-n}}=a\cdot b^{n}.
+    </me>
+  </p>
+
+  <exercise>
+    
+    <title>Negative Integer Exponents in the Denominator</title>
+    
+    <introduction>
+
+      <figure xml:id="figure-negative-integer-exponents-in-the-denominator">
+        <caption>Negative integer exponents in the denominator</caption>
+        <video youtube="ItWqwAIZz20"/>
+      </figure>
+
+      <p>Evaluate without the use of a calculator.</p>
+    
+    </introduction>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        $base = Compute(random(2,5,1));
+        $exponent = Compute(random(2,4,1));
+        $mid = $base**$exponent;
+        $ans = Fraction(1)/(Fraction($base)**(-$exponent));
+      </pg-code>
+
+      <statement>
+        <p><m>\frac{1}{{<var name="$base"/>}^{-<var name="$exponent"/>}}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          Using the rule above, we have
+          <me>
+            \frac{1}{{<var name="$base"/>}^{-<var name="$exponent"/>}}=1\cdot {<var name="$base"/>}^{<var name="$exponent"/>}={<var name="$ans"/>}.
+          </me>
+          Here is a solution showing the intermediate step:
+          <me>
+            \frac{1}{{<var name="$base"/>}^{-<var name="$exponent"/>}}=\frac{1}{\frac{1}{{<var name="$base"/>}^{<var name="$exponent"/>}}}={<var name="$base"/>}^{<var name="$exponent"/>}={<var name="$ans"/>}.
+          </me>
+        </p>
+      </solution>
+    </webwork>
+
+    <webwork>
+      <pg-code>
+        <!-- loadMacros("contextFraction.pl"); -->
+        Context("Fraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        
+        $num = Compute(random(2,9,1));
+        $base = Compute(random(2,5,1));
+        $exponent = Compute(random(2,4,1));
+        $mid = (-$base)**$exponent;
+        $ans = Fraction($num)/(Fraction(-$base)**(-$exponent));
+      </pg-code>
+
+      <statement>
+        <p><m>\frac{<var name="$num"/>}{(-{<var name="$base"/>})^{-<var name="$exponent"/>}}=</m><var name="$ans" width="10"/></p>
+      </statement>
+
+      <solution>
+        <p>
+          Using the rule above, we have
+          <me>
+            \frac{<var name="$num"/>}{(-{<var name="$base"/>)}^{-<var name="$exponent"/>}}={<var name="$num"/>}\cdot (-{<var name="$base"/>})^{<var name="$exponent"/>}={<var name="$num"/>}\cdot {<var name="$mid"/>}={<var name="$ans"/>}.
+          </me>
+          Here is a solution showing the intermediate step:
+          <me>
+            \frac{<var name="$num"/>}{(-{<var name="$base"/>)}^{-<var name="$exponent"/>}}=\frac{<var name="$num"/>}{\frac{1}{(-{<var name="$base"/>})^{<var name="$exponent"/>}}}={<var name="$num"/>}\cdot{(-<var name="$base"/>})^{<var name="$exponent"/>}={<var name="$num"/>}\cdot {<var name="$mid"/>}={<var name="$ans"/>}.
+          </me>
+        </p>
+      </solution>
+    </webwork>       
+
+  </exercise>
+
+</section>

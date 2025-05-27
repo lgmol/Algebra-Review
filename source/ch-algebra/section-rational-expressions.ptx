@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-rational-expressions">
+  
+  <title>Rational Expressions</title>
+  
+  <p>
+    When working with rational expressions, use the same rules as for fraction arithmetic. Just as with fractions, we can multiply (or divide) the numerator and denominator by any nonzero number that we like.  This means that we can cancel common factors in the numerator and denominator, as in the following example:
+    <me>
+      \frac{x^2-2x+1}{x^2+3x-4} = \frac{(x-1)\cancel{(x-1)}}{(x+4)\cancel{(x-1)}} = \frac{x-1}{x+4}.
+    </me>
+    Of course, this really only works when <m>x-1</m> is not equal to <m>0</m>, i.e., when <m>x\neq 1</m> (otherwise, we'd be dividing by <m>0</m>).
+  </p>
+
+  <exercise>
+
+    <title>Simplifying rational expressions</title>
+
+    <introduction>
+      Factor the numerator and denominator, and then simplify, if possible.
+    </introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors-Strict");
+        Context()->flags->set(singleFactors=>0);
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        Context()->variables->add(y => "Real");
+
+        $a = Compute(random(-5,5,1));
+        $b = Compute(random(-5,5,1));
+        do {$c = Compute(random(-5,5,1))} until ($b != $c);
+        $x = "x";
+
+
+        $common = Formula("$x + $a")->reduce();
+        $ansnum = Formula("$x + $b")->reduce();
+        $ansden = Formula("$x + $c")->reduce();
+
+        Context("Fraction");
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        $ans = Fraction("$ansnum","$ansden");
+
+        Context("PolynomialFactors");
+        Context()->variables->add(y => "Real");
+        $num = Formula("$x**2+($a+$b)*$x+$a*$b")->reduce();
+        $den = Formula("$x**2+($a+$c)*$x+$a*$c")->reduce();
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$num"/>}{<var name="$den"/>}=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$num"/>}{<var name="$den"/>}=\frac{\cancel{\left(<var name="$common"/>\right)}\left(<var name="$ansnum"/>\right)}{\cancel{\left(<var name="$common"/>\right)}\left(<var name="$ansden"/>\right)}=\frac{<var name="$ansnum"/>}{<var name="$ansden"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors-Strict");
+        Context()->flags->set(singleFactors=>0);
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        Context()->variables->add(y => "Real");
+
+        $a = Compute(random(-5,5,1));
+        $b = 0;
+        do {$c = Compute(random(-5,5,1))} until ($b != $c);
+        $x = "y";
+
+
+
+        $ansnum = Formula("$x + $b")->reduce();
+        $ansden = Formula("$x + $c")->reduce();
+        $common = Formula("$x + $a")->reduce();
+
+        Context("Fraction");
+        Context()->variables->add(y => "Real");
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        $ans = Fraction("$ansnum","$ansden");
+
+        Context("PolynomialFactors");
+        Context()->variables->add(y => "Real");
+        $num = Formula("$x**2+($a+$b)*$x+$a*$b")->reduce();
+        $den = Formula("$x**2+($a+$c)*$x+$a*$c")->reduce();
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$num"/>}{<var name="$den"/>}=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$num"/>}{<var name="$den"/>}=\frac{\cancel{\left(<var name="$common"/>\right)}\left(<var name="$ansnum"/>\right)}{\cancel{\left(<var name="$common"/>\right)}\left(<var name="$ansden"/>\right)}=\frac{<var name="$ansnum"/>}{<var name="$ansden"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors-Strict");
+        Context()->flags->set(singleFactors=>0);
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        Context()->variables->add(y => "Real");
+
+        $a = Compute(random(-5,5,1));
+        $b = Compute(random(-5,5,1));
+        do {$c = Compute(random(-5,5,1))} until ($b != $c);
+        $x = "x";
+
+
+
+        $ansnum = Formula("$x + $b")->reduce();
+        $ansden = Formula("$x + $c")->reduce();
+        $common = Formula("$x + $a")->reduce();
+
+        Context("Fraction");
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        $ans = Fraction("$ansnum","$ansden");
+
+        Context("PolynomialFactors");
+        Context()->variables->add(y => "Real");
+        $num = Formula("$x**2+($a+$b)*$x+$a*$b")->reduce();
+        $den = Formula("$x**2+($a+$c)*$x+$a*$c")->reduce();
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$num"/>}{<var name="$den"/>}=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$num"/>}{<var name="$den"/>}=\frac{\cancel{\left(<var name="$common"/>\right)}\left(<var name="$ansnum"/>\right)}{\cancel{\left(<var name="$common"/>\right)}\left(<var name="$ansden"/>\right)}=\frac{<var name="$ansnum"/>}{<var name="$ansden"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+  </exercise>
+
+  <p>
+    Remember that to multiply two fractions, we multiply the numerators, and multiply the denominators.  To divide two fractions, we multiply the first by the <em>reciprocal</em> of the second.  One can cancel common factors in the numerator and denominator along the way.
+  </p>
+
+  <exercise>
+
+    <title>Multiplying and dividing rational expressions</title>
+
+    <introduction>
+      <p>Perform the indicated operations, and simplify if possible.</p> 
+    </introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors-Strict");
+        Context()->flags->set(singleFactors=>0);
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        Context()->variables->add(y => "Real");
+
+        $a = Compute(random(-5,5,1));
+        $b = Compute(random(-5,5,1));
+        do {$c = Compute(random(-5,5,1))} until ($b != $c);
+
+        $d = Compute(random(-5,5,1));
+        $e = Compute(random(-5,5,1));
+
+        $de = $d*$e;
+
+        $x = "x";
+
+
+        $common = Formula("$x + $a")->reduce();
+        $ansnum = Formula("$x + $b")->reduce();
+        $ansden = Formula("$x + $c")->reduce();
+        $finalansden = Formula("$e*$ansden");
+
+        Context("Fraction");
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        $ans = Fraction("$ansnum","$finalansden");
+
+        Context("PolynomialFactors");
+        Context()->variables->add(y => "Real");
+        $num = Formula("$x**2+($a+$b)*$x+$a*$b")->reduce();
+        $den = Formula("$x**2+($a+$c)*$x+$a*$c")->reduce();
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$d"/>}{<var name="$den"/>}\cdot \frac{<var name="$num"/>}{<var name="$de"/>}=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We factor both quadratics, and then cancel common factors before we multiply:
+          <me>
+              \displaystyle\frac{<var name="$d"/>}{<var name="$den"/>}\cdot \frac{<var name="$num"/>}{<var name="$de"/>}=\frac{\overset{1}{\cancel{<var name="$d"/>}}}{\cancel{(<var name="$common"/>)}(<var name="$ansden"/>)}\cdot \frac{\cancel{(<var name="$common"/>})(<var name="$ansnum"/>)}{\underset{<var name="$e"/>}{\cancel{<var name="$de"/>}}}
+              =\frac{<var name="$ansnum"/>}{<var name="$finalansden"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors-Strict");
+        Context()->flags->set(singleFactors=>0);
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+
+        $a = Compute(random(2,5,1));
+        $b = Compute(random(2,4,2));
+        $ab =$a*$b;
+        $prod = 3*$a*$b;
+        $sum = $a*$b+3;
+        $a3 = 3*$a;
+        $c = Compute(random(2,10,1));
+        $x = "x";
+        $ac = $a*$c;
+
+        $fac1 = Formula("$x + $a");
+        $fac2 = Formula("$b*$x + 3");
+
+        $fac3 = Formula("$c*$x+$ac");
+
+        Context("Fraction");
+        LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+        $ans = Fraction("$c","$fac2");
+
+        Context("PolynomialFactors");
+        $expand = Formula("$b*$x^2+($a*$b+3)*$x+$a3")->reduce();
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{1}{<var name="$expand"/>}\div \frac{1}{<var name="$fac3"/>}=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We have
+          <md>
+            <mrow>\frac{1}{<var name="$expand"/>}\div \frac{1}{<var name="$fac3"/>} \amp =\frac{1}{<var name="$expand"/>}\cdot (<var name="$fac3"/>)</mrow>
+            <mrow>\amp = \frac{<var name="$fac3"/>}{<var name="$expand"/>}</mrow>
+            <mrow>\amp = \frac{<var name="$c"/>\cancel{(<var name="$fac1"/>)}}{\cancel{(<var name="$fac1"/>)}(<var name="$fac2"/>)}</mrow>
+            <mrow>\amp =\frac{<var name="$c"/>}{<var name="$fac2"/>}.</mrow>
+          </md>
+        </p>
+      </solution>
+
+    </webwork>
+
+  </exercise>
+
+  <p>
+    When adding or subtracting two rational expressions, we need to find a common denominator.  As with regular fractions, the product of the two denominators will always work.  If the denominators look complicated, try factoring them first.  This helps one to find the least common denominator.
+  </p>
+
+  <exercise>
+
+    <title>Adding and subtracting rational expressions</title>
+
+    <introduction>
+      <p>Perform the indicated operations, and simplify if possible.</p> 
+    </introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("Numeric");
+
+        $x="x";
+        $a = Compute(random(-10,10,1));
+        do {$b = Compute(random(-10,10,1))} until ($a !=$b);
+        $sum = $a+$b;
+
+        
+
+        $num = Formula("2*$x+$sum")->reduce();
+        $den1 = Formula("$x+$a")->reduce();
+        $den2 = Formula("$x+$b")->reduce();
+
+        Context("Fraction");
+        $frac1 = Fraction("1","$den1");
+        $frac2 = Fraction("1","$den2");
+        $ans = Fraction("$num","$den1*$den2");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle <var name="$frac1"/>+<var name="$frac2"/>=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        The least common denominator is <m>\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)</m>, so we have
+        <md>
+          <mrow><var name="$frac1"/>+<var name="$frac2"/>
+          \amp = <var name="$frac1"/>\cdot \frac{<var name="$den2"/>}{<var name="$den2"/>}+<var name="$frac2"/>\cdot \frac{<var name="$den1"/>}{<var name="$den1"/>}</mrow>
+          <mrow> \amp = \frac{<var name="$den2"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}+\frac{<var name="$den1"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+          <mrow> \amp = \frac{<var name="$den2"/>+<var name="$den1"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+          <mrow> \amp = \frac{<var name="$num"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+        </md> 
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Numeric");
+
+        $x="x";
+        $a = Compute(random(1,10,1));
+        do {$b = Compute(random(-10,10,1))} until ($a !=$b);
+        $diff = $b-$a;
+
+        
+
+        $num = Formula("$diff")->reduce();
+        $den1 = Formula("$x+$a")->reduce();
+        $den2 = Formula("$x+$b")->reduce();
+
+        Context("Fraction");
+        $frac1 = Fraction("1","$den1");
+        $frac2 = Fraction("1","$den2");
+        $ans = Fraction("$num","$den1*$den2");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle <var name="$frac1"/>-<var name="$frac2"/>=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        The least common denominator is <m>\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)</m>, so we have
+        <md>
+          <mrow><var name="$frac1"/>-<var name="$frac2"/>
+          \amp = <var name="$frac1"/>\cdot \frac{<var name="$den2"/>}{<var name="$den2"/>}+<var name="$frac2"/>\cdot \frac{<var name="$den1"/>}{<var name="$den1"/>}</mrow>
+          <mrow> \amp = \frac{<var name="$den2"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}-\frac{<var name="$den1"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+          <mrow> \amp = \frac{<var name="$den2"/>-\left(<var name="$den1"/>\right)}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+          <mrow> \amp = \frac{<var name="$den2"/>-x-<var name="$a"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+          <mrow> \amp = \frac{<var name="$num"/>}{\left(<var name="$den1"/>\right)\left(<var name="$den2"/>\right)}</mrow>
+        </md> 
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Numeric");
+
+        $x="x";
+        $a = Compute(random(-10,10,2));
+        $b = Compute(random(-9,9,2));
+        $sum = $a+$b;
+
+        
+
+        $ansnum = Formula("2*$x+$sum")->reduce();
+        $ansden = Formula("($x+$a)**2")->reduce();
+        $den1 = Formula("$x**2+2*$a*x+$a*$a")->reduce();
+        $den2 = Formula("$x+$a")->reduce();
+        $num1 = Formula("$x+$b")->reduce(); 
+
+        Context("Fraction");
+        $frac1 = Fraction("$num1","$den1");
+        $frac2 = Fraction("1","$den2");
+        $ans = Fraction("$ansnum","$ansden");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle <var name="$frac1"/>+<var name="$frac2"/>=</m><var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        We factor the denominator of the first fraction, finding
+        <me>
+          <var name="$den1"/>=\left(<var name="$den2"/>\right)\left(<var name="$den2"/>\right)=\left(<var name="$den2"/>\right)^2.
+        </me>
+        So the common denominator is <m>\left(<var name="$den2"/>\right)^2</m>.  Thus, we have
+        <md>
+          <mrow><var name="$frac1"/>+<var name="$frac2"/>
+          \amp = \frac{<var name="$num1"/>}{\left(<var name="$den2"/>\right)^2}+<var name="$frac2"/>\cdot \frac{<var name="$den2"/>}{<var name="$den2"/>}</mrow>
+          <mrow> \amp = \frac{<var name="$num1"/>}{\left(<var name="$den2"/>\right)^2}+\frac{<var name="$den2"/>}{\left(<var name="$den2"/>\right)^2}</mrow>
+          <mrow> \amp = \frac{<var name="$num1"/>+<var name="$den2"/>}{\left(<var name="$den2"/>\right)^2}</mrow>
+          <mrow> \amp = \frac{<var name="$ansnum"/>}{\left(<var name="$den2"/>\right)^2}</mrow>
+        </md> 
+      </solution>
+
+    </webwork>
+
+  </exercise>
+
+  <p>
+    Now we can put everything together.  Expressions like the ones in the following exercise appear frequently in calculus courses. 
+  </p>
+
+  <exercise>
+
+    <title>
+      Simplifying some more complicated rational expressions
+    </title>
+
+    <introduction>
+      Simplify as much as possible.
+    </introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors");
+        Context()->variables->add(h => "Real");
+
+        $a = Compute(non_zero_random(-10,10,1));
+
+        $a2 = 2*$a;
+        $as = $a*$a;
+
+        $h = "h";
+
+        $fac = Formula("$a+$h")->reduce();
+
+        $quad = Formula("$fac**2");
+
+        $expand = Formula("$as+$a2*$h+$h**2")->reduce();
+
+        $simplify = Formula("$a2*$h+$h**2")->reduce();
+
+        $ans = Formula("$a2+$h")->reduce();
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>
+            \displaystyle\frac{\left(<var name="$fac"/>\right)^2-<var name="$as"/>}{h}=
+          </m>
+          <var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We first expand and simplify in the numerator, as follows:
+          <me>
+              \frac{(<var name="$fac"/>)^2-<var name="$as"/>}{h}=\frac{(<var name="$fac"/>)(<var name="$fac"/>)-<var name="$as"/>}{h}=\frac{<var name="$expand"/>-<var name="$as"/>}{h}=\frac{<var name="$simplify"/>}{h}.
+          </me>
+          Now we notice that there is a common factor of <m>h</m> in the numerator.  We factor it out and cancel with the factor of <m>h</m> in the denominator, as follows:
+          <me>
+            \frac{<var name="$simplify"/>}{h}=\frac{\cancel{h}(<var name="$ans"/>)}{\cancel{h}}=<var name="$ans"/>.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors");
+        Context()->variables->add(h => "Real");
+
+        $a = "x";
+
+        $a2 = Formula("2*$a");
+        $as = Formula("$a**2");
+
+        $h = "h";
+
+        $fac = Formula("$a+$h")->reduce();
+
+        $quad = Formula("$fac**2");
+
+        $expand = Formula("$as+$a2*$h+$h**2")->reduce();
+
+        $simplify = Formula("$a2*$h+$h**2")->reduce();
+
+        $ans = Formula("$a2+$h")->reduce();
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>
+            \displaystyle\frac{\left(<var name="$fac"/>\right)^2-<var name="$as"/>}{h}=
+          </m>
+          <var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We first expand and simplify in the numerator, as follows:
+          <me>
+              \frac{(<var name="$fac"/>)^2-<var name="$as"/>}{h}=\frac{(<var name="$fac"/>)(<var name="$fac"/>)-<var name="$as"/>}{h}=\frac{<var name="$expand"/>-<var name="$as"/>}{h}=\frac{<var name="$simplify"/>}{h}.
+          </me>
+          Now we notice that there is a common factor of <m>h</m> in the numerator.  We factor it out and cancel with the factor of <m>h</m> in the denominator, as follows:
+          <me>
+            \frac{<var name="$simplify"/>}{h}=\frac{\cancel{h}(<var name="$ans"/>)}{\cancel{h}}=<var name="$ans"/>.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors");
+        Context()->variables->add(h => "Real");
+
+        $a = Compute(random(1,10,1));
+
+        $h = "h";
+
+        $fac = Formula("$a+$h")->reduce();
+
+        Context("Fraction");
+        Context()->variables->add(h => "Real");
+
+        $ans = Fraction("-1","$a*($a+$h)");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>
+            \displaystyle\frac{\frac{1}{<var name="$a"/>+h}-\frac{1}{<var name="$a"/>}}{h}=
+          </m>
+          <var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We first complete the subtraction in the numerator by finding a common denominator:
+          <md>
+            <mrow>\frac{\frac{1}{<var name="$a"/>+h}-\frac{1}{<var name="$a"/>}}{h}\amp=\frac{\frac{h}{<var name="$a"/>(<var name="$a"/>+h)}-\frac{<var name="$a"/>+h}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+            <mrow>\amp=\frac{\frac{<var name="$a"/>-(<var name="$a"/>+h)}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+            <mrow>\amp=\frac{\frac{-h}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+          </md>
+          Now we remember that dividing by <m>h</m> is the same as multiplying by its reciprocal, namely <m>\frac{1}{h}</m>.  We cancel a common factor as we complete this multiplication.
+          <md>
+            <mrow>\frac{\frac{1}{<var name="$a"/>+h}-\frac{1}{<var name="$a"/>}}{h}\amp=\frac{\frac{-h}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+            <mrow>\amp=\frac{-\cancel{h}}{<var name="$a"/>(<var name="$a"/>+h)}\cdot \frac{1}{\cancel{h}}</mrow>
+            <mrow>\amp=\frac{-1}{<var name="$a"/>(<var name="$a"/>+h)}</mrow>
+          </md>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("PolynomialFactors");
+        Context()->variables->add(h => "Real");
+
+        $a = "x";
+
+        $h = "h";
+
+        $fac = Formula("$a+$h")->reduce();
+
+        Context("Fraction");
+        Context()->variables->add(h => "Real");
+
+        $ans = Fraction("-1","$a*($a+$h)");
+
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>
+            \displaystyle\frac{\frac{1}{<var name="$a"/>+h}-\frac{1}{<var name="$a"/>}}{h}=
+          </m>
+          <var name="$ans" width="20"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We first complete the subtraction in the numerator by finding a common denominator:
+          <md>
+            <mrow>\frac{\frac{1}{<var name="$a"/>+h}-\frac{1}{<var name="$a"/>}}{h}\amp=\frac{\frac{h}{<var name="$a"/>(<var name="$a"/>+h)}-\frac{<var name="$a"/>+h}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+            <mrow>\amp=\frac{\frac{<var name="$a"/>-(<var name="$a"/>+h)}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+            <mrow>\amp=\frac{\frac{-h}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+          </md>
+          Now we remember that dividing by <m>h</m> is the same as multiplying by its reciprocal, namely <m>\frac{1}{h}</m>.  We cancel a common factor as we complete this multiplication.
+          <md>
+            <mrow>\frac{\frac{1}{<var name="$a"/>+h}-\frac{1}{<var name="$a"/>}}{h}\amp=\frac{\frac{-h}{<var name="$a"/>(<var name="$a"/>+h)}}{h}</mrow>
+            <mrow>\amp=\frac{-\cancel{h}}{<var name="$a"/>(<var name="$a"/>+h)}\cdot \frac{1}{\cancel{h}}</mrow>
+            <mrow>\amp=\frac{-1}{<var name="$a"/>(<var name="$a"/>+h)}</mrow>
+          </md>
+        </p>
+      </solution>
+
+    </webwork>
+
+  </exercise>
+    
+</section>

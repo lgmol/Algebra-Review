@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-fraction-multiplication">
+  
+  <title>Fraction Multiplication and Division</title>
+
+  <p>
+    Note that <m>\frac{1}{2}</m>, <m>\frac{2}{4}</m>, and <m>\frac{5}{10}</m> all represent the same number.  In general, we can multiply (or divide) the numerator and denominator of a fraction by any nonzero number without changing the value of the fraction.  We say that <m>\frac{1}{2}</m> is in <em>lowest terms</em> (or is <em>reduced</em>) because the numerator and denominator have no common factors greater than <m>1</m>.  We can <em>reduce</em> a fraction to lowest terms by repeatedly dividing by common factors.  For example, to write <m>\frac{6}{15}</m> in lowest terms, we notice that <m>6</m> and <m>15</m> have a common factor of <m>3</m>.  Dividing the top and the bottom by <m>3</m> gives <m>\frac{2}{5}</m>.  We often say that we are <em>cancelling a common factor of <m>3</m></em>, and write it on the page as follows:
+    <me>
+      \frac{\overset{2}{\cancel{6}}}{\underset{5}{\cancel{15}}}=\frac{2}{5}.
+    </me>  
+    Since <m>2</m> and <m>5</m> have no common factors greater than <m>1</m>, we conclude that <m>\frac{2}{5}</m> is in lowest terms.
+  </p>
+
+  <p>
+    Why do we want to write fractions in lowest terms?  First of all, it makes them easier to read! But perhaps more importantly, the idea behind reducing to lowest terms will be extremely useful when we deal with rational expressions in <xref ref="section-rational-expressions"/>.
+  </p>
+
+  <exercise xml:id="exercise-lowest-terms">
+
+    <title>
+      Writing fractions in lowest terms
+    </title>
+
+    <introduction>
+      <figure xml:id="figure-lowest-terms">
+        <caption>Writing fractions in lowest terms</caption>
+        <video xml:id="video-lowest-terms" youtube="ITXwB6QNFHA"/>
+      </figure>
+      
+    </introduction>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(3,5,2));
+        $b = Compute(random(2,4,2));
+        $c = Compute(random(2,4,1));
+        $top = $a*$c;
+        $bottom = $b*$c;
+        $ans = Fraction($top,$bottom);
+      </pg-code>
+
+      <statement>
+        <p>
+          Write <m>\frac{<var name="$top"/>}{<var name="$bottom"/>}</m> in lowest terms: <var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We cancel a common factor of <var name="$c"/> as follows:
+          <me>
+            \frac{\overset{<var name="$a"/>}{\cancel{<var name="$top"/>}}}{\underset{<var name="$b"/>}{\cancel{<var name="$bottom"/>}}}=\frac{<var name="$a"/>}{<var name="$b"/>}
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(2,8,2));
+        $b = Compute(random(5,25,10));
+        $c = Compute(random(2,4,1));
+        $top = $a*$c;
+        $bottom = $b*$c;
+        $ans = Fraction($top,$bottom);
+      </pg-code>
+
+      <statement>
+        <p>
+          Write <m>\frac{<var name="$top"/>}{<var name="$bottom"/>}</m> in lowest terms: <var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We cancel a common factor of <var name="$c"/> as follows:
+          <me>
+            \frac{\overset{<var name="$a"/>}{\cancel{<var name="$top"/>}}}{\underset{<var name="$b"/>}{\cancel{<var name="$bottom"/>}}}=\frac{<var name="$a"/>}{<var name="$b"/>}
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(3,7,2));
+        $b = 2;
+        $c = Compute(random(4,5,1));
+        $top = $a*$c;
+        $bottom = $b*$c;
+        $ans = Fraction($top,$bottom);
+      </pg-code>
+
+      <statement>
+        <p>
+          Write <m>\frac{<var name="$top"/>}{<var name="$bottom"/>}</m> in lowest terms: <var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We cancel a common factor of <var name="$c"/> as follows:
+          <me>
+            \frac{\overset{<var name="$a"/>}{\cancel{<var name="$top"/>}}}{\underset{<var name="$b"/>}{\cancel{<var name="$bottom"/>}}}=\frac{<var name="$a"/>}{<var name="$b"/>}
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+
+  <p>
+    To multiply two fractions, we multiply the numerators and multiply the denominators.  For example, we have
+    <me>
+      \frac{2}{3}\cdot \frac{4}{5}=\frac{2\cdot 4}{3\cdot 5}=\frac{8}{15}.
+    </me>
+    Sometimes, multiplication may result in a fraction that is not in lowest terms.  We can reduce it to lowest terms at the end, or alternatively, we can cancel common factors before we multiply.  For example, we have
+    <me>
+      \frac{2}{3}\cdot \frac{3}{5}=\frac{2}{\underset{1}{\cancel{3}}}\cdot \frac{\overset{1}{\cancel{3}}}{5}=\frac{2}{5}
+    </me>
+    and
+    <me>
+      \frac{4}{5}\cdot \frac{3}{2}=\frac{\overset{2}{\cancel{4}}}{5}\cdot \frac{3}{\underset{1}{\cancel{2}}}=\frac{6}{5}.
+    </me>
+  </p>
+
+  <exercise xml:id="exercise-multiplying-fractions">
+
+    <title>
+      Multiplying fractions
+    </title>
+
+    <introduction>
+      <figure xml:id="figure-multiplying-fractions">
+        <caption>Multiplying fractions</caption>
+        <video xml:id="video-multiplying-fractions" youtube="flyc189u1yw"/>
+      </figure>
+      
+      <p>
+        Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+      </p>
+    </introduction>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(2,4,2));
+        $b = Compute(random(3,11,2));
+        $c = Compute(random(2,4,2));
+        $d = Compute(random(3,11,2));
+        $ac = $a*$c;
+        $bd = $b*$d;
+        $ans = Fraction($a*$c,$b*$d);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$a"/>}{<var name="$b"/>}\cdot \frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$a"/>}{<var name="$b"/>}\cdot \frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>\cdot <var name="$c"/>}{<var name="$b"/>\cdot <var name="$d"/>}=\frac{<var name="$ac"/>}{<var name="$bd"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = 1;
+        $b = Compute(random(1,3,2));
+        $c = Compute(random(1,2,1));
+        $d = Compute(random(5,7,2));
+        $m = Compute(random(2,4,1));
+        $bm = $b*$m;
+        $cm = $c*$m;
+        $ac = $a*$c;
+        $bd = $b*$d;
+        $ans = Fraction($a*$c,$b*$d);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$a"/>}{<var name="$bm"/>}\cdot \frac{<var name="$cm"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We cancel a factor of <var name="$m"/>, and then multiply as follows:
+          <me>
+            \frac{<var name="$a"/>}{\underset{<var name="$b"/>}{\cancel{<var name="$bm"/>}}}\cdot \frac{\overset{<var name="$c"/>}{\cancel{<var name="$cm"/>}}}{<var name="$d"/>}=\frac{<var name="$ac"/>}{<var name="$bd"/>}
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(5,7,2));
+        $b = Compute(random(3,9,6));
+        $c = Compute(random(2,4,2));
+        $m = Compute(random(2,4,1));
+        $bm = $b*$m;
+        $cm = $c*$m;
+        $ac = $a*$c;
+        $bd = $b*$a;
+        $ans = Fraction($c,$b);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$a"/>}{<var name="$bm"/>}\cdot \frac{<var name="$cm"/>}{<var name="$a"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We cancel a factor of <var name="$a"/>, then a factor of <var name="$m"/>, and finally multiply:
+          <me>
+            \frac{\overset{1}{\cancel{<var name="$a"/>}}}{<var name="$bm"/>}\cdot \frac{<var name="$cm"/>}{\underset{1}{\cancel{<var name="$a"/>}}}=\frac{1}{\underset{<var name="$b"/>}{\cancel{<var name="$bm"/>}}}\cdot \frac{\overset{<var name="$c"/>}{\cancel{<var name="$cm"/>}}}{1}=\frac{<var name="$c"/>}{<var name="$b"/>}
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+
+  <p>
+    In order to multiply a fraction by a whole number such as <m>4</m>, just remember that <m>4</m> can be written as <m>\frac{4}{1}</m>.  For example, we have
+    <me>
+      4\cdot \frac{2}{5}=\frac{4}{1}\cdot\frac{2}{5}=\frac{8}{5}.
+    </me>
+  </p>
+
+  <exercise xml:id="exercise-multiplying-a-fraction-by-a-whole-number">
+    
+    <title>Multiplying a fraction by a whole number</title>
+
+    <introduction>
+      <figure xml:id="figure-multiplying-a-fraction-by-a-whole-number">
+        <caption>Multiplying a fraction by a whole number</caption>
+        <video xml:id="video-multiplying-a-fraction-by-a-whole-number" youtube="OH-zd3gmfZ4"/>
+      </figure>
+      
+      <p>
+        Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+      </p>
+    </introduction>
+
+       <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = 3;
+        $c = Compute(random(2,4,1));
+        $d = Compute(random(5,7,2));
+        $ac=$a*$c;
+        $ans = Fraction($a*$c,$d);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle<var name="$a"/>\cdot \frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <!-- <hint>
+        <p>
+          Remember that we can write <m><var name="$a"/></m> as <m>\frac{<var name="$a"/>}{1}</m>.
+        </p>
+      </hint> -->
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle<var name="$a"/>\cdot \frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{1}\cdot\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$ac"/>}{<var name="$d"/>} 
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(2,4,1));
+        $c = Compute(random(2,4,1));
+        $d = Compute(random(5,7,2));
+        $m = Compute(random(2,4,1));
+        $am = $a*$m;
+        $dm = $d*$m;
+        $ac = $a*$c;
+        $ans = Fraction($a*$c,$d);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$c"/>}{<var name="$dm"/>}\cdot <var name="$am"/>=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <!-- <hint>
+        <p>
+          Remember that we can write <m><var name="$am"/></m> as <m>\frac{<var name="$am"/>}{1}</m>.
+        </p>
+      </hint> -->
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle
+            \frac{<var name="$c"/>}{<var name="$dm"/>}\cdot <var name="$am"/> 
+            =\frac{<var name="$c"/>}{<var name="$dm"/>}\cdot \frac{<var name="$am"/>}{1}
+            =\frac{<var name="$c"/>}{\underset{<var name="$d"/>}{\cancel{<var name="$dm"/>}}}\cdot \frac{\overset{<var name="$a"/>}{\cancel{<var name="$am"/>}}}{1}
+            =\frac{<var name="$ac"/>}{<var name="$d"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+    
+    
+  </exercise>
+
+  <p>
+    To divide fractions, multiply the first fraction by the <term>reciprocal</term> of the second fraction.  (The reciprocal of a fraction is obtained by swapping its numerator and denominator.)  For example, we have
+    <me>
+      \frac{2}{3}\div \frac{1}{2}=\frac{2}{3}\cdot \frac{2}{1}=\frac{4}{3},
+    </me>
+    and
+    <me>
+      \frac{\frac{5}{6}}{\frac{5}{3}}=\frac{5}{6}\cdot \frac{3}{5}=\frac{\overset{1}{\cancel{5}}}{6}\cdot \frac{3}{\underset{1}{\cancel{5}}}=\frac{1}{\underset{2}{\cancel{6}}}\cdot\frac{\overset{1}{\cancel{3}}}{1}=\frac{1}{2}.
+    </me>
+  </p>
+
+  <exercise xml:id="exercise-fraction-division">
+
+    <title>
+      Fraction division
+    </title>
+
+    <introduction>
+
+      <figure xml:id="figure-fraction-division-a">
+        <caption>Dividing fractions</caption>
+        <video xml:id="video-fraction-division-a" youtube="RJO9fRWL5NA"/>
+      </figure>
+
+      <figure xml:id="figure-fraction-division-b">
+        <caption>Dividing fractions</caption>
+        <video xml:id="video-fraction-division-b" youtube="SOz5Z7qWQmw"/>
+      </figure>
+
+      <p>
+        Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+      </p>
+      
+    </introduction>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(2,4,1));
+        $b = Compute(random(3,7,2));
+        $c = Compute(random(3,7,2));
+        $d = Compute(random(2,4,1));
+        $top = $a*$d;
+        $bot = $b*$c;
+        $ans = Fraction($top,$bot);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$a"/>}{<var name="$b"/>}\div \frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$a"/>}{<var name="$b"/>}\div \frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot \frac{<var name="$d"/>}{<var name="$c"/>}=\frac{<var name="$top"/>}{<var name="$bot"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(2,4,1));
+        $b = Compute(random(3,5,2));
+        $c = Compute(random(3,5,2));
+        $d = Compute(random(2,4,1));
+        $m = Compute(random(2,4,1));
+        $am = $a*$m;
+        $cm = $c*$m;
+        $top = $a*$d;
+        $bot = $b*$c;
+        $ans = Fraction($top,$bot);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{\frac{<var name="$am"/>}{<var name="$b"/>}}{\frac{<var name="$cm"/>}{<var name="$d"/>}}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{\frac{<var name="$am"/>}{<var name="$b"/>}}{\frac{<var name="$cm"/>}{<var name="$d"/>}}=\frac{\overset{<var name="$a"/>}{\cancel{<var name="$am"/>}}}{<var name="$b"/>}\cdot \frac{<var name="$d"/>}{\underset{<var name="$c"/>}{\cancel{<var name="$cm"/>}}}=\frac{<var name="$top"/>}{<var name="$bot"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = 1;
+        $b = Compute(random(3,7,2));
+        $c = 1;
+        $d = Compute(random(2,4,1));
+        $top = $a*$d;
+        $bot = $b*$c;
+        $ans = Fraction($top,$bot);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$a"/>}{<var name="$b"/>}\div \frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$a"/>}{<var name="$b"/>}\div \frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot \frac{<var name="$d"/>}{<var name="$c"/>}=\frac{<var name="$top"/>}{<var name="$bot"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = 1;
+        $b = Compute(random(2,9,1));
+        $c = Compute(random(2,9,1));
+        $top = $a;
+        $bot = $b*$c;
+        $ans = Fraction($top,$bot);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{\frac{<var name="$a"/>}{<var name="$b"/>}}{<var name="$c"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <hint>
+        <p>
+          Remember that we can write <m><var name="$c"/></m> as <m>\frac{<var name="$c"/>}{1}</m>, so its reciprocal is <m>\frac{1}{<var name="$c"/>}</m>.
+        </p>
+      </hint>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{\frac{<var name="$a"/>}{<var name="$b"/>}}{<var name="$c"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot \frac{1}{<var name="$c"/>}=\frac{<var name="$top"/>}{<var name="$bot"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(2,4,1));
+        $c = Compute(random(3,7,2));
+        $d = Compute(random(2,4,1));
+        $m = Compute(random(2,6,1));
+        $am = $a*$m;
+        $cm = $c*$m;
+        $top = $a*$d;
+        $bot = $c;
+        $ans = Fraction($top,$bot);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{<var name="$am"/>}{\frac{<var name="$cm"/>}{<var name="$d"/>}}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{<var name="$am"/>}{\frac{<var name="$cm"/>}{<var name="$d"/>}}=\frac{\overset{<var name="$a"/>}{\cancel{<var name="$am"/>}}}{1}\cdot \frac{<var name="$d"/>}{\underset{<var name="$c"/>}{\cancel{<var name="$cm"/>}}}=\frac{<var name="$top"/>}{<var name="$bot"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = 1;
+        $b = 1;
+        $c = Compute(random(5,7,2));
+        $d = Compute(random(2,4,1));
+        $m = 5;
+        $n = 3;
+        $am = $a*$m;
+        $cm = $c*$m;
+        $bn = $b*$n;
+        $dn = $d*$n;
+        $top = $a*$d;
+        $bot = $b*$c;
+        $ans = Fraction($top,$bot);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\frac{\frac{<var name="$am"/>}{<var name="$bn"/>}}{\frac{<var name="$cm"/>}{<var name="$dn"/>}}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \displaystyle\frac{\frac{<var name="$am"/>}{<var name="$bn"/>}}{\frac{<var name="$cm"/>}{<var name="$dn"/>}}=\frac{\overset{<var name="$a"/>}{\cancel{<var name="$am"/>}}}{<var name="$bn"/>}\cdot \frac{<var name="$dn"/>}{\underset{<var name="$c"/>}{\cancel{<var name="$cm"/>}}}=\frac{<var name="$a"/>}{\underset{<var name="$b"/>}{\cancel{<var name="$bn"/>}}}\cdot\frac{\overset{<var name="$d"/>}{\cancel{<var name="$dn"/>}}}{<var name="$c"/>}=\frac{<var name="$top"/>}{<var name="$bot"/>}
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+  
+</section>

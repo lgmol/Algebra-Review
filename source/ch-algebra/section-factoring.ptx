@@ -1,0 +1,1626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-factoring">
+  
+  <title>Factoring</title>
+  
+  <introduction>
+    <p>
+      <em>Factoring</em> a polynomial is the opposite of expanding; it is the process of expressing a polynomial as a product of two or more polynomials.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsection-common-factoring">
+    <title>Common Factoring</title>
+
+    <p>
+      The most basic way to factor is to find a <em>common factor</em>. For example, note that both of the terms in the polynomial <me>3x^2+6x</me> have a factor of <m>3x</m>. So we can write
+      <me>3x^2 + 6x = 3x(x+2).</me>
+    </p>
+  
+    <exercise>
+
+      <title>Common factoring</title>
+
+      <introduction>
+        Factor out the greatest common factor.
+      </introduction>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial");
+
+          $x = "x";
+          $a = Compute(random(2,4,1));
+          $b = Compute(random(3,9,2));
+          $c = Compute(random(2,5,1));
+          $gcd = Formula("$a*$x**$c");
+          $quotient = Formula("$x - $b");
+          $d = $c+1;
+          $ab = $a*$b;
+          $prod = Formula("$a*$x**$d-$ab*$x**$c");
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor, but you should end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$prod"/>=</m><var name="$multians" width="5" /><m>\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m></p>
+        </statement>
+
+        <solution>
+          <p>
+            The greatest common factor is <m><var name="$a"/>x^<var name="$c"/></m>, so we have
+            <me>
+              <var name="$prod"/>=<var name="$a"/>x^<var name="$c"/>\left(x-<var name="$b"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial");
+
+          $x = "x";
+          $a = Compute(random(2,10,1));
+          $b = Compute(random(1,9,2));
+          $gcd = Formula("$a");
+          $quotient = Formula("2*$x + $b");
+          $prod = Formula("2*$a*$x+$a*$b")->reduce();
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor, but you should end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$prod"/>=</m><var name="$multians" width="5" /><m>\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m></p>
+        </statement>
+
+        <solution>
+          <p>
+            The greatest common factor is <m><var name="$gcd"/></m>, so we have
+            <me>
+              <var name="$prod"/>=<var name="$gcd"/>\left(<var name="$quotient"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial");
+          Context()->variables->add(y => "Real");
+
+          $x = "x";
+          $y = "y";
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,5,1));
+          $gcd = Formula("$a*$x*$y");
+          $quotient = Formula("$x + $b*$y");
+          $ab = $a*$b;
+          $prod = Formula("$a*$x**2*$y+$ab*$x*$y**2");
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor, but you should end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$prod"/>=</m><var name="$multians" width="5" /><m>\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m></p>
+        </statement>
+
+        <solution>
+          <p>
+            The greatest common factor is <m><var name="$gcd"/></m>, so we have
+            <me>
+              <var name="$prod"/>=<var name="$gcd"/>\left(<var name="$quotient"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial");
+          Context()->variables->add(y => "Real");
+
+          $x = "x";
+          $y = "y";
+          $a = Compute(random(2,5,1));
+          $b1 = Compute(random(2,5,1));
+          $b2 = Compute(random(2,5,1));
+          $c = Compute(random(2,3,1));
+          $d = Compute(random(4,5,1));
+          $e = Compute(random(6,7,1));
+          $f = $d - $c;
+          $g = $e - $c;
+          $ba1 = $b1 * $a;
+          $ba2 = $b2 * $a;
+
+          $gcd = Formula("$a*$x^$c");
+          $quotient = Formula("$b1*$x**$g -$x**$f+$b2");
+          $prod = Formula("$ba1*$x**$e-$a*$x**$d+$ba2*$x**$c");
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor, but you should end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$prod"/>=</m><var name="$multians" width="5" /><m>\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m></p>
+        </statement>
+
+        <solution>
+          <p>
+            The greatest common factor is <m><var name="$gcd"/></m>, so we have
+            <me>
+              <var name="$prod"/>=<var name="$gcd"/>\left(<var name="$quotient"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("Fraction");
+
+          $b = Compute(random(2,12,1));
+          $gcd = Formula("sqrt(x)");
+          $quotient = Formula("x - $b");
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor.  But once you pull that out, you'll end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p><m>x^{3/2}-<var name="$b"/>x^{1/2}=</m><var name="$multians" width="5" /><m>\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m></p>
+        </statement>
+
+        <solution>
+          <p>
+            The greatest common factor is <m>x^{1/2}</m>, so we have
+            <me>
+              x^{3/2}-<var name="$b"/>x^{1/2}=x^{1/2}\left(<var name="$quotient"/>\right)=\sqrt{x}\left(<var name="$quotient"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial");
+
+          $x = "x";
+          $a = Compute(random(2,10,1));
+          $b = Compute(random(3,9,2));
+          $c = Compute(random(2,4,2));
+          $gcd = Formula("$x-$a");
+          $quotient = Formula("$b+$c*$x");
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor, but you should end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+
+          Context("Numeric");
+          $prod = Formula("$b*$gcd+$c*$x*$gcd");
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$prod"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m></p>
+        </statement>
+
+        <hint>
+          There is a common factor of <m>\left(<var name="$gcd"/>\right)</m>.
+        </hint>
+
+        <solution>
+          <p>
+            The greatest common factor is <m><var name="$gcd"/></m>, so we have
+            <me>
+              <var name="$prod"/>=\left(<var name="$gcd"/>\right)\left(<var name="$quotient"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("Numeric");
+
+          $x = "x";
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,5,1));
+          $c = Compute(random(2,3,1));
+          $d = Compute(random(2,3,1));
+          $e = $c+$d;
+          $c2 = Compute(random(2,3,1));
+          $d2 = Compute(random(2,3,1));
+          $e2 = $c2+$d2;
+          $ab = $a*$b;
+          $const = Compute(random(1,9,1));
+
+          $gcd = Formula("$a*$x**$c*($x-$const)**$c2");
+          $quotient = Formula("$x**$d+$b*($x-$const)**$d2");
+          $prod = Formula("$a*$x**$e*($x-$const)**$c2+$ab*$x**$c*($x-$const)**$e2");
+
+          $multians = MultiAnswer($gcd, $quotient)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_gcd, $c_quotient) = @{$correct};
+              my ($s_gcd, $s_quotient) = @{$student};
+              
+              if ($s_gcd == $c_gcd &amp; $s_quotient != $c_quotient) {
+                Value->Error("You've correctly identified the greatest common factor, but you should end up with something different in the brackets!");
+                return 0;
+              }
+              
+              return $s_gcd == $c_gcd &amp; $s_quotient == $c_quotient;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$prod"/>=</m><var name="$multians" width="10" /><m>\bigg(</m><var name="$multians" width="20" /><m>\bigg)</m></p>
+        </statement>
+
+        <hint>
+          <p>There are two terms here.  They have a constant, a power of <m>x</m>, and a power of <m>(x-<var name="$const"/>)</m> in common.</p>
+
+          <p><alert>There is no need to expand here.</alert></p>
+        </hint>
+
+        <solution>
+          <p>
+            The greatest common factor is <m><var name="$gcd"/></m>, so we have
+            <me>
+              <var name="$prod"/>=<var name="$gcd"/>\left(<var name="$quotient"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+    </exercise>
+
+  </subsection>
+
+  <subsection xml:id="subsection-quadratic-factoring">
+    
+    <title>Factoring Quadratics</title>
+    
+    <p>
+      A <term>quadratic</term> is a polynomial of degree 2. We can write any quadratic in the variable <m>x</m> in the form
+      <me>ax^2+bx+c ,</me>
+      where <m>a</m>, <m>b</m>, and <m>c</m> are real numbers, and <m>a \neq 0</m>. 
+    </p>
+    
+    <p>
+      If the leading coefficient <m>a</m> is equal to 1, then to factor <m>x^2+bx+c</m>, we look for two numbers <m>p</m> and <m>q</m> that multiply to <m>c</m> and add to <m>b</m>. Then we have 
+      <me> x^2+ bx + c = (x+p)(x+q).</me>
+      <!-- (To see this, expand the right side of the above equation, and use the assumption that <m>pq=c</m> and <m>p+q=b</m>.) -->
+    </p>
+
+    <p>
+      For example, consider the polynomial
+      <me>
+        x^2-5x+6.
+      </me>
+      After some trial and error, we find that the numbers <m>-2</m> and <m>-3</m> multiply to <m>6</m> and add to <m>-5</m>.  So we have
+      <me>
+        x^2-5x+6=(x-2)(x-3).
+      </me>
+      (Expand the expression on the right to check that we've factored correctly!)
+    </p>
+    
+    <exercise>
+
+      <title>Factoring quadratics with leading coefficient 1</title>
+
+      <introduction>
+        Factor.
+      </introduction> 
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "x";
+
+          $a = Compute(random(1,6,1));
+          $b = Compute(random(1,6,1));
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "x";
+
+          $a = Compute(random(-6,-1,1));
+          $b = Compute(random(1,6,1));
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+        
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "x";
+
+          $a = Compute(random(-6,-1,1));
+          $b = Compute(random(-6,-1,1));
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+        
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "x";
+
+          $a = Compute(non_zero_random(-6,6,1));
+          $b = $a;
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+        
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "x";
+
+          $a = Compute(non_zero_random(-6,6,1));
+          $b = -$a;
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+        
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+          Context()->variables->add(y => "Real");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "y";
+
+          $a = Compute(random(-6,-1,1));
+          $b = Compute(random(-6,-1,1));
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+        
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+          Context()->variables->add(z => "Real");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $var = "z";
+
+          $a = Compute(non_zero_random(-6,6,1));
+          $b = Compute(non_zero_random(-6,6,1));
+          $sum = $a+$b;
+          $prod = $a*$b;
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $expand = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+            <me>
+              <var name="$expand"/>=(<var name="$fac1"/>)(<var name="$fac2"/>).
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+        
+      </webwork>
+
+    </exercise>
+    
+    <p>
+      If the leading coefficient is not equal to 1, then we first try to common factor. Otherwise, to factor 
+      <m>ax^2+bx +c</m>, we look for two numbers <m>r</m> and <m>s</m> that multiply to <m>ac</m> and add to <m>b</m>. 
+      We then write <me>ax^2+bx+c = ax^2 +rx + sx+c = (ax^2+rx) + (sx+c).</me>
+      We then factor each of the bracketed expressions. As long as we chose <m>r</m> and <m>s</m> correctly, then the two bracketed expressions will have a common factor, which we factor out to finish up.
+    </p>
+
+    <p>
+      For example, consider the polynomial
+      <me>
+        2x^2-5x-3.
+      </me>
+      Since there is no common factor, we look for two numbers that multiply to <m>2\cdot (-3)=-6</m> and add to <m>-5</m>.  We find that the numbers <m>-6</m> and <m>1</m> will work.  So we write
+      <me>
+        2x^2-5x-3=(2x^2-6x)+(x-3).
+      </me>
+      The two terms in the first set of brackets have a common factor of <m>2x</m>, so we have
+      <me>
+        2x^2-5x-3=2x(x-3)+(x-3).
+      </me>
+      Finally, note that both <m>2x(x-3)</m> and <m>(x-3)</m> have a factor of <m>(x-3)</m>.  We factor this out to obtain
+      <me>
+        2x^2-5x-3=(x-3)(2x+1).
+      </me>
+      (Expand the expression on the right to check that we've factored correctly!)
+    </p>
+
+    <p>
+      <alert>Reminder:</alert> Always look for a common factor first!
+    </p>
+    
+    <exercise>
+
+      <title>Factoring quadratics with other leading coefficients</title>
+
+      <introduction>
+        Factor.
+      </introduction>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,4,2));
+          $ab =$a*$b;
+          $prod = -3*$a*$b;
+          $sum = 3*$a-$b;
+          $a3 = 3*$a;
+          $var = "x";
+
+          $fac1 = Formula("$a*$var - 1");
+          $fac2 = Formula("$b*$var + 3");
+          $expand = Formula("$a*$b*$var^2+(3*$a-$b)*$var-3")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$ab"/>\cdot (-3)=<var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a3"/></m> and <m>-<var name="$b"/></m> will work.  So we have
+            <md>
+              <mrow><var name="$expand"/> \amp =<var name="$ab"/>x^2+<var name="$a3"/>x-<var name="$b"/>x-3</mrow>
+              <mrow>\amp = <var name="$a"/>x(<var name="$b"/>x+3)-(<var name="$b"/>x+3)</mrow>
+              <mrow>\amp = (<var name="$b"/>x+3)(<var name="$a"/>x-1)</mrow>
+            </md>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,4,2));
+          $ab =$a*$b;
+          $prod = 3*$a*$b;
+          $sum = $a*$b+3;
+          $a3 = 3*$a;
+          $var = "x";
+
+          $fac1 = Formula("$var + $a");
+          $fac2 = Formula("$b*$var + 3");
+          $expand = Formula("$b*$var^2+($a*$b+3)*$var+$a3")->reduce();
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m><var name="$b"/>\cdot <var name="$a3"/>=<var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$ab"/></m> and <m>3</m> will work.  So we have
+            <md>
+              <mrow><var name="$expand"/> \amp =<var name="$b"/>x^2+<var name="$ab"/>x+3x+<var name="$a3"/></mrow>
+              <mrow>\amp = <var name="$b"/>x(x+<var name="$a"/>)+3(x+<var name="$a"/>)</mrow>
+              <mrow>\amp = (<var name="$b"/>x+3)(x+<var name="$a"/>)</mrow>
+            </md>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+
+          $var = "x";
+
+          $a = Compute(non_zero_random(-6,6,1));
+          do {$b = Compute(non_zero_random(-6,6,1))} until ($a != $b);
+          $sum = $a+$b;
+          $prod = $a*$b;
+          $c = Compute(random(2,5,1));
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $ans = Formula("$c*$fac1*$fac2");
+
+          Context("PolynomialFactors");
+          $expand = Formula("$c*$var**2+$c*$sum*$var+$c*$prod")->reduce();
+          $commonfactored = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+        <hint>
+          <p>
+            Start by looking for a common factor.
+          </p>
+        </hint>
+
+        <solution>
+          First of all, we notice that there is a common factor of <var name="$c"/>.  Factoring this out gives
+          <me>
+            <var name="$expand"/>=<var name="$c"/>\left(<var name="$commonfactored"/>\right).
+          </me>
+          Now the quadratic in the brackets has leading coefficient 1, so to factor it, we need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+          <me>
+            <var name="$expand"/>=<var name="$c"/>\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+          </me>
+          <alert>
+            Note:
+          </alert> We can double check this answer by expanding!
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+
+
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(3,7,2));
+          $ab =$a*$b;
+          $prod = 2*$a*$b;
+          $sum = -$a*$b-2;
+          $a2 = 2*$a;
+          $var = "x";
+
+          $fac1 = Formula("$var - $a");
+          $fac2 = Formula("$b*$var - 2");
+          $ans = Formula("$fac1*$fac2");
+
+          Context(PolynomialFactors);
+          $expand = Formula("$b*$var^2+($sum)*$var+$a2")->reduce();
+
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We need two numbers that multiply to <m>-<var name="$b"/>\cdot (-<var name="$a2"/>)=<var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m>-<var name="$ab"/></m> and <m>-2</m> will work.  So we have
+            <md>
+              <mrow><var name="$expand"/> \amp =<var name="$b"/>x^2-<var name="$ab"/>x-2x+<var name="$a2"/></mrow>
+              <mrow>\amp = <var name="$b"/>x(x-<var name="$a"/>)-2(x-<var name="$a"/>)</mrow>
+              <mrow>\amp = (<var name="$b"/>x-2)(x-<var name="$a"/>)</mrow>
+            </md>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+
+          $var = "x";
+
+          $a = Compute(non_zero_random(-6,6,1));
+          do {$b = Compute(non_zero_random(-6,6,1))} until ($a != $b);
+          $sum = $a+$b;
+          $prod = $a*$b;
+          $c = Compute(random(-5,-2,1));
+
+          $fac1 = Formula("$var+$a")->reduce();
+          $fac2 = Formula("$var+$b")->reduce();
+          $ans = Formula("$c*$fac1*$fac2");
+
+          Context("PolynomialFactors");
+          $expand = Formula("$c*$var**2+$c*$sum*$var+$c*$prod")->reduce();
+          $commonfactored = Formula("$var**2+$sum*$var+$prod")->reduce();
+
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+<!--         <hint>
+          <p>
+            Start by looking for a common factor.
+          </p>
+        </hint> -->
+
+        <solution>
+          First of all, we notice that there is a common factor of <var name="$c"/>.  Factoring this out gives
+          <me>
+            <var name="$expand"/>=<var name="$c"/>\left(<var name="$commonfactored"/>\right).
+          </me>
+          Now the quadratic in the brackets has leading coefficient 1, so to factor it, we need two numbers that multiply to <m><var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a"/></m> and <m><var name="$b"/></m> will work.  So we have
+          <me>
+            <var name="$expand"/>=<var name="$c"/>\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+          </me>
+          <alert>
+            Note:
+          </alert> We can double check this answer by expanding!
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,4,2));
+          $ab =$a*$b;
+          $prod = -3*$a*$b;
+          $sum = 3*$a-$b;
+          $a3 = 3*$a;
+          $var = "x";
+          $c = Compute(random(2,5,1));
+
+          $fac1 = Formula("$a*$var - 1");
+          $fac2 = Formula("$b*$var + 3");
+          $ans = Formula("$c*$fac1*$fac2");
+
+          Context("PolynomialFactors");
+          $expand = Formula("$c*$a*$b*$var^2+$c*(3*$a-$b)*$var-3*$c")->reduce();
+          $commonfactored = Formula("$a*$b*$var^2+(3*$a-$b)*$var-3")->reduce();
+
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+<!--         <hint>
+          <p>
+            Start by looking for a common factor.
+          </p>
+        </hint> -->
+
+        <solution>
+          <p>
+            We first pull out a common factor of <m><var name="$c"/></m>, which gives
+            <me>
+              <var name="$expand"/>=<var name="$c"/>\left(<var name="$commonfactored"/>\right).
+            </me>
+            To factor the quadratic in the brackets, we need two numbers that multiply to <m><var name="$ab"/>\cdot (-3)=<var name="$prod"/></m> and add to <m><var name="$sum"/></m>.  The numbers <m><var name="$a3"/></m> and <m>-<var name="$b"/></m> will work.  So we have
+            <md>
+              <mrow><var name="$commonfactored"/> \amp =<var name="$ab"/>x^2+<var name="$a3"/>x-<var name="$b"/>x-3</mrow>
+              <mrow>\amp = <var name="$a"/>x(<var name="$b"/>x+3)-(<var name="$b"/>x+3)</mrow>
+              <mrow>\amp = (<var name="$b"/>x+3)(<var name="$a"/>x-1).</mrow>
+            </md>
+            Putting all of this together gives
+            <me>
+              <var name="$expand"/>=<var name="$c"/>(<var name="$b"/>x+3)(<var name="$a"/>x-1)
+            </me>
+            <alert>
+              Note:
+            </alert> We can double check this answer by expanding!
+          </p>
+        </solution>
+
+      </webwork>
+
+    </exercise>
+
+  </subsection>
+
+  
+  <subsection xml:id="subsection-factoring-patterns">
+    
+    <title>Factoring patterns</title>
+
+
+    <p>
+      You should know the factoring patterns in the following table:
+      <table>
+
+        <title>Common factoring patterns</title>
+
+        <tabular halign="left">
+          <row header="yes" bottom="minor" >
+            <cell>Name </cell>
+            <cell>Pattern </cell>
+            <!-- <cell>Example </cell> -->
+          </row>
+          <row>
+            <cell>Difference of Squares</cell>
+            <cell><m>a^2-b^2 = (a-b)(a+b)</m></cell>
+            <!-- <cell><m>9x^2-4 = (3x-2)(3x+2)</m></cell> -->
+          </row>
+          <row>
+            <cell>Difference of Cubes</cell>
+            <cell><m>a^3-b^3 = (a-b)(a^2+ab+b^2)</m></cell>
+            <!-- <cell><m>8x^3 - y^3 = (2x-y)(4x^2+2xy+y^2)</m></cell> -->
+          </row>
+          <row>
+            <cell>Sum of Cubes</cell>
+            <cell><m>a^3+b^3 = (a+b)(a^2-ab+b^2)</m></cell>
+            <!-- <cell><m>x^3 + 27= (x+3)(x^2-3x+9)</m></cell> -->
+          </row>
+        </tabular>
+      </table>
+    </p>
+
+    <p>
+      For example, when we look at the expression
+      <me>
+        4x^2-9,
+      </me>
+      we notice that both <m>4x^2</m> and <m>9</m> can be expressed as squares.  So using the difference of squares pattern (with <m>a=2x</m> and <m>b=3</m>), we have
+      <me>
+        4x^2-9=(2x)^2-3^2=(2x-3)(2x+3).
+      </me>
+      As another example, in the expression
+      <me>
+        8y^3+27,
+      </me>
+      both <m>8y^3</m> and <m>27</m> can be expressed as cubes.  So using the sum of cubes pattern (with <m>a=2y</m> and <m>b=3</m>), we have
+      <me>
+        8y^3+27=(2y)^3+3^3=(2y+3)(4y^2-6y+9).
+      </me> 
+    </p>
+
+    <p>
+      <alert>
+        Note:
+      </alert>
+      One can confirm that each of these patterns works by expanding!
+    </p>
+    
+
+
+    <exercise>
+
+      <title>Using common factoring patterns</title>
+
+      <introduction>
+        <p>Factor as completely as you can.  When in doubt, start by looking for a common factor!</p>
+      </introduction>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+          Context()->variables->add(y => "Real");
+
+          $a = Compute(random(1,10,1));
+          $a2 = $a*$a;
+          $var = "x";
+
+          $fac1 = Formula("$var - $a")->reduce();
+          $fac2 = Formula("$var + $a")->reduce();
+          $ans = Formula("$fac1*$fac2");
+
+          Context("PolynomialFactors");
+          Context()->variables->add(y => "Real");
+          $expand = Formula("$var^2-$a2")->reduce();
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            Using the difference of squares factoring pattern (with <m>a=x</m> and <m>b=<var name="$a"/></m>), we find
+            <me>
+              <var name="$expand"/>=\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+            </me>
+          </p>
+        </solution>
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 1,message => "either 0 or 1");
+          Context()->variables->add(y => "Real");
+
+          $a = Compute(random(2,10,1));
+          $b = Compute(random(1,5,1));
+          $b2 = $b*$b;
+          $ab = $a*$b;
+          $ab2 = $a*$b2;
+          $x = "x";
+          $y = "y";
+
+          $fac1 = Formula("$y - $b*$x")->reduce();
+          $fac2 = Formula("$y + $b*$x")->reduce();
+          $ans = Formula("$a*$x*$fac1*$fac2");
+
+          Context("PolynomialFactors");
+          Context()->variables->add(y => "Real");
+          $expand = Formula("$a*$x*$y^2-$ab2*$x^3")->reduce();
+          $commonfactored = Formula("$y^2-$b2*$x^2")->reduce();
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We notice a common factor of <m><var name="$a"/>x</m>.  Factoring this out gives
+            <me>
+              <var name="$expand"/>=<var name="$a"/>x\left(<var name="$commonfactored"/>\right).
+            </me>
+            Now we use the difference of squares factoring pattern (with <m>a=y</m> and <m>b=<var name="$b"/>x</m>), to obtain
+            <me>
+              <var name="$expand"/>=<var name="$a"/>x\left(<var name="$commonfactored"/>\right)=<var name="$a"/>x\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+            </me>
+          </p>
+        </solution>
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 2,message => "at most 2");
+          Context()->variables->add(y => "Real");
+
+          $a = Compute(random(1,5,1));
+          $a2 = $a**2;
+          $a3 = $a**3;
+          $x = "x";
+
+          $fac1 = Formula("$x - $a")->reduce();
+          $fac2 = Formula("$x**2 + $a*$x+$a2")->reduce();
+          $ans = Formula("$fac1*$fac2");
+
+          Context("PolynomialFactors");
+          Context()->variables->add(y => "Real");
+          $expand = Formula("$x**3-$a**3")->reduce();
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            Using the difference of cubes factoring pattern (with <m>a=x</m> and <m>b=<var name="$a"/></m>), we obtain
+            <me>
+              <var name="$expand"/>=x^3-<var name="$a"/>^3=\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+            </me>
+          </p>
+        </solution>
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors-Strict");
+          Context()->flags->set(singleFactors=>0);
+          LimitedPowers::OnlyIntegers(minPower => 0, maxPower => 2,message => "at most 2");
+          Context()->variables->add(y => "Real");
+
+          $a = Compute(random(1,3,1));
+          $b = Compute(random(2,9,1));
+          $a2 = $a**2;
+          $a3 = $a**3;
+          $x = "x";
+
+          $fac1 = Formula("$x + $a")->reduce();
+          $fac2 = Formula("$x**2 - $a*$x+$a2")->reduce();
+          $ans = Formula("$b*$x**2*$fac1*$fac2")->reduce();
+
+          Context("PolynomialFactors");
+          Context()->variables->add(y => "Real");
+          $expand = Formula("$b*$x**5+$b*$a**3*$x**2")->reduce();
+          $commonfactored = Formula("$x**3+$a**3")->reduce();
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=</m><var name="$ans" width="20" />
+          </p>
+        </statement>
+
+        <solution>
+          <p>
+            We notice a common factor of <m><var name="$b"/>x^2</m>.  Factoring this out gives
+            <me>
+              <var name="$expand"/>=<var name="$b"/>x^2\left(<var name="$commonfactored"/>\right).
+            </me>
+            Now we use the sum of cubes factoring pattern (with <m>a=x</m> and <m>b=<var name="$a"/></m>), to obtain
+            <me>
+              <var name="$expand"/>=<var name="$b"/>x^2\left(<var name="$commonfactored"/>\right)=<var name="$b"/>x^2\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("PolynomialFactors");
+
+          # counts the number of occurrences of $needle in $haystack
+          sub count {
+            my ($needle, $haystack) = @_;
+            my $count = () = $haystack =~ /~~Q$needle~~E/g;
+            return $count;
+          }
+
+          Context()->flags->set(singleFactors=>0,reduceConstants=>0,reduceConstantFunctions=>0);
+
+          $a = Compute(random(3,7,2));
+          $a2 = Formula("sqrt($a)");
+          $var = "x";
+
+          $fac1 = Formula("$var - $a2");
+          $fac2 = Formula("$var + $a2");
+          $ans = Formula("$fac1*$fac2");
+
+          $multians = MultiAnswer($fac1, $fac2)->with(
+            singleResult => 0,
+            allowBlankAnswers => 1,
+            checker => sub {
+              my ($correct, $student, $self, $ansHash) = @_;
+              my ($c_fac1, $c_fac2) = @{$correct};
+              my ($s_fac1, $s_fac2) = @{$student};
+              
+              my $str1 = $self->{cmp}[0]->rh_ans->{original_student_ans};
+              my $str2 = $self->{cmp}[1]->rh_ans->{original_student_ans};
+              
+              my $fact_correct = $c_fac1*$c_fac2 == $s_fac1*$s_fac2;
+              my $const_fact = (count($var, $str1) == 0 || count($var, $str2) == 0);
+              
+              if ($fact_correct &amp; $const_fact) {
+                Value->Error("This is technically a valid factoring, but one of your factors is constant, so this is not the factoring you're looking for.");
+                return 0;
+              } elsif ($fact_correct) {
+                return 1;
+              }
+              
+              return 0;
+            }
+          );
+
+          Context("PolynomialFactors");
+          $expand = Formula("$var^2-$a")->reduce();
+        </pg-code>
+
+        <statement>
+          <p>
+            <m><var name="$expand"/>=\bigg(</m><var name="$multians" width="10" /><m>\bigg)\bigg(</m><var name="$multians" width="10" /><m>\bigg)</m>
+          </p>
+        </statement>
+
+        <hint>
+          Although <m><var name="$a"/></m> may not look like a square at first glance, note that we can write 
+          <me>
+            <var name="$a"/>=\left(<var name="$a2"/>\right)^2.
+          </me>
+        </hint>
+
+        <solution>
+          <p>
+            Using the difference of squares factoring pattern (with <m>a=x</m> and <m>b=\sqrt{<var name="$a"/>}</m>), we find
+            <me>
+              <var name="$expand"/>=\left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right).
+            </me>
+          </p>
+        </solution>
+      </webwork>
+
+
+
+    </exercise>
+
+  </subsection>
+ 
+</section>

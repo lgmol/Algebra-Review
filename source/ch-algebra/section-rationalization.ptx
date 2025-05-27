@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="subsection-rationalization">
+
+  <title>Rationalization</title>
+
+  <p>
+    When we rationalize a denominator, we are trying to find an equivalent expression without a square root 
+    in the denominator. To rationalize the denominator, first identify the form from the chart below, then multiply
+    by the corresponding rational expressions. (We are just multiplying by 1 in a clever way!) The variables 
+    <m>A, B</m> and <m>C</m> represent any non-zero expression.
+  </p>
+
+  <table>
+    <tabular halign="center">
+      <row header="yes" bottom="minor" >
+        <cell>Form </cell>
+        <cell>Multiply By </cell>
+      </row>
+      <row>
+        <cell><m>\dfrac{A}{\sqrt{B}}</m></cell>
+        <cell><m>\dfrac{\sqrt{B}}{\sqrt{B}}</m></cell>
+      </row>
+      <row>
+        <cell><m>\dfrac{A}{\sqrt{B} \pm C}</m></cell>
+        <cell><m>\dfrac{\sqrt{B} \mp C}{\sqrt{B} \mp C}</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+
+  <p>
+    For example, we can rationalize the denominator of the expression <m>\dfrac{1}{\sqrt{x}+2}</m> as follows:
+    <me>\dfrac{1}{\sqrt{x}+2} = \dfrac{1}{\sqrt{x}+2} \cdot \frac{\sqrt{x}-2}{\sqrt{x}-2} = \frac{\sqrt{x}-2}{x-2\sqrt{x}+2\sqrt{x}-4} = \frac{\sqrt{x}-2}{x-4}.</me>
+  </p>
+
+  <exercise>
+    <p>Example 0.6.3. Rationalize the denominator, and simplify if possible.</p> 
+  </exercise>
+
+  <p>Rationalizing the numerator of an expression is done similarly.</p>
+
+  <exercise>
+    <p>Example 0.6.4. Rationalize the numerator, and simplify if possible.</p> 
+  </exercise>
+    
+</section>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<chapter xml:id="ch-algebra" xmlns:xi="http://www.w3.org/2001/XInclude">
+      <title>Algebra</title>
+
+      <introduction>
+        <p>
+          In this chapter, we review fractions, exponents, polynomials, rational expressions, and linear and quadratic equations.
+        </p>
+      </introduction>
+
+      <xi:include href="./section-fraction-multiplication.ptx" />
+
+      <xi:include href="./section-integer-exponents.ptx" />
+
+      <xi:include href="./section-exponent-rules.ptx" />
+
+      <xi:include href="./section-fraction-addition.ptx" />
+
+      <xi:include href="./section-rational-exponents.ptx" />
+
+      <xi:include href="./section-polynomials.ptx" />
+
+      <xi:include href="./section-factoring.ptx" />
+
+      <xi:include href="./section-rational-expressions.ptx" />
+
+      <xi:include href="./section-linear-equations.ptx" />
+
+      <xi:include href="./section-quadratic-equations.ptx" />
+
+</chapter>

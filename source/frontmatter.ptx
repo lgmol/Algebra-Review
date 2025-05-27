@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <bibinfo>
+  
+    <author>
+        <personname>Shirin Boroushaki, Lucas Mol, Kyle Schlitt, Josh Sorge, and Ihor Stasyuk</personname>
+        <department>Department of Mathematics and Statistics</department>
+        <institution>Thompson Rivers University</institution>
+    </author>
+    <date>
+        <today />
+    </date>
+
+    <website>
+      <name>
+        <c>tru.ca/science/programs/math.html</c>
+      </name>
+      <address>https://www.tru.ca/science/programs/math.html</address>
+    </website>
+
+    <copyright>
+      <year>2023</year>
+      <holder>Shirin Boroushaki, Lucas Mol, Kyle Schlitt, Josh Sorge, and Ihor Stasyuk</holder>
+      <shortlicense> 
+        This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit <url href="http://creativecommons.org/licenses/by-sa/4.0/" visual="creativecommons.org/licenses/by-sa/4.0"> CreativeCommons.org</url>
+      </shortlicense>
+    </copyright>
+  
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+  <colophon xml:id="front-colophon">
+    <colophon-items/>
+  </colophon>
+</frontmatter>
+

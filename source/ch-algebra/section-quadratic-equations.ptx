@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-quadratic-equations">
+  
+  <title>Quadratic Equations</title>
+
+  <introduction>
+
+    <p>
+      A <term>quadratic equation</term> in the variable <m>x</m> is an equation that can be written in the form 
+      <me>ax^2 + bx + c= 0.</me>
+      To solve a quadratic equation, we first write the equation in this form. We then have two options:
+      <ul>
+        <li>
+          <em>Factor</em>. This is usually easier, but it is not always possible.
+        </li>
+        <li>
+          Use the <em>quadratic formula</em>. This always works, but it is a bit more work.
+        </li>
+      </ul>
+    </p>
+
+  </introduction>
+
+    <subsection xml:id="subsection-quadratic-equations-factoring">
+    <title>Solving by Factoring</title>
+      <p>
+        This method involves writing the equation in the form <m>ax^2 + bx + c = 0</m>, factoring the left hand side of the equation
+        into <m>AB</m>, and then using the fact that if <m>AB=0</m>, then <m>A=0</m> or <m>B=0</m>. Essentially,
+        we factor the quadratic, set each factor equal to 0, and solve the two resulting linear equations.
+      </p>
+
+      <p>
+        For example, consider the quadratic equation
+        <me>
+          x^2-2x=8.
+        </me>
+        We first subtract <m>8</m> from both sides, obtaining
+        <me>
+          x^2-2x-8=0,
+        </me>
+        which is in the desired form.  Now we factor the left-hand side to obtain
+        <me>
+          (x-4)(x+2)=0.
+        </me>
+        This equation is true if either 
+        <me>x-4=0 \ \ \ \text{ or }  \ \ \ x+2=0.</me>  
+        We can solve the first of these linear equations by adding <m>4</m> to both sides, and the second by subtracting <m>2</m> from both sides.  So the solutions are 
+        <me>x=4 \ \ \ \text{ and } \ \ \ x=-2.</me>
+      </p>
+
+      <p>
+        We can write this whole process more compactly as follows:
+        <md>
+          <mrow> x^2-2x=8 \ \ \  \amp \Rightarrow \ \ \ x^2-2x-8=0</mrow>
+          <mrow> \amp \Rightarrow \ \ \ (x-4)(x+2)=0</mrow>
+          <mrow> \amp \Rightarrow \ \ \ x-4=0 \ \text{ or } \ x+2=0</mrow>
+          <mrow> \amp \Rightarrow \ \ \ x=4 \ \text{ or } \ x=-2.</mrow>
+        </md>
+      </p>
+
+    
+
+      <exercise>
+
+        <title>Solving quadratic equations by factoring</title>
+        
+        <introduction>
+          <p>
+            Solve by writing in the form <m>ax^2+bx+c = 0</m> and then factoring.
+            <ul>
+              <li>
+                If there is exactly one solution, simply enter it.
+              </li>
+              <li>
+                If there are two solutions, enter them with a comma between them.
+              </li>
+              <li>
+                If there are no solutions, enter <c>None</c>.
+              </li>
+            </ul>
+          </p>
+        </introduction>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+
+            $a = Compute(random(1,9,1));
+            do {$b = Compute(random(1,9,1))} until ($a != $b);
+            $ans = List($a,$b);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $fac1 = Formula("$x-$a")->reduce();
+            $fac2 = Formula("$x-$b")->reduce();
+            $quad = Formula("$x**2-($a+$b)*$x+$a*$b")->reduce;
+
+            
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=0</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            Factoring the quadratic on the left, we obtain
+            <me>
+              \left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right)=0.
+            </me>
+            This means that we have either
+            <me>
+              <var name="$fac1"/>=0 \ \ \ \text{ or } \ \ \ <var name="$fac2"/>=0.
+            </me>
+            Solving each of these two equations gives 
+            <me>
+              x=<var name="$a"/> \ \ \ \text{ or } \ \ \ x=<var name="$b"/>.
+            </me>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+
+            $a = Compute(random(-9,-1,1));
+            do {$b = Compute(random(1,9,1))} until ($a != $b);
+            $ans = List($a,$b);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $fac1 = Formula("$x-$a")->reduce();
+            $fac2 = Formula("$x-$b")->reduce();
+            $quad = Formula("$x**2-($a+$b)*$x+$a*$b")->reduce;
+
+            
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=0</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            Factoring the quadratic on the left, we obtain
+            <me>
+              \left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right)=0.
+            </me>
+            This means that we have either
+            <me>
+              <var name="$fac1"/>=0 \ \ \ \text{ or } \ \ \ <var name="$fac2"/>=0.
+            </me>
+            Solving each of these two equations gives 
+            <me>
+              x=<var name="$a"/> \ \ \ \text{ or } \ \ \ x=<var name="$b"/>.
+            </me>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+
+            $a = Compute(random(1,9,1));
+            do {$b = Compute(random(-9,-1,1))} until ($a != $b);
+            $ans = List($a,$b);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $fac1 = Formula("$x-$a")->reduce();
+            $fac2 = Formula("$x-$b")->reduce();
+            $quad1 = Formula("$x**2-($a+$b)*$x")->reduce;
+            $ab=-$a*$b;
+            $quad = Formula("$x**2-($a+$b)*$x+$a*$b")->reduce;
+
+            
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad1"/>=<var name="$ab"/></m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <hint>
+            Start by subtracting something from both sides to get the equation into the form <m>ax^2+bx+c=0</m>.
+          </hint>
+
+          <solution>
+            First of all, we need to write the equation in the form <m>ax^2+bx+c=0</m>.  We can do this by subtracting <m><var name="$ab"/></m> from both sides.  We find
+            <me>
+              <var name="$quad"/>=0.
+            </me>
+            Factoring the quadratic on the left, we obtain
+            <me>
+              \left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right)=0.
+            </me>
+            This means that we have either
+            <me>
+              <var name="$fac1"/>=0 \ \ \ \text{ or } \ \ \ <var name="$fac2"/>=0.
+            </me>
+            Solving each of these two equations gives 
+            <me>
+              x=<var name="$a"/> \ \ \ \text{ or } \ \ \ x=<var name="$b"/>.
+            </me>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+
+            $a = Compute(random(1,9,1));
+            $b = 0;
+            $ans = List($a,$b);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $fac1 = Formula("$x-$a")->reduce();
+            $fac2 = Formula("$x-$b")->reduce();
+
+            
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m>x^2=<var name="$a"/>x</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <hint>
+            Bring everything to the left side, and then look for a common factor.
+          </hint>
+
+          <solution>
+            First of all, we need to write the equation in the form <m>ax^2+bx+c=0</m>.  We can do this by subtracting <m><var name="$a"/>x</m> from both sides.  We find
+            <me>
+              x^2-<var name="$a"/>x=0.
+            </me>
+            We common factor on the left to find
+            <me>
+              x\left(x-<var name="$a"/>\right)=0.
+            </me>
+            This means that we have either
+            <me>
+              <var name="$fac1"/>=0 \ \ \ \text{ or } \ \ \ <var name="$fac2"/>=0.
+            </me>
+            We conclude that 
+            <me>
+              x=<var name="$a"/> \ \ \ \text{ or } \ \ \ x=<var name="$b"/>.
+            </me>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+
+            $a = Compute(random(-9,-1,1));
+            do {$b = Compute(random(1,9,1))} until ($a != $b);
+            $ans = List($a,$b);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $fac1 = Formula("$x-$a")->reduce();
+            $fac2 = Formula("$x-$b")->reduce();
+            $quad = Formula("$x**2-($a+$b)*$x+$a*$b")->reduce;
+
+            
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=0</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            Factoring the quadratic on the left, we obtain
+            <me>
+              \left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right)=0.
+            </me>
+            This means that we have either
+            <me>
+              <var name="$fac1"/>=0 \ \ \ \text{ or } \ \ \ <var name="$fac2"/>=0.
+            </me>
+            Solving each of these two equations gives 
+            <me>
+              x=<var name="$a"/> \ \ \ \text{ or } \ \ \ x=<var name="$b"/>.
+            </me>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+
+            $a = Compute(non_zero_random(-9,-1,1));
+            $b = $a;
+            $ans = List($a);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $fac1 = Formula("$x-$a")->reduce();
+            $fac2 = Formula("$x-$b")->reduce();
+            $quad = Formula("$x**2-($a+$b)*$x+$a*$b")->reduce;
+
+            
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=0</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            Factoring the quadratic on the left, we obtain
+            <me>
+              \left(<var name="$fac1"/>\right)\left(<var name="$fac2"/>\right)=0.
+            </me>
+            This means that we must have
+            <me>
+              <var name="$fac1"/>=0.
+            </me>
+            We conclude that this quadratic equation has only one solution, namely
+            <me>
+              x=<var name="$a"/>.
+            </me>
+          </solution>
+
+        </webwork>
+      
+      </exercise>
+    
+  </subsection>
+
+  <subsection xml:id="subsection-quadratic-equations-formula">
+
+    <title>Solving by the Quadratic Formula</title>
+      
+      <p>
+        The <term>quadratic formula</term> says that the solutions to the equation <m>ax^2+bx+c =0</m>, where <m>a \neq 0</m>,
+        are given by the formula 
+        <me>
+          x= \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
+        </me>
+        The expression <m>b^2-4ac</m> is called the <term>discriminant</term> of the quadratic <m>ax^2+bx+c</m>.
+        We can use the discriminant to determine the number of solutions of the equation  <m>ax^2+bx+c =0</m>, as follows:
+        <ul>
+          <li>
+             If <m>b^2-4ac\gt 0</m>, then the equation has <em>two distinct</em> real solutions.
+          </li>
+          <li>
+             If <m>b^2-4ac=0</m>, then the equation has <em>exactly one</em> real solution.
+          </li>
+          <li>
+             If <m> b^2-4ac \lt  0 </m>, then the equation has <em>no</em> real solutions.
+          </li>
+        </ul>
+      </p>
+      
+      <exercise>
+
+        <title>Solving quadratic equations using the quadratic formula</title>
+
+        <introduction>
+          <p>
+            Use the discriminant to determine whether the given quadratic equation has zero, one or two solutions. Then use the quadratic formula to solve.
+            <ul>
+              <li>
+                If there is exactly one solution, simply enter it.
+              </li>
+              <li>
+                If there are two solutions, enter them with a comma between them.
+              </li>
+              <li>
+                If there are no solutions, enter <c>None</c>.
+              </li>
+            </ul>
+          </p>
+        </introduction>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+            Context()->flags->set(reduceConstants=>0,reduceConstantFunctions=>0);
+
+            $a = Compute(random(3,9,2));
+            $disc = $a**2-4;
+            $root1 = Formula("($a+sqrt($disc))/2");
+            $root2 = Formula("($a-sqrt($disc))/2");
+            $ans = List($root1,$root2);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $quad = Formula("$x**2-$a*$x+1");
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=0</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              The discriminant is
+              <me>
+                b^2-4ac=(-<var name="$a"/>)^2-4\cdot 1\cdot 1=<var name="$disc"/>,
+              </me>
+              so the equation has two solutions.  By the quadratic formula, they are given by
+              <me>
+                x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{<var name="$a"/>\pm\sqrt{<var name="$disc"/>}}{2}.
+              </me>
+              So the solutions are <m>x=<var name="$root1"/></m> and <m>x=<var name="$root2"/></m>.
+            </p>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+            Context()->flags->set(reduceConstants=>0,reduceConstantFunctions=>0);
+
+            $a = Compute(random(2,4,2));
+            $disc = Compute(1+8*$a);
+            $root1 = Formula("(1+sqrt($disc))/4");
+            $root2 = Formula("(1-sqrt($disc))/4");
+            $ans = List($root1,$root2);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $quad = Formula("2*$x**2-$x");
+            $quad2 = Formula("2*$x**2-$x-$a");
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=<var name="$a"/></m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              We first subtract <m><var name="$a"/></m> from both sides to obtain
+              <me>
+                <var name="$quad2"/>=0.
+              </me>
+              Now the discriminant is
+              <me>
+                b^2-4ac=(-1)^2-4\cdot 2\cdot (-<var name="$a"/>)=<var name="$disc"/>,
+              </me>
+              so the equation has two solutions.  By the quadratic formula, they are given by
+              <me>
+                x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{1\pm\sqrt{<var name="$disc"/>}}{4}.
+              </me>
+              So the solutions are <m>x=<var name="$root1"/></m> and <m>x=<var name="$root2"/></m>.
+            </p>
+          </solution>
+
+        </webwork> 
+
+        <webwork>
+      
+          <pg-code>
+            Context("Numeric");
+            Context()->strings->add(None => {});
+            Context()->flags->set(reduceConstants=>0,reduceConstantFunctions=>0);
+
+            $b = Compute(random(2,4,1));
+            $c = Compute(random(5,9,1));
+            $disc = $b**2-4*$c;
+            $ans = List("None");
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $quad = Formula("$x**2+$b*$x+$c");
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=0</m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              The discriminant is
+              <me>
+                b^2-4ac=<var name="$b"/>^2-4\cdot 1\cdot <var name="$c"/>=<var name="$disc"/>,
+              </me>
+              so the equation has no solutions.
+            </p>
+          </solution>
+
+        </webwork>
+
+        <webwork>
+      
+          <pg-code>
+            Context("Fraction");
+            Context()->strings->add(None => {});
+            <!-- Context()->flags->set(reduceConstants=>0,reduceConstantFunctions=>0); -->
+
+            $a = Compute(random(1,3,2));
+            $disc = Compute(1+8*$a);
+            $discroot=sqrt($disc);
+            $root1 = Fraction("(1+sqrt($disc))","4");
+            $root2 = Fraction("(1-sqrt($disc))","4");
+            $ans = List($root1,$root2);
+
+            Context("LimitedPolynomial");
+
+            $x = "x";
+            $quad = Formula("2*$x**2-$x");
+            $quad2 = Formula("2*$x**2-$x-$a");
+
+          </pg-code>
+
+          <statement>
+            <p>
+              List all solutions of the equation <m><var name="$quad"/>=<var name="$a"/></m>: <var name="$ans" width="15"/>
+            </p>
+          </statement>
+
+          <solution>
+            <p>
+              We first subtract <m><var name="$a"/></m> from both sides to obtain
+              <me>
+                <var name="$quad2"/>=0.
+              </me>
+              Now the discriminant is
+              <me>
+                b^2-4ac=(-1)^2-4\cdot 2\cdot (-<var name="$a"/>)=<var name="$disc"/>,
+              </me>
+              so the equation has two solutions.  By the quadratic formula, they are given by
+              <me>
+                x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{1\pm\sqrt{<var name="$disc"/>}}{4}=\frac{1\pm<var name="$discroot"/>}{4}.
+              </me>
+              So the solutions are <m>x=\frac{1+<var name="$discroot"/>}{4}=<var name="$root1"/></m> and <m>x=\frac{1-<var name="$discroot"/>}{4}=<var name="$root2"/></m>.
+            </p>
+
+            <p>
+              <alert>
+                Note:
+              </alert>
+              One could also have solved this equation by factoring the quadratic <m><var name="$quad2"/></m>.  Try it!
+            </p>
+          </solution>
+
+        </webwork>
+      
+      </exercise>
+    
+  </subsection>
+
+  
+  
+
+  
+</section>

@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-rational-exponents">
+  
+  <title>Roots and Rational Exponents</title>
+
+  <p> 
+    If <m>n</m> is a natural number and <m>a</m> and <m>b</m> are real numbers such that 
+    <me> 
+      a^n=b,
+    </me>
+    then we say that <m>a</m> is an <term><m>n</m>th root</term> of <m>b</m>.  When <m>n=2</m>, we use the term <term>square root</term> instead, and when <m>n=3</m>, we use the term <term>cube root</term>.
+  </p>
+
+  <p>
+    For example,
+    <ul>
+      <li>
+        Since <m>2^2=4</m>, the number <m>2</m> is a square root of <m>4</m>.  The number <m>-2</m> is also a square root of <m>4</m>, since <m>(-2)^2=4</m>.
+      </li>
+      <li>
+        Since <m>2^3=8</m>, the number <m>2</m> is a cube root of <m>8</m>.  The number <m>-2</m> is <em>not</em> a cube root of <m>8</m>, since <m>(-2)^3=-8</m>.  This means that <m>-2</m> is a cube root of <m>-8</m>.
+      </li>
+      <li>
+        Since <m>2^5=32</m>, the number <m>2</m> is a fifth root of <m>32</m>.
+      </li>
+    </ul>
+  </p>
+
+  <exercise>
+    <title>Finding <m>n</m>th roots</title>
+
+    <introduction>
+      <p>Find all of the indicated roots.
+      <ul>
+        <li>
+          If there is a unique answer, simply enter it.
+        </li>
+        <li>
+          If there is more than one answer, enter all of them as a comma-separated list.
+        </li>
+        <li>
+          If there are no answers, enter <c>None</c>.
+        </li>
+      </ul>
+      </p>
+    </introduction>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(2,9,1));
+        $a2 = $a*$a;
+
+        $ans = List($a,-$a);
+      </pg-code>
+
+      <statement>
+        <p>
+          List all square roots of <m><var name="$a2"/></m>: <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m><var name="$a"/>^2=<var name="$a2"/></m> and <m>(-<var name="$a"/>)^2=<var name="$a2"/></m>, so the square roots of <m><var name="$a2"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(2,4,1));
+        $a3 = $a**3;
+
+        $ans = List($a);
+      </pg-code>
+
+      <statement>
+        <p>
+          List all cube roots of <m><var name="$a3"/></m>: <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m><var name="$a"/>^3=<var name="$a3"/></m>; the unique cube root of <m><var name="$a3"/></m> is <m><var name="$a"/></m>.
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(2,3,1));
+        $a4 = $a**4;
+
+        $ans = List($a,-$a);
+      </pg-code>
+
+      <statement>
+        <p>
+          List all <m>4</m>th roots of <m><var name="$a4"/></m>: <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m><var name="$a"/>^4=<var name="$a4"/></m> and <m>(-<var name="$a"/>)^4=<var name="$a4"/></m>, so the <m>4</m>th roots of <m><var name="$a4"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
+      </solution>
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(2,9,1));
+        $a2 = -$a**2;
+
+        $ans = List(None);
+      </pg-code>
+
+      <statement>
+        <p>
+          List all square roots of <m><var name="$a2"/></m>: <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        Note that every number times itself is positive, so squaring a number will never produce <var name="$a2"/>.
+        This means that <var name="$a2"/> has no square roots.
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(2,5,1));
+        $a3 = -$a**3;
+
+        $ans = List(-$a);
+      </pg-code>
+
+      <statement>
+        <p>
+          List all cube roots of <m><var name="$a3"/></m>: <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m>(-<var name="$a"/>)^3=<var name="$a3"/></m>; the unique cube root of <m><var name="$a3"/></m> is <m>-<var name="$a"/></m>.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(0,1,1));
+
+        $ans = List($a);
+      </pg-code>
+
+      <statement>
+        <p>
+          List all cube roots of <m><var name="$a"/></m>: <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m><var name="$a"/>^3=<var name="$a"/></m>; the unique cube root of <m><var name="$a"/></m> is <m><var name="$a"/></m>.
+      </solution>
+      
+    </webwork>
+
+
+
+  </exercise>
+
+  <p> 
+    How many <m>n</m>th roots does <m>b</m> have?
+    <ul>
+      <li>
+        If <m>n</m> is odd, then <m>b</m> has a unique <m>n</m>th root.
+      </li>
+      <li>
+        If <m>n</m> is even, then <m>b</m> has two <m>n</m>th roots if <m>b</m> is positive, one <m>n</m>th root if <m>b=0</m>, and no <m>n</m>th root if <m>b</m> is negative.
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    We let the symbol 
+    <me>
+      \sqrt[n]{b}
+    </me>
+    denote the unique <m>n</m>th root of <m>b</m> if <m>n</m> is odd, and the unique <em>nonnegative</em> <m>n</m>th root of <m>b</m> if <m>n</m> is even and <m>b\geq 0</m>. We call this the <term>principal <m>n</m>th root</term> of <m>b</m>. If <m>n</m> is even and <m>b\lt 0</m>, then <m>\sqrt[n]{b}</m> is <em>undefined</em>.   For example, we have the following.
+    <ul>
+      <li>
+        <m>\sqrt[2]{25}=5</m>, since <m>5</m> is the unique nonnegative square root of <m>25</m>.  (Note that <m>-5</m> is also a square root of <m>25</m>, but it is not the <em>principal</em> square root!)
+      </li>
+      <li>
+        <m>\sqrt[3]{-27}=-3</m>, since <m>-3</m> is the unique cube root of <m>-27</m>.
+      </li>
+      <li>
+        <m>\sqrt[2]{-4}</m> is <em>undefined</em>, since the number <m>-4</m> has no real square root (no number times itself will give a negative number).
+      </li>
+    </ul>
+    We use principal square roots so often that we usually write <m>\sqrt{b}</m> instead of <m>\sqrt[2]{b}</m>
+  </p>
+
+  <exercise>
+    <title>Finding principal <m>n</m>th roots</title>
+
+    <introduction>
+      <p>Evaluate without the use of a calculator, or enter <c>Undefined</c> if the expression is not defined.</p>
+    </introduction>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,5,1));
+        $a3 = $a**3;
+
+        $ans = $a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt[3]{<var name="$a3"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m><var name="$a"/>^3=<var name="$a3"/></m>, so <m>\sqrt[3]{<var name="$a3"/>}=<var name="$a"/></m>.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,5,1));
+        $a3 = -$a**3;
+
+        $ans = -$a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt[3]{<var name="$a3"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m>(-<var name="$a"/>)^3=<var name="$a3"/></m>, so <m>\sqrt[3]{<var name="$a3"/>}=-<var name="$a"/></m>.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,9,1));
+        $a2 = -$a**2;
+
+        $ans = Undefined;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt{<var name="$a2"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        The square root of a negative number is undefined.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,9,1));
+        $a2 = $a**2;
+
+        $ans = $a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt{<var name="$a2"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        Since <m><var name="$a"/>^2=<var name="$a2"/></m>, we have <m>\sqrt{<var name="$a2"/>}=<var name="$a"/></m>.  
+        (Note that <m>-<var name="$a"/></m> is also a square root of <m><var name="$a2"/></m>, but it is not the <em>principal</em> square root.)
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,3,1));
+        $a4 = $a**4;
+
+        $ans = $a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt[4]{<var name="$a4"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        Since <m><var name="$a"/>^4=<var name="$a4"/></m>, we have <m>\sqrt[4]{<var name="$a4"/>}=<var name="$a"/></m>.  
+        (Note that <m>-<var name="$a"/></m> is also a <m>4</m>th root of <m><var name="$a4"/></m>, but it is not the <em>principal</em> <m>4</m>th root.)
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,3,1));
+        $a4 = -$a**4;
+
+        $ans = Undefined;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt[4]{<var name="$a4"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        The <m>4</m>th root of a negative number is undefined (since <m>4</m> is even).   
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,3,1));
+        $a5 = -$a**5;
+
+        $ans = -$a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt[5]{<var name="$a5"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m>(-<var name="$a"/>)^5=<var name="$a5"/></m>, so <m>\sqrt[5]{<var name="$a5"/>}=-<var name="$a"/></m>.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("Fraction");
+        Context()->operators->undefine("**", "^");
+        Context()->functions->undefine("sqrt");
+        Context()->strings->add(None => {});
+
+        $a = Compute(random(2,9,1));
+        $a2 = $a**2;
+
+        $ans = Fraction("1","$a");
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\sqrt{\frac{1}{<var name="$a2"/>}}=</m><var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        We have <m>\displaystyle\left(\frac{1}{<var name="$a"/>}\right)^2=\frac{1}{<var name="$a"/>}\cdot \frac{1}{<var name="$a"/>}=\frac{1}{<var name="$a2"/>}</m>, so <m>\displaystyle\sqrt{\frac{1}{<var name="$a2"/>}}=\frac{1}{<var name="$a"/>}</m>.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(0,1,1));
+        $a2 = $a**2;
+
+        $ans = $a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\sqrt{<var name="$a2"/>}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        Since <m><var name="$a"/>^2=<var name="$a2"/></m>, we have <m>\sqrt{<var name="$a2"/>}=<var name="$a"/></m>.
+      </solution>
+      
+    </webwork>
+
+  </exercise>
+
+  <p>
+    For integers <m>m</m> and <m>n</m>, we define
+    <me>
+      b^{1/n}=\sqrt[n]{b}
+    </me>
+    and
+    <me>
+      b^{m/n}=\sqrt[n]{b^m}=\left(\sqrt[n]{b}\right)^m.
+    </me>
+  </p>
+
+  <exercise>
+    <title>Evaluating rational exponents</title>
+
+    <introduction>
+      <p>Evaluate without the use of a calculator, or enter <c>Undefined</c> if the expression is not defined.</p>
+    </introduction>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,5,1));
+        $a3 = $a**3;
+
+        $ans = $a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a3"/>^{1/3}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        <m><var name="$a3"/>^{1/3}=\sqrt[3]{<var name="$a3"/>}=<var name="$a"/></m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,12,1));
+        $a2 = $a**2;
+
+        $ans = $a;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a2"/>^{1/2}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        <m><var name="$a2"/>^{1/2}=\sqrt{<var name="$a2"/>}=<var name="$a"/></m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,5,1));
+        $a3 = $a**3;
+
+        $ans = $a**2;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a3"/>^{2/3}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        <m><var name="$a3"/>^{2/3}=\left(\sqrt[3]{<var name="$a3"/>}\right)^2=(<var name="$a"/>)^2=<var name="$ans"/></m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,5,1));
+        $a3 = -$a**3;
+
+        $ans = $a**2;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>(<var name="$a3"/>)^{2/3}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        <m>(<var name="$a3"/>)^{2/3}=\left(\sqrt[3]{<var name="$a3"/>}\right)^2=(-<var name="$a"/>)^2=<var name="$ans"/></m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,12,1));
+        $a2 = -$a**2;
+
+        $ans = Undefined;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>(<var name="$a2"/>)^{1/2}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        The square root of a negative number is undefined.
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedNumeric");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,5,1));
+        $a2 = $a**2;
+
+        $ans = $a**3;
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a2"/>^{3/2}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        <m><var name="$a2"/>^{3/2}=\left(\sqrt{<var name="$a2"/>}\right)^3=<var name="$a"/>^3=<var name="$ans"/></m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("Fraction");
+        Context()->operators->undefine("**", "^");
+        Context()->functions->undefine("sqrt");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,10,1));
+        $a2 = $a**2;
+
+        $ans = Fraction("1","$a");
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a2"/>^{-1/2}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <hint>
+        Negative rational exponents are defined similarly to negative integer exponents.  Here we have
+        <me>
+          <var name="$a2"/>^{-1/2}=\frac{1}{<var name="$a2"/>^{1/2}}
+        </me>
+      </hint>
+
+      <solution>
+        <m>\displaystyle<var name="$a2"/>^{-1/2}=\frac{1}{<var name="$a2"/>^{1/2}}=\frac{1}{\sqrt{<var name="$a2"/>}}=\frac{1}{<var name="$a"/>}</m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("Fraction");
+        Context()->operators->undefine("**", "^");
+        Context()->functions->undefine("sqrt");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,3,1));
+        $a4 = $a**4;
+        $a3 = $a**3;
+
+        $ans = Fraction("1","$a3");
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a4"/>^{-3/4}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <hint>
+        Negative rational exponents are defined similarly to negative integer exponents.  Here we have
+        <me>
+          <var name="$a4"/>^{-3/4}=\frac{1}{<var name="$a4"/>^{3/4}}
+        </me>
+      </hint>
+
+      <solution>
+        <m>\displaystyle<var name="$a4"/>^{-3/4}=\frac{1}{<var name="$a4"/>^{3/4}}=\frac{1}{\left(\sqrt[4]{<var name="$a4"/>}\right)^3}=\frac{1}{<var name="$a"/>^3}=\frac{1}{<var name="$a3"/>}</m>
+      </solution>
+      
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("Fraction");
+        Context()->operators->undefine("**", "^");
+        Context()->functions->undefine("sqrt");
+        Context()->strings->add(Undefined => {});
+
+        $a = Compute(random(2,4,2));
+        $b = Compute(random(3,9,2));
+        $a2 = $a**2;
+        $b2 = $b**2;
+
+        $ans = Fraction("$a","$b");
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\displaystyle\left(\frac{<var name="$a2"/>}{<var name="$b2"/>}\right)^{1/2}=</m> <var name="$ans" width="15"/>
+        </p>
+      </statement>
+
+      <solution>
+        <m>\displaystyle\left(\frac{<var name="$a2"/>}{<var name="$b2"/>}\right)^{1/2}=\sqrt{\frac{<var name="$a2"/>}{<var name="$b2"/>}}=\frac{<var name="$a"/>}{<var name="$b"/>}</m>
+      </solution>
+      
+    </webwork>
+
+  </exercise>
+
+  <p>
+    Why do we define rational exponents in this way?  Well, with this definition, all of the exponent rules from <xref ref="section-exponent-rules"/> still apply to rational exponents (at least when the bases are positive).
+  </p>
+
+  <exercise>
+    <title>Exponent rules with rational exponents</title>
+
+    <introduction>
+      <p>Simplify.  Do not leave negative exponents in your answer.  You may assume that all variables represent positive numbers.</p>
+    </introduction>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        # this looks weird, but the checker passed as the second argument overrides the integer requirement so that the only requirement for powers is that they are positive
+        LimitedPowers::OnlyIntegers(
+          message => "positive constants",
+          checker => sub {
+            my ($self, $p) = @_;
+            return 1 if $p > 0;
+            return 0;
+          }
+        );
+
+        $var = "x";
+
+        $a=Compute(random(3,7,2));
+        $a2 = 2*$a;
+        $b = $a+2;
+
+        $power = Fraction(1/2)+Fraction(1/$a);
+
+        $ans = Formula("$var^$power");
+
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            
+            if ($student == $correct &amp; count($var, $str) > 1) {
+              Value->Error("This is technically correct, but remember to simplify as much as possible.  Write the answer so it only contains at most one occurrence of $var!");
+              return 0;
+            }
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <m>\displaystyle\sqrt{x}\cdot \sqrt[<var name="$a"/>]{x}=</m> <var name="$ans" width="15"/>
+      </statement>
+
+      <hint>
+        Start by expressing the roots as rational exponents.
+      </hint>
+
+      <solution>
+        <md>
+          <mrow> \sqrt{x}\cdot \sqrt[<var name="$a"/>]{x} \amp = x^\frac{1}{2}\cdot x^\frac{1}{<var name="$a"/>}</mrow>
+          <mrow> \amp = x^{\frac{1}{2}+\frac{1}{<var name="$a"/>}}</mrow>
+          <mrow> \amp = x^{\frac{<var name="$a"/>}{<var name="$a2"/>}+\frac{2}{<var name="$a2"/>}}</mrow>
+          <mrow> \amp = x^\frac{<var name="$b"/>}{<var name="$a2"/>}</mrow>
+        </md>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        # this looks weird, but the checker passed as the second argument overrides the integer requirement so that the only requirement for powers is that they are positive
+        LimitedPowers::OnlyIntegers(
+          message => "positive constants",
+          checker => sub {
+            my ($self, $p) = @_;
+            return 1 if $p > 0;
+            return 0;
+          }
+        );
+
+        $var = "y";
+
+        $a=Compute(random(2,4,1));
+        $a3 = 3*$a;
+        $b = $a+2;
+
+        $power = Fraction(1/3)-Fraction(1/$a3);
+
+        $ans = Fraction("1","$var^$power");
+
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            
+            if ($student == $correct &amp; count($var, $str) > 1) {
+              Value->Error("This is technically correct, but remember to simplify as much as possible.  Write the answer so it only contains at most one occurrence of $var!");
+              return 0;
+            }
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <m>\displaystyle\frac{\sqrt[<var name="$a3"/>]{y}}{\sqrt[3]{y}}=</m> <var name="$ans" width="15"/>
+      </statement>
+
+      <hint>
+        Start by expressing the roots as rational exponents.
+      </hint>
+
+      <solution>
+        <m>
+          \displaystyle\frac{\sqrt[<var name="$a3"/>]{y}}{\sqrt[3]{y}} \amp = \frac{y^\frac{1}{<var name="$a3"/>}}{y^\frac{1}{3}} = y^{\frac{1}{9}-\frac{1}{3}}
+          = y^{\frac{1}{9}-\frac{3}{9}}
+          = y^{-\frac{2}{9}}
+          = \frac{1}{y^\frac{2}{9}}
+        </m>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("LimitedPolynomial-Strict");
+        Context()->variables->add(y => 'Real');
+
+        $x = "x";
+        $y = "y";
+
+        do { $a = random(1,5,1); } until ($a != 3);
+        do { $b = random(1,5,1); } until ($b != 3) and ($a != $b);
+
+        $a2 = 2*$a;
+        $b2 = 2*$b;
+
+        $ans = Formula("64*$x**$a2*$y**$b2");
+        $ans = $ans->cmp(bypass_equivalence_test => 1);
+      </pg-code>
+
+      <statement>
+        <p><m>\left(2x^\frac{<var name="$a"/>}{3}y^\frac{<var name="$b"/>}{3}\right)^6=</m><var name="$ans" width="20" /></p>
+      </statement>
+
+      <solution>
+        <p>
+          <m>
+            \left(2x^\frac{<var name="$a"/>}{3}y^\frac{<var name="$b"/>}{3}\right)^6=2^6\cdot \left(x^\frac{<var name="$a"/>}{3}\right)^6\cdot \left(y^\frac{<var name="$b"/>}{3}\right)^6
+            = 64 \cdot x^{\frac{<var name="$a"/>}{3}\cdot 6}\cdot y^{\frac{<var name="$b"/>}{3}\cdot 6}
+            = 64 x^<var name="$a2"/> y^<var name="$b2"/>
+          </m>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        LimitedPowers::OnlyPositiveIntegers();
+
+        $x = "x";
+        $y = "y";
+
+        $a = Compute(random(2,4,1));
+        do { $b = random(2,4,1); } until ($a != $b);
+        $c = Compute(random(2,5,1));
+
+        $a3 = 3*$a;
+        $b3 = 3*$b;
+        $c3 = $c**3;
+
+        $ans = Fraction("x^$a","$c*$y^$b");
+
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            
+            if ($student == $correct &amp; count($var, $str) > 1) {
+              Value->Error("This is technically correct, but remember to simplify as much as possible.  Write the answer so it only contains at most one occurrence of $var!");
+              return 0;
+            }
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <m>\displaystyle\sqrt[3]{\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}}=</m> <var name="$ans" width="15"/>
+      </statement>
+
+      <solution>
+        <m>
+          \displaystyle\sqrt[3]{\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}}
+          =\left(\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}\right)^\frac{1}{3}
+          =\frac{\left(x^<var name="$a3"/>\right)^\frac{1}{3}\left(y^{-<var name="$b3"/>}\right)^\frac{1}{3}}{<var name="$c3"/>^\frac{1}{3}}
+          =\frac{x^<var name="$a"/>y^{-<var name="$b"/>}}{<var name ="$c"/>}
+          =\frac{x^<var name="$a"/>}{<var name="$c"/>y^<var name="$b"/>}
+        </m>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+
+      <pg-code>
+        Context("Fraction");
+        Context()->variables->add(y => 'Real');
+
+        # counts the number of occurrences of $needle in $haystack
+        sub count {
+          my ($needle, $haystack) = @_;
+          my $count = () = $haystack =~ /~~Q$needle~~E/g;
+          return $count;
+        }
+
+        # this looks weird, but the checker passed as the second argument overrides the integer requirement so that the only requirement for powers is that they are positive
+        LimitedPowers::OnlyIntegers(
+          message => "positive constants",
+          checker => sub {
+            my ($self, $p) = @_;
+            return 1 if $p > 0;
+            return 0;
+          }
+        );
+
+        $x = "x";
+        $y = "y";
+
+        $a = Compute(random(2,4,1));
+        $b = Compute(random(2,4,1));
+        $c = Compute(random(2,9,1));
+
+        $a2 = 2*$a;
+        $b2 = 2*$b;
+        $c2 = $c**2;
+
+        $power = Fraction(1/$b2);
+
+        $ans = Fraction("$y**$power","$c*$x**$a");
+
+        $ans = $ans->cmp(
+          checker => sub {
+            my ($correct, $student, $self) = @_;
+            my $str = $self->{original_student_ans};
+            
+            if ($student == $correct &amp; count($var, $str) > 1) {
+              Value->Error("This is technically correct, but remember to simplify as much as possible.  Write the answer so it only contains at most one occurrence of $var!");
+              return 0;
+            }
+            return $correct == $student;
+          }, bypass_equivalence_test => 1
+        );
+      </pg-code>
+
+      <statement>
+        <m>\left(<var name="$c2"/>x^<var name="$a2"/>y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}=</m> <var name="$ans" width="15"/>
+      </statement>
+
+      <solution>
+        We distribute the power and then simplify:
+        <md>
+          <mrow>\left(<var name="$c2"/>x^<var name="$a2"/>y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}
+          \amp =<var name="$c2"/>^{-\frac{1}{2}}\cdot \left(x^<var name="$a2"/>\right)^{-\frac{1}{2}}\cdot \left(y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}</mrow>
+          <mrow> \amp =\frac{1}{<var name="$c2"/>^\frac{1}{2}}\cdot x^{-<var name="$a"/>}\cdot y^\frac{1}{<var name="$b2"/>} </mrow>
+          <mrow> \amp =\frac{1}{<var name="$c"/>}\cdot\frac{1}{x^<var name="$a"/>}\cdot y^\frac{1}{<var name="$b2"/>} </mrow>
+          <mrow> \amp =\frac{y^\frac{1}{<var name="$b2"/>}}{<var name="$c"/>x^<var name="$a"/>} </mrow>
+        </md>
+      </solution>
+
+    </webwork>
+
+  </exercise>
+
+
+</section>

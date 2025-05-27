@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-fraction-addition" xmlns:xi="http://www.w3.org/2001/XInclude">
+  
+  <title>Fraction Addition and Subtraction</title>
+
+  <p>
+    To add two fractions, we find a <term>common denominator</term>, and then add the numerators.  (A common denominator is a number that is a multiple of both denominators; ideally, we want to find the <em>least</em> such number.)  For example, we have
+    <md>
+      <mrow>\frac{1}{2}+\frac{2}{3} \amp =\frac{1}{2}\cdot \frac{3}{3}+\frac{2}{3}\cdot\frac{2}{2}</mrow>
+      <mrow> \amp =\frac{3}{6}+\frac{4}{6}</mrow>
+      <mrow> \amp =\frac{7}{6}.</mrow>
+    </md>
+    In this example, the lowest common demoninator was simply the product of the two denominators.  In general, the product of the two denominators will always work, but it may not be the least common denominator!  For example, we have
+    <me>
+      \frac{1}{2}+\frac{1}{4}=\frac{2}{4}+\frac{1}{4}=\frac{3}{4}.
+    </me>
+    In general, finding the least common denominator will lead more easily to a reduced final answer.
+  </p>
+
+  <exercise>
+
+    <title>
+      Fraction addition
+    </title>
+
+    <introduction>
+      Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+    </introduction>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(3,9,2));
+        $b = Compute(random(2,4,2));
+        $ab = $a*$b;
+        $aplusb = $a+$b;
+        $ans = Fraction($a+$b,$ab);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{1}{<var name="$a"/>}+\frac{1}{<var name="$b"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$ab"/></m>, so we have 
+          <me>
+            \frac{1}{<var name="$a"/>}+\frac{1}{<var name="$b"/>}=\frac{1}{<var name="$a"/>}\cdot\frac{<var name="$b"/>}{<var name="$b"/>}+\frac{1}{<var name="$b"/>}\cdot\frac{<var name="$a"/>}{<var name="$a"/>}=\frac{<var name="$b"/>}{<var name="$ab"/>}+\frac{<var name="$a"/>}{<var name="$ab"/>}=\frac{<var name="$aplusb"/>}{<var name="$ab"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = 4;
+        $b = 3;
+        $c = Compute(random(1,10,3));
+        $b2 = 2*$b;
+        $b3 = 3*$b;
+        $ab = $a*$b;
+        $aover2 = $a/2;
+        $acover2 =$a*$c/2;
+        $num = $b3+$acover2;
+        $ans = Fraction($num,$ab);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{3}{<var name="$a"/>}+\frac{<var name="$c"/>}{<var name="$b2"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$ab"/></m>, so we have 
+          <me>
+             \frac{3}{<var name="$a"/>}+\frac{<var name="$c"/>}{<var name="$b2"/>}=\frac{3}{<var name="$a"/>}\cdot\frac{<var name="$b"/>}{<var name="$b"/>}+\frac{<var name="$c"/>}{<var name="$b2"/>}\cdot\frac{<var name="$aover2"/>}{<var name="$aover2"/>}=\frac{<var name="$b3"/>}{<var name="$ab"/>}+\frac{<var name="$acover2"/>}{<var name="$ab"/>}=\frac{<var name="$num"/>}{<var name="$ab"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $b = Compute(random(3,7,2));
+        $a = Compute(random(1,$b-1,1));
+        do { $d = random(3,7,2); } until ($d != $b);
+        $c = Compute(random(1,$d-1,1));
+        $ad = $a*$d;
+        $bc = $b*$c;
+        $den = $b*$d;
+        $num = $a*$d+$b*$c;
+        $ans = Fraction($num,$den);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{<var name="$a"/>}{<var name="$b"/>}+\frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$den"/></m>, so we have 
+          <me>
+             \frac{<var name="$a"/>}{<var name="$b"/>}+\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot\frac{<var name="$d"/>}{<var name="$d"/>}+\frac{<var name="$c"/>}{<var name="$d"/>}\cdot\frac{<var name="$b"/>}{<var name="$b"/>}=\frac{<var name="$ad"/>}{<var name="$den"/>}+\frac{<var name="$bc"/>}{<var name="$den"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $b = Compute(random(3,5,2));
+        $a = Compute(random(1,$b-1,1));
+        $d = $b*$b;
+        do {$c = Compute(random(2,$d-1,2)); } until ($c != 10) and ($c != 20) and ($c != 6);
+        $ab = $a*$b;
+        $den = $d;
+        $num = $a*$b+$c;
+        $ans = Fraction($num,$den);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{<var name="$a"/>}{<var name="$b"/>}+\frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$den"/></m>, so we have 
+          <me>
+             \frac{<var name="$a"/>}{<var name="$b"/>}+\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot\frac{<var name="$b"/>}{<var name="$b"/>}+\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$ab"/>}{<var name="$den"/>}+\frac{<var name="$c"/>}{<var name="$den"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+
+  <p>
+    The procedure for subtracting fractions is analogous to the one for addition.  We find a (least) common denominator, and then find the difference of the numerators.
+  </p>
+
+  <exercise>
+
+    <title>
+      Fraction subtraction
+    </title>
+
+    <introduction>
+      Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+    </introduction>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $b = Compute(random(3,7,2));
+        $a = 1;
+        do { $d = random(3,7,2); } until ($d != $b);
+        $c = 1;
+        $den = $b*$d;
+        $num = $d-$b;
+        $ans = Fraction($num,$den);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$den"/></m>, so we have 
+          <me>
+             \frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot\frac{<var name="$d"/>}{<var name="$d"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}\cdot\frac{<var name="$b"/>}{<var name="$b"/>}=\frac{<var name="$d"/>}{<var name="$den"/>}-\frac{<var name="$b"/>}{<var name="$den"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $b = Compute(random(3,7,2));
+        $a = Compute(random(2,4,2));
+        do { $d = random(3,7,2); } until ($d != $b);
+        $c = Compute(random(2,4,2));
+        $ad = $a*$d;
+        $bc = $b*$c;
+        $den = $b*$d;
+        $num = $ad-$bc;
+        $ans = Fraction($num,$den);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$den"/></m>, so we have 
+          <me>
+             \frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a"/>}{<var name="$b"/>}\cdot\frac{<var name="$d"/>}{<var name="$d"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}\cdot\frac{<var name="$b"/>}{<var name="$b"/>}=\frac{<var name="$ad"/>}{<var name="$den"/>}-\frac{<var name="$bc"/>}{<var name="$den"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $b = Compute(random(4,10,2));
+        $a = Compute(random(3,$b-1,2));
+        $d = $b;
+        $c = $a-2;
+        $diff = $a-$c;
+        $den = $b/2;
+        $num = ($a-$c)/2;
+        $ans = Fraction($num,$den);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          Here we already have a common denominator!  After we subtract, we notice that we can cancel a common factor of <m>2</m>.
+          <me>
+             \frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$diff"/>}{<var name="$b"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $b = 6;
+        $a = Compute(random(1,5,4));
+        $d = 4;
+        $c = Compute(random(1,3,2));
+        $a2 = 2*$a;
+        $c3 = 3*$c;
+        $den = 12;
+        $num = $a2-$c3;
+        $ans = Fraction($num,$den);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m>\frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          The least common denominator is <m><var name="$den"/></m>, so we have 
+          <me>
+             \frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a2"/>}{<var name="$den"/>}-\frac{<var name="$c3"/>}{<var name="$den"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+  
+</section>

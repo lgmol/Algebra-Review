@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="section-polynomials" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Polynomials</title>
+
+  <introduction>
+  
+  <!--   <p>
+      <em>Algebraic expressions</em> are formed by taking numbers and symbols which represent numbers, and combining them with the operations
+      of addition, subtraction, multiplication, division, and exponentiation by rational exponents. The symbols in algebraic 
+      expressions come in two types: symbols that represent fixed numbers are called <em>constants</em>, while symbols that
+      represent non-fixed numbers are called <em>variables</em>. In this section, we will focus on polynomials, which are a 
+      special type of algebraic expression.
+    </p>
+   -->
+    <definition xml:id="def-polynom">
+      <statement>
+        <p>
+          For a nonnegative integer <m>n</m>, a <term>polynomial of degree <m>n</m></term>  in the variable <m>x</m>
+          is an algebraic epression of the form <me>
+            a_n x^n + a_{n-1} x^{n-1} + \dots + a_2 x^2 + a_1 x + a_0
+          </me>
+          where <m>a_n, a_{n-1}, \dots, a_2, a_1, a_0</m> are constants, and <m>a_n \neq 0</m>.
+          <ul>
+            <li>
+              <p>
+                The <term>terms</term> of the polynomial are <m> a_n x^n, a_{n-1} x^{n-1}, \dots, a_1 x, a_0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>coefficients</term> of the polynomial are the real numbers <m> a_n, a_{n-1}, \dots, a_1, a_0</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>leading term</term> of the polynomial is the term containing the highest power of <m>x</m>, namely <m> a_n x^n</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The <term>leading coefficient</term> of the polynomial is the coefficient of the leading term, namely <m> a_n </m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                The term <m>a_0</m> is also called the <term>constant term</term>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+   
+    <example>
+
+      <title>Polynomial terminology</title>
+
+      <statement>
+        <p> 
+          Consider the polynomial <me>4x^5 -9x^4 +3x^2 -\pi x +1</me>. Answer the following questions.
+          <ol cols="1">
+            <li>
+              <p>
+               The degree of the polynomial is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The leading term is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The leading coefficient is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The coefficient of <m>x</m> is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The coefficient of <m>x^2</m> is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The coefficient of <m>x^3</m> is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The <m>x^4</m> term is <m>\dots</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+               The constant term is <m>\dots</m> 
+              </p>
+            </li>
+          </ol>
+
+          
+
+        </p>
+      </statement> 
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+               The polynomial has degree 5 because the highest power of <m>x</m> is 5. 
+              </p>
+            </li>
+            <li>
+              <p>
+               The leading term is the term containing the highest power which is <m>4x^5</m> in this case. 
+              </p>
+            </li>
+            <li>
+              <p>
+               The leading coefficient is 4. That is the coefficient of the leading term. 
+              </p>
+            </li>
+            <li>
+              <p>
+               The coefficient of <m>x</m> is <m>-\pi</m>. (Note that the negative sign is part of the coefficient too.)
+              </p>
+            </li>
+            <li>
+              <p>
+               The coefficient of <m>x^2</m> is <m>3</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+               The coefficient of <m>x^3</m> is <m>0</m>, because there is no term with power 3.
+              </p>
+            </li>
+            <li>
+              <p>
+               The <m>x^4</m> term is <m>-9x^4</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+               The constant term is <m>1</m>. 
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+
+  </introduction>
+
+  <subsection xml:id="subsection-polynomial-addition">
+
+    <title>Addition and Subtraction of Polynomials</title>
+    
+    <p>
+      We add and subtract polynomials by combining <em>like terms</em>; those with the same variable and exponent. 
+      We combine like terms by adding (or subtracting) the coefficients. For example, we have 
+      <me>7x+3x = (7+3)x = 10 x</me> and <me>3x^2-5x^2 = (3-5)x^2 = -2x^2.</me>
+      This is justified by the <em>distributive law</em> for multiplication and addition of real numbers <m>a, b</m>
+      and <m>c</m>: 
+      <me>ab+ac = a(b+c) = (b+c)a</me>
+      We also use this law when multiplying a polynomial by a constant. For example, we have
+      <me>-2(-x^2+3x) = (-2)(-x^2) + (-2)(3x) = 2x^2 -6x.</me>
+    </p>
+  
+
+    <exercise>
+
+      <title>Polynomial addition and subtraction</title>
+
+      <introduction>
+        <p>Perform the indicated operations and simplify.  Make sure to combine all like terms.</p>
+      </introduction>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $var = "x";
+          $a = Compute(random(2,7,1));
+          $b = Compute(random(2,5,1));
+          $c = Compute(random(2,5,1));
+          $d = Compute($c+1);
+
+          $ans = Formula("$b*$var**3+$d*$var**2-$var-$a");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\left(x^2-<var name="$a"/>\right)+\left(<var name="$b"/>x^3+<var name="$c"/>x^2-x\right)=</m><var name="$ans" width="20" /></p>
+        </statement>
+
+        <solution>
+          <p>Combining like terms gives
+            <me>
+              \left(x^2-<var name="$a"/>\right)+\left(<var name="$b"/>x^3+<var name="$c"/>x^2-x\right)=<var name="$b"/> x^3+(x^2+<var name="$c"/>x^2)-x-<var name="$a"/>=<var name="$b"/> x^3+<var name="$d"/>x^2-x-<var name="$a"/>.
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $var = "x";
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,5,1));
+          $c = Compute(random(2,5,1));
+          $prod = $b*$c;
+
+          $xcoef = 1-$b;  
+          $const = $prod+$a;
+
+          $ans = Formula("$xcoef$var+$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>x+<var name="$a"/>-<var name="$b"/>\left(x-<var name="$c"/>\right)=</m><var name="$ans" width="20" /></p>
+        </statement>
+
+        <solution>
+          <p>Expanding and combining like terms gives
+            <me>
+              x+<var name="$a"/>-<var name="$b"/>\left(x-<var name="$c"/>\right)=x+<var name="$a"/>-<var name="$b"/>x+<var name="$prod"/>=x-<var name="$b"/>x+<var name="$a"/>+<var name="$prod"/>=<var name="$xcoef"/>x+<var name="$const"/>.
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $var = "x";
+          $a = Compute(random(3,6,1));
+          $b = Compute(random(2,5,1));
+          $c = Compute(random(2,3,1));
+          
+          $prod = $b*$c;
+          $const = $b+1;
+
+          $ans = Formula("-$var^$a+$b$var^2+$prod$var+$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$b"/>\left(x^2+<var name="$c"/>x+1\right)-\left(x^<var name="$a"/>-1\right)=</m><var name="$ans" width="20" /></p>
+        </statement>
+
+        <solution>
+          <p>Note first that 
+            <me>
+              -\left(x^<var name="$a"/>-1\right)=-1\left(x^<var name="$a"/>-1\right)=-1x^<var name="$a"/>+(-1)(-1)=-x^<var name="$a"/>+1.
+            </me>
+            So expanding and combining like terms gives
+            <me>
+              <var name="$b"/>\left(x^2+<var name="$c"/>x+1\right)-\left(x^<var name="$a"/>-1\right)=
+              <var name="$b"/>x^2+<var name="$prod"/>x+<var name="$b"/>-x^<var name="$a"/>+1=
+              -x^<var name="$a"/>+<var name="$b"/>x^2+<var name="$prod"/>x+<var name="$const"/>.
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $var = "x";
+          $a = Compute(random(2,6,1));
+          $b = Compute(random(2,6,1));
+          $c = Compute(random(3,6,1));
+          
+          $x2coef = $a+$c; 
+          $xcoef = $b;
+          $const = $c-2;
+
+
+          $ans = Formula("$x2coef$var^2+$xcoef$var+$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$a"/>x^2-(-<var name="$b"/>x+2)+<var name="$c"/>(x^2+1)=</m><var name="$ans" width="20" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            Expanding and combining like terms gives
+            <me>
+              <var name="$a"/>x^2-(-<var name="$b"/>x+2)+<var name="$c"/>(x^2+1)=<var name="$a"/>x^2+<var name="$b"/>x-2+<var name="$c"/>x^2+<var name="$c"/>=<var name="$x2coef"/>x^2+<var name="$xcoef"/>x+<var name="$const"/>.
+            </me>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+          Context()->variables->add(y => 'Real');
+
+          $x = "x";
+          $y = "y";
+          $a = Compute(random(2,7,1));
+          $b = Compute(random(2,7,1));
+          $c = Compute(random(5,7,1));
+          $d = Compute(random(1,5,1));
+          $d2 = 2*$d;
+          $x2coef = $a+2;
+          $xycoef = $b+2;
+          $ycoef = $c+2;
+
+
+          $ans = Formula("$x2coef$x^2+$xycoef$x$y+2$y^2+2$x-$ycoef$y-$d");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$a"/>x^2+<var name="$b"/>xy-<var name="$c"/>y+<var name="$d"/>+2\left(x^2+y^2+xy-y+x-<var name="$d"/>\right)=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <hint>
+          <p>
+            This is a polynomial in <em>two</em> variables.  Expand and combine like terms as before.  You will have a term for <m>xy</m>, a term for <m>x^2</m>, a term for <m>y^2</m>, and so on!
+          </p>
+        </hint>
+
+        <solution>
+          <p>
+            Expanding and combining like terms gives
+            <md>
+              <mrow> \amp \hspace{13pt} <var name="$a"/>x^2+<var name="$b"/>xy-<var name="$c"/>y+<var name="$d"/>+2\left(x^2+y^2+xy-y+x-<var name="$d"/>\right)</mrow>
+              <mrow> \amp = <var name="$a"/>x^2+<var name="$b"/>xy-<var name="$c"/>y+<var name="$d"/>+2x^2+2y^2+2xy-2y+2x-<var name="$d2"/></mrow>
+              <mrow> \amp = <var name="$x2coef"/>x^2+<var name="$xycoef"/>xy+2y^2+2x-<var name="$ycoef"/>y-<var name="$d"/></mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+    </exercise>
+
+  </subsection>
+
+  <subsection xml:id="subsection-polynomial-multiplication">
+    <title>Multiplication of Polynomials</title>
+    <p>
+      A <term>monomial</term> is a polynomial with a single term. To multiply two monomials with the same variable,
+      we multiply the coefficients and add the exponents. For example, we have 
+      <me>3x \cdot 4x^2 = 3 \cdot 4 \cdot x \cdot x^2 = 12x^3 .</me>
+    </p>
+  
+    <exercise>
+
+      <title>Monomial multiplication</title>
+
+      <introduction>
+        <p>Multiply the following monomials.</p>
+      </introduction>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(2,7,1));
+          $b = Compute(random(2,7,1));
+          $c = Compute(random(2,7,1));
+          $d = Compute(random(2,7,1));
+          $coeff = $a*$b;
+          $power = $c+$d;
+
+          $ans = Formula("$coeff*$x^$power");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$a"/>x^<var name="$c"/>\cdot <var name="$b"/>x^<var name="$d"/>=</m><var name="$ans" width="15" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            <m>
+              <var name="$a"/>x^<var name="$c"/>\cdot <var name="$b"/>x^<var name="$d"/>
+              =<var name="$a"/>\cdot <var name="$b"/>\cdot x^<var name="$c"/>\cdot x^<var name="$d"/>
+              =<var name="$coeff"/>x^<var name="$power"/>.
+            </m>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $b = Compute(random(2,8,2));
+          $c = Compute(random(2,5,1));
+          $d = Compute(random(2,5,1));
+          $coeff = $b/2;
+          $power = $c+$d;
+
+          $ans = Formula("$coeff*$x^$power");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\frac{1}{2}x^<var name="$c"/>\cdot <var name="$b"/>x^<var name="$d"/>=</m><var name="$ans" width="15" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            <m>
+              \frac{1}{2}x^<var name="$c"/>\cdot <var name="$b"/>x^<var name="$d"/>=\frac{1}{2}\cdot <var name="$b"/>\cdot x^<var name="$c"/>\cdot x^<var name="$d"/>
+              =<var name="$coeff"/>x^<var name="$power"/>.
+            </m>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(2,7,1));
+          $b = Compute(random(2,7,1));
+          $c = Compute(random(2,7,1));
+          $d = 1;
+          $coeff = $a*$b;
+          $power = $c+$d;
+
+          $ans = Formula("-$coeff*$x^$power");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>-<var name="$a"/>x^<var name="$c"/>\cdot <var name="$b"/>x=</m><var name="$ans" width="15" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            <m>
+              -<var name="$a"/>x^<var name="$c"/>\cdot <var name="$b"/>x
+              =-<var name="$a"/>\cdot <var name="$b"/>\cdot x^<var name="$c"/>\cdot x
+              =-<var name="$coeff"/>x^<var name="$power"/>.
+            </m>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(2,7,1));
+          $b = Compute(random(2,7,1));
+          $c = Compute(random(2,7,1));
+          $d = Compute(random(2,7,1));
+          $coeff = $a*$b;
+          $power = $c+$d;
+
+          $ans = Formula("$coeff*$x^$power");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\left(-<var name="$a"/>x^<var name="$c"/>\right)\cdot\left(-<var name="$b"/>x^<var name="$d"/>\right)=</m><var name="$ans" width="15" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            <m>
+              \left(-<var name="$a"/>x^<var name="$c"/>\right)\cdot\left(-<var name="$b"/>x^<var name="$d"/>\right)
+              =(-<var name="$a"/>)\cdot (-<var name="$b"/>)\cdot x^<var name="$c"/>\cdot x^<var name="$d"/>
+              =<var name="$coeff"/>x^<var name="$power"/>.
+            </m>
+          </p>
+        </solution>
+
+      </webwork>
+    
+    </exercise>
+
+    <p>
+      In order to multiply two polynomials, we use the distributive law for real numbers, possibly multiple times, 
+      and then we combine like terms. For example, we have
+      <md>
+        <mrow>(x+3)(3x-2) \amp= (x+3) \cdot (3x) + (x+3) \cdot (-2)</mrow> 
+        <mrow> \amp= x \cdot 3x + 3 \cdot 3x + x \cdot (-2) + 3 \cdot (-2)</mrow> 
+        <mrow>\amp = 3x^2+ 9x -2x -6</mrow>
+        <mrow>\amp = 3x^2 +7x -6</mrow>
+      </md>
+      Instead of using the distributive law multiple times like we did above, we can just make sure to multiply <em>every term</em>
+      of the first polynomial by <em>every term</em> of the second polynomial. When multiplying two polynomials
+      that have two terms each, some people like to remember this as the <term>FOIL rule</term>.
+      <me>(x^2+3)(-x+4) = \underbrace{(x^2) \cdot (-x)}_\text{First} + \underbrace{(x^2) \cdot (4)}_\text{Outer}
+      + \underbrace{(3) \cdot (-x)}_\text{Inner} + \underbrace{(3) \cdot (4)}_\text{Last}</me>
+    </p>
+    
+    <exercise>
+
+      <title>Polynomial multiplication</title>
+
+      <introduction>
+        <p>Expand and simplify.</p>
+      </introduction>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(2,7,1));
+          $b = Compute(random(2,7,1));
+          $x2coef = $a+$b;
+          $xcoef = $a*$b;
+
+          $ans = Formula("$x^3+$x2coef*$x^2+$xcoef*$x");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\left(x+<var name="$a"/>\right)\left(x^2+<var name="$b"/>x\right)=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            We use the FOIL rule and then collect like terms.
+            <md>
+              <mrow>\left(x+<var name="$a"/>\right)\left(x^2+<var name="$b"/>x\right) \amp = 
+              \underbrace{x\cdot x^2}_{\text{First}}+\underbrace{x\cdot <var name="$b"/>x}_\text{Outer}+\underbrace{<var name="$a"/>\cdot x^2}_\text{Inner}+\underbrace{<var name="$a"/>\cdot <var name="$b"/>x}_\text{Last}</mrow>
+              <mrow> \amp = x^3+<var name="$b"/>x^2+<var name="$a"/>x^2+<var name="$xcoef"/>x</mrow>
+              <mrow> \amp = x^3+<var name="$x2coef"/>x^2+<var name="$xcoef"/>x</mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(5,7,1));
+          $b = Compute(random(2,3,1));
+          $c = Compute(random(2,7,1));
+
+          $ac=$a*$c;
+
+
+          $x2coef = $a*$b;
+          $xcoef = $ac-$b;
+          $const = $c;
+
+          $ans = Formula("$x2coef*$x^2-$xcoef*$x-$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\left(<var name="$a"/>x+1\right)\left(<var name="$b"/>x-<var name="$c"/>\right)=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            We use the FOIL rule and then collect like terms.
+            <md>
+              <mrow>\left(<var name="$a"/>x+1\right)\left(<var name="$b"/>x-<var name="$c"/>\right) \amp = 
+              \underbrace{<var name="$a"/>x\cdot <var name="$b"/>x}_{\text{First}}+\underbrace{<var name="$a"/>x\cdot (-<var name="$c"/>)}_\text{Outer}+\underbrace{1\cdot <var name="$b"/>x}_\text{Inner}+\underbrace{1\cdot (-<var name="$c"/>)}_\text{Last}</mrow>
+              <mrow>\amp = <var name="$x2coef"/>x^2 - <var name="$ac"/>x+<var name="$b"/>x-<var name="$const"/> </mrow>
+              <mrow>\amp = <var name="$x2coef"/>x^2 - <var name="$xcoef"/>x-<var name="$const"/> </mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(4,5,1));
+          $b = Compute(random(1,3,2));
+
+          $ab=$a*$b;
+
+          $x2coef = $a*$a;
+          $xcoef = 2*$ab;
+          $const = $b*$b;
+
+          $ans = Formula("$x2coef*$x^2+$xcoef*$x+$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\dsp\left(<var name="$a"/>x+<var name="$b"/>\right)^2=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <hint>
+          Note that 
+          <me>
+            \left(<var name="$a"/>x+<var name="$b"/>\right)^2=\left(<var name="$a"/>x+<var name="$b"/>\right)\left(<var name="$a"/>x+<var name="$b"/>\right).
+          </me>
+        </hint>
+
+        <solution>
+          <p>
+            We use the FOIL rule and then collect like terms.
+            <md>
+              <mrow>\left(<var name="$a"/>x+<var name="$b"/>\right)^2 \amp = 
+              \left(<var name="$a"/>x+<var name="$b"/>\right)\left(<var name="$a"/>x+<var name="$b"/>\right)</mrow>
+              <mrow>\amp = \underbrace{<var name="$a"/>x\cdot <var name="$a"/>x}_{\text{First}}+\underbrace{<var name="$a"/>x\cdot <var name="$b"/>}_\text{Outer}+\underbrace{<var name="$b"/>\cdot <var name="$a"/>x}_\text{Inner}+\underbrace{<var name="$b"/>\cdot <var name="$b"/>}_\text{Last}</mrow>
+              <mrow>\amp = <var name="$x2coef"/>x^2 + <var name="$ab"/>x+<var name="$ab"/>x+<var name="$const"/> </mrow>
+              <mrow>\amp = <var name="$x2coef"/>x^2 + <var name="$xcoef"/>x+<var name="$const"/> </mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+          Context()->variables->add(y => 'Real');
+
+          $x = "x";
+          $y = "y";
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(2,5,1));
+
+          $xcoef = $a*$a;
+          $xycoef = 2*$a;
+          $b2 = 2*$b;
+
+          $ans = Formula("$xcoef*$x^$b2-$xycoef*$x^$b*$y+$y^2");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\dsp\left(<var name="$a"/>x^<var name="$b"/>-y\right)^2=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <hint>
+          Note that 
+          <me>
+            \left(<var name="$a"/>x^<var name="$b"/>-y\right)^2=\left(<var name="$a"/>x^<var name="$b"/>-y\right)\left(<var name="$a"/>x^<var name="$b"/>-y\right).
+          </me>
+        </hint>
+
+        <solution>
+          <p>
+            We use the FOIL rule and then collect like terms.
+            <md>
+              <mrow>\left(<var name="$a"/>x^<var name="$b"/>-y\right)^2 \amp = 
+              \left(<var name="$a"/>x^<var name="$b"/>-y\right)\left(<var name="$a"/>x^<var name="$b"/>-y\right)</mrow>
+              <mrow>\amp = \underbrace{<var name="$a"/>x^<var name="$b"/>\cdot <var name="$a"/>x^<var name="$b"/>}_{\text{First}}+\underbrace{<var name="$a"/>x^<var name="$b"/>\cdot (-y)}_\text{Outer}+\underbrace{(-y)\cdot <var name="$a"/>x^<var name="$b"/>}_\text{Inner}+\underbrace{(-y)\cdot (-y)}_\text{Last}</mrow>
+              <mrow>\amp = <var name="$xcoef"/>x^<var name="$b2"/> - <var name="$a"/>x^<var name="$b"/>y-<var name="$a"/>x^<var name="$b"/>y+y^2 </mrow>
+              <mrow>\amp = <var name="$xcoef"/>x^<var name="$b2"/> - <var name="$xycoef"/>x^<var name="$b"/>y+y^2 </mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(2,5,1));
+          $b = Compute(random(3,7,2));
+
+          $a2 = 2*$a;
+          $ab = $a*$b;
+
+          $ans = Formula("$a$x^4 +$a2 $x^3 +$b $x");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m><var name="$a"/>x^2\left(x^2+2x+<var name="$b"/>\right)-<var name="$b"/>x\left(<var name="$a"/>x-1\right)=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            We expand both expressions, and then combine like terms:
+            <md>
+              <mrow><var name="$a"/>x^2\left(x^2+2x+<var name="$b"/>\right)-<var name="$b"/>x\left(<var name="$a"/>x-1\right)
+              \amp = <var name="$a"/>x^4+<var name="$a2"/>x^3+<var name="$ab"/>x^2-<var name="$ab"/>x^2+<var name="$b"/>x</mrow>
+              <mrow>\amp = <var name="$a"/>x^4+<var name="$a2"/>x^3+<var name="$b"/>x</mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $a = Compute(random(4,5,1));
+          $b = Compute(random(2,7,1));
+
+          $a2 = 2*$a;
+
+          $x3coef = 1;
+          $x2coef = $a-2;
+          $xcoef = $a2- $b;
+          $const = $a*$b;
+
+          $ans = Formula("$x^3-$x2coef*$x^2-$xcoef*$x-$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\left(x-<var name="$a"/>\right)\left(x^2+2x+<var name="$b"/>\right)=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <solution>
+          <p>
+            We expand, making sure to multiply every term in the first set of brackets by every term in the second set of brackets.  Then we combine like terms.
+            <md>
+              <mrow>\left(x-<var name="$a"/>\right)\left(x^2+2x+<var name="$b"/>\right)
+              \amp = x\cdot x^2+x\cdot 2x+x\cdot <var name="$b"/>+(-<var name="$a"/>)\cdot x^2+(-<var name="$a"/>)\cdot 2x+(-<var name="$a"/>)\cdot <var name="$b"/></mrow>
+              <mrow> \amp= x^3+2x^2+<var name="$b"/>x-<var name="$a"/>x^2- <var name="$a2"/>x-<var name="$const"/> </mrow>
+              <mrow> \amp= x^3-<var name="$x2coef"/>x^2-<var name="$xcoef"/>x-<var name="$const"/></mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+
+      <webwork>
+
+        <pg-code>
+
+          Context("LimitedPolynomial-Strict");
+
+          $x = "x";
+          $b = Compute(random(2,5,1));
+
+          $b2 = 2*$b;
+          $bsquared = $b**2;
+          $bsquared2 = 2*$bsquared;
+          $bcubed = $b**3;
+
+          $x2coef = 3*$b;
+          $xcoef = 3*$bsquared;
+          $const = $bcubed;
+
+          $ans = Formula("$x^3-$x2coef*$x^2+$xcoef*$x-$const");
+          $ans = $ans->cmp(bypass_equivalence_test => 1);
+        </pg-code>
+
+        <statement>
+          <p><m>\dsp\left(x-<var name="$b"/>\right)^3=</m><var name="$ans" width="30" /></p>
+        </statement>
+
+        <hint>
+          Note that 
+          <me>
+            \left(x-<var name="$b"/>\right)^3=(x-<var name="$b"/>)(x-<var name="$b"/>)(x-<var name="$b"/>).
+          </me>
+        </hint>
+
+        <solution>
+          <p>
+            We begin by finding the product of the first two factors, and then we continue expanding.
+            <md>
+              <mrow>(x-<var name="$b"/>)^3 \amp = (x-<var name="$b"/>)(x-<var name="$b"/>)(x-<var name="$b"/>)</mrow>
+              <mrow>\amp = (x^2-<var name="$b"/>x-<var name="$b"/>x+<var name="$bsquared"/>)(x-<var name="$b"/>)</mrow>
+              <mrow>\amp = (x^2-<var name="$b2"/>x-<var name="$bsquared"/>)(x-<var name="$b"/>)</mrow>
+              <mrow>\amp = x^3-<var name="$b"/>x^2-<var name="$b2"/>x^2+<var name="$bsquared2"/>x+<var name="$bsquared"/>x-<var name="$bcubed"/></mrow>
+              <mrow>\amp = x^3-<var name="$x2coef"/>x^2+<var name="$xcoef"/>x-<var name="$const"/></mrow>
+            </md>
+          </p>
+        </solution>
+
+      </webwork>
+    
+    </exercise>
+
+  </subsection>
+
+ 
+</section>
