@@ -55,10 +55,15 @@
     </me>
   </p>
 
-  <exercise>
+  <exercise xml:id="exercise-basic-exponent-rules">
     <title>Using basic exponent rules</title>
 
     <introduction>
+      <figure xml:id="figure-basic-exponent-rules">
+        <caption>Basic exponent rules</caption>
+        <video youtube="fzaHC0ASM9k"/>
+      </figure>
+
       <p>Simplify.  Do not leave negative exponents in your answer.</p>
     </introduction>
 
@@ -661,11 +666,17 @@
     </me>
   </p>
 
-  <exercise>
+  <exercise xml:id="exercise-distribute-laws">
 
     <title>Using distributive laws</title>
 
     <introduction>
+
+      <figure xml:id="figure-distributive-laws">
+        <caption>Using distributive laws</caption>
+        <video youtube="W8AvKHiamIY"/>
+      </figure>
+
       <p>Simplify.  Do not leave negative exponents in your answer.</p>
     </introduction>
 
@@ -932,11 +943,17 @@
     </me>
   </p>
 
-  <exercise>
+  <exercise xml:id="exercise-distributive-laws-more">
     
     <title>Using distributive laws (more)</title>
 
     <introduction>
+
+      <figure xml:id="figure-distributive-laws-more">
+        <caption>Using distributive laws (more)</caption>
+        <video youtube="jRtLN6kryc8"/>
+      </figure>
+
       <p>Simplify.  Do not leave negative exponents in your answer.</p>
     </introduction>
 
