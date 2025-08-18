@@ -25,7 +25,12 @@
     </title>
 
     <introduction>
-      Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+      <figure xml:id="figure-fraction-addition">
+        <caption>Fraction addition</caption>
+        <video youtube="Rjk8oWSrSG4"/>
+      </figure>
+
+      <p> Evaluate without the use of a calculator.  Enter your final answer in lowest terms.</p>
     </introduction>
   
     <webwork>
@@ -177,7 +182,13 @@
     </title>
 
     <introduction>
-      Evaluate without the use of a calculator.  Enter your final answer in lowest terms.
+      <figure xml:id="figure-fraction-subtraction">
+        <caption>Fraction subtraction</caption>
+        <video youtube="W8gIckoH6mM"/>
+      </figure>
+      
+
+      <p> Evaluate without the use of a calculator.  Enter your final answer in lowest terms.</p>
     </introduction>
 
     <webwork>
@@ -311,6 +322,95 @@
           The least common denominator is <m><var name="$den"/></m>, so we have 
           <me>
              \frac{<var name="$a"/>}{<var name="$b"/>}-\frac{<var name="$c"/>}{<var name="$d"/>}=\frac{<var name="$a2"/>}{<var name="$den"/>}-\frac{<var name="$c3"/>}{<var name="$den"/>}=\frac{<var name="$num"/>}{<var name="$den"/>}.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+  
+  </exercise>
+
+  <p>
+    In order to add a fraction to a whole number, remember that you can write any whole number as a fraction with denominator <m>1</m>.  For example, we have 
+    <md>
+      <mrow>\frac{5}{3}+4 \amp =\frac{5}{3}+\frac{4}{1}</mrow>
+      <mrow> \amp =\frac{5}{3}+\frac{12}{3}</mrow>
+      <mrow> \amp =\frac{17}{3}.</mrow>
+    </md>
+    The same idea is used for subtraction.
+  </p>
+
+    <exercise>
+
+    <title>
+      Addition and subtraction of fractions and whole numbers
+    </title>
+
+    <introduction>
+      <figure xml:id="figure-adding-a-fraction-to-a-whole-number">
+        <caption>Adding a fraction to a whole number</caption>
+        <video youtube="rK6SzMD_ayM"/>
+      </figure>
+
+      <p> Evaluate without the use of a calculator.  Enter your final answer in lowest terms.</p>
+    </introduction>
+  
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(1,9,1));
+        $b = Compute(random(2,8,2));
+        $c = Compute(random(3,7,2));
+        $ac = $a*$c; 
+        $ans = Fraction($a*$c+$b,$c);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a"/>+\frac{<var name="$b"/>}{<var name="$c$"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We have
+          <me>
+            <var name="$a"/>+\frac{<var name="$b"/>}{<var name="$c$"/>}=\frac{<var name="$ac"/>}{<var name="$c$"/>}+\frac{<var name="$b"/>}{<var name="$c$"/>}=\frac{<var name="$ac"/>+<var name="$b"/>}{<var name="$c$"/>}=<var name="$ans"/>.
+          </me>
+        </p>
+      </solution>
+
+    </webwork>
+
+    <webwork>
+      
+      <pg-code>
+        Context("LimitedFraction");
+        Context()->operators->undefine("^","**", "+", "-", "*");
+        Context()->flags->set(strictFractions => 1);
+        Context()->flags->set(showMixedNumbers => 0);
+        $a = Compute(random(1,9,1));
+        $b = Compute(random(2,8,2));
+        $c = Compute(random(3,7,2));
+        $ac = $a*$c; 
+        $ans = Fraction($a*$c-$b,$c);
+      </pg-code>
+
+      <statement>
+        <p>
+          <m><var name="$a"/>-\frac{<var name="$b"/>}{<var name="$c$"/>}=</m><var name="$ans" width="10"/>
+        </p>
+      </statement>
+
+      <solution>
+        <p>
+          We have
+          <me>
+            <var name="$a"/>-\frac{<var name="$b"/>}{<var name="$c$"/>}=\frac{<var name="$ac"/>}{<var name="$c$"/>}-\frac{<var name="$b"/>}{<var name="$c$"/>}=\frac{<var name="$ac"/>-<var name="$b"/>}{<var name="$c$"/>}=<var name="$ans"/>.
           </me>
         </p>
       </solution>
