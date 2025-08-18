@@ -46,6 +46,7 @@
       </p>
     </introduction>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -69,7 +70,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -93,7 +96,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -116,7 +121,9 @@
         We have <m><var name="$a"/>^4=<var name="$a4"/></m> and <m>(-<var name="$a"/>)^4=<var name="$a4"/></m>, so the <m>4</m>th roots of <m><var name="$a4"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
       </solution>
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -141,7 +148,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -165,7 +174,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -188,6 +199,7 @@
       </solution>
       
     </webwork>
+    </task>
 
 
 
@@ -232,6 +244,7 @@
       <p>Evaluate without the use of a calculator, or enter <c>Undefined</c> if the expression is not defined.</p>
     </introduction>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -255,7 +268,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -279,7 +294,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -303,7 +320,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -328,7 +347,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -353,7 +374,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -377,7 +400,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -401,7 +426,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -427,7 +454,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -451,6 +480,7 @@
       </solution>
       
     </webwork>
+    </task>
 
   </exercise>
 
@@ -472,6 +502,7 @@
       <p>Evaluate without the use of a calculator, or enter <c>Undefined</c> if the expression is not defined.</p>
     </introduction>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -495,7 +526,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -519,7 +552,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -543,7 +578,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -567,7 +604,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -591,7 +630,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -615,7 +656,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -648,7 +691,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -682,7 +727,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -710,6 +757,7 @@
       </solution>
       
     </webwork>
+    </task>
 
   </exercise>
 
@@ -724,6 +772,7 @@
       <p>Simplify.  Do not leave negative exponents in your answer.  You may assume that all variables represent positive numbers.</p>
     </introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -788,7 +837,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -854,7 +905,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -889,7 +942,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -947,7 +1002,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -1016,6 +1073,7 @@
       </solution>
 
     </webwork>
+    </task>
 
   </exercise>
 

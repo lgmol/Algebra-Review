@@ -82,7 +82,8 @@
           </p>
         </introduction>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -125,8 +126,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -169,8 +172,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -223,8 +228,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -274,8 +281,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -318,8 +327,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -362,6 +373,7 @@
           </solution>
 
         </webwork>
+    </task>
       
       </exercise>
     
@@ -413,7 +425,8 @@
           </p>
         </introduction>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -454,8 +467,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -500,9 +515,11 @@
             </p>
           </solution>
 
-        </webwork> 
+        </webwork>
+    </task> 
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Numeric");
@@ -538,8 +555,10 @@
           </solution>
 
         </webwork>
+    </task>
 
-        <webwork>
+        <task>
+    <webwork>
       
           <pg-code>
             Context("Fraction");
@@ -593,6 +612,7 @@
           </solution>
 
         </webwork>
+    </task>
       
       </exercise>
     

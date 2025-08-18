@@ -55,6 +55,7 @@
 
     <introduction>Solve.</introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -86,7 +87,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -118,7 +121,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -151,7 +156,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -180,7 +187,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -209,7 +218,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -237,8 +248,10 @@
         </me>
       </solution>
 
-    </webwork> 
+    </webwork>
+    </task> 
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -269,8 +282,10 @@
         </me>
       </solution>
 
-    </webwork> 
+    </webwork>
+    </task> 
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -301,8 +316,10 @@
         </me>
       </solution>
 
-    </webwork> 
+    </webwork>
+    </task> 
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -334,7 +351,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -366,7 +385,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -400,7 +421,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -435,6 +458,7 @@
       </solution>
 
     </webwork>
+    </task>
   
   </exercise>
 

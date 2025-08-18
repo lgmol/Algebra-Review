@@ -20,6 +20,7 @@
       Factor the numerator and denominator, and then simplify, if possible.
     </introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -63,7 +64,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -109,7 +112,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -154,6 +159,7 @@
       </solution>
 
     </webwork>
+    </task>
 
   </exercise>
 
@@ -169,6 +175,7 @@
       <p>Perform the indicated operations, and simplify if possible.</p> 
     </introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -221,7 +228,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -271,6 +280,7 @@
       </solution>
 
     </webwork>
+    </task>
 
   </exercise>
 
@@ -286,6 +296,7 @@
       <p>Perform the indicated operations, and simplify if possible.</p> 
     </introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -327,7 +338,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -370,7 +383,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -418,6 +433,7 @@
       </solution>
 
     </webwork>
+    </task>
 
   </exercise>
 
@@ -435,6 +451,7 @@
       Simplify as much as possible.
     </introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -483,7 +500,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -532,7 +551,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -579,7 +600,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -626,6 +649,7 @@
       </solution>
 
     </webwork>
+    </task>
 
   </exercise>
     

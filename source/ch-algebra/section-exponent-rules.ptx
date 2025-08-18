@@ -67,6 +67,7 @@
       <p>Simplify.  Do not leave negative exponents in your answer.</p>
     </introduction>
 
+    <task>
     <webwork>
       <pg-code>
         loadMacros(
@@ -100,7 +101,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -135,7 +138,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       <pg-code>
         loadMacros(
@@ -180,8 +185,10 @@
           <m>x^<var name="$m"/>\cdot x^<var name="$n"/>=x^{<var name="$m"/>+<var name="$n"/>}=x^<var name="$sum"/></m>
         </p>
       </solution>
-    </webwork> 
+    </webwork>
+    </task> 
 
+    <task>
     <webwork>
       <pg-code>
         loadMacros(
@@ -231,7 +238,9 @@
         </p>
       </solution>
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -277,7 +286,9 @@
         <p><m>\displaystyle\frac{1}{x^<var name="$neg"/>}=\frac{1}{\frac{1}{x^<var name="$n"/>}}=x^<var name="$n"/></m></p>
       </solution>
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -324,7 +335,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -372,7 +385,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -422,7 +437,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -474,7 +491,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -528,7 +547,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -584,7 +605,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -641,6 +664,7 @@
       </solution>
       
     </webwork>
+    </task>
 
   </exercise>
 
@@ -680,6 +704,7 @@
       <p>Simplify.  Do not leave negative exponents in your answer.</p>
     </introduction>
 
+    <task>
     <webwork>
         
         <pg-code>
@@ -707,7 +732,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
         
       <pg-code>
@@ -737,7 +764,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
         
       <pg-code>
@@ -771,7 +800,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -824,7 +855,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
         
       <pg-code>
@@ -868,7 +901,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -928,6 +963,7 @@
       </solution>
       
     </webwork>
+    </task>
 
   </exercise>
 
@@ -957,6 +993,7 @@
       <p>Simplify.  Do not leave negative exponents in your answer.</p>
     </introduction>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -1012,7 +1049,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -1072,7 +1111,9 @@
       </solution>
       
     </webwork>
+    </task>
 
+    <task>
     <webwork>
 
       <pg-code>
@@ -1134,6 +1175,7 @@
       </solution>
       
     </webwork>
+    </task>
 
   </exercise>
 

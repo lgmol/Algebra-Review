@@ -30,6 +30,7 @@
       
     </introduction>
   
+    <task>
     <webwork>
       
       <pg-code>
@@ -61,7 +62,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -93,7 +96,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -125,6 +130,7 @@
       </solution>
 
     </webwork>
+    </task>
   
   </exercise>
 
@@ -160,6 +166,7 @@
       </p>
     </introduction>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -191,7 +198,9 @@
       </solution>
 
     </webwork>
+    </task>
   
+    <task>
     <webwork>
       
       <pg-code>
@@ -227,7 +236,9 @@
       </solution>
 
     </webwork>
+    </task>
   
+    <task>
     <webwork>
       
       <pg-code>
@@ -262,6 +273,7 @@
       </solution>
 
     </webwork>
+    </task>
   
   </exercise>
 
@@ -287,7 +299,8 @@
       </p>
     </introduction>
 
-       <webwork>
+       <task>
+    <webwork>
       
       <pg-code>
         Context("LimitedFraction");
@@ -322,7 +335,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -365,6 +380,7 @@
       </solution>
 
     </webwork>
+    </task>
     
     
   </exercise>
@@ -404,6 +420,7 @@
       
     </introduction>
   
+    <task>
     <webwork>
       
       <pg-code>
@@ -435,7 +452,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -470,7 +489,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -502,7 +523,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -539,7 +562,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -573,7 +598,9 @@
       </solution>
 
     </webwork>
+    </task>
 
+    <task>
     <webwork>
       
       <pg-code>
@@ -611,6 +638,7 @@
       </solution>
 
     </webwork>
+    </task>
   
   </exercise>
   

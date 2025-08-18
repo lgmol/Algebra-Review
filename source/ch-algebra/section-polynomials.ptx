@@ -180,7 +180,8 @@
         <p>Perform the indicated operations and simplify.  Make sure to combine all like terms.</p>
       </introduction>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -208,8 +209,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -240,8 +243,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -277,8 +282,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -311,8 +318,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -356,6 +365,7 @@
         </solution>
 
       </webwork>
+    </task>
 
     </exercise>
 
@@ -377,7 +387,8 @@
         <p>Multiply the following monomials.</p>
       </introduction>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -409,8 +420,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -440,8 +453,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -473,8 +488,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial-Strict");
@@ -506,6 +523,7 @@
         </solution>
 
       </webwork>
+    </task>
     
     </exercise>
 
@@ -533,7 +551,8 @@
         <p>Expand and simplify.</p>
       </introduction>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -566,8 +585,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -606,8 +627,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -652,8 +675,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -698,8 +723,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -732,8 +759,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -771,8 +800,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
 
@@ -819,6 +850,7 @@
         </solution>
 
       </webwork>
+    </task>
     
     </exercise>
 

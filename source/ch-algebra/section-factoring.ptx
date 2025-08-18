@@ -26,7 +26,8 @@
         Factor out the greatest common factor.
       </introduction>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial");
@@ -73,8 +74,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial");
@@ -118,8 +121,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial");
@@ -166,8 +171,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial");
@@ -222,8 +229,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("Fraction");
@@ -264,8 +273,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("LimitedPolynomial");
@@ -316,8 +327,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("Numeric");
@@ -376,6 +389,7 @@
         </solution>
 
       </webwork>
+    </task>
 
     </exercise>
 
@@ -417,7 +431,8 @@
         Factor.
       </introduction> 
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -485,8 +500,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -554,8 +571,10 @@
         </solution>
         
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -623,8 +642,10 @@
         </solution>
         
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -692,8 +713,10 @@
         </solution>
         
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -761,8 +784,10 @@
         </solution>
         
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -831,8 +856,10 @@
         </solution>
         
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -901,6 +928,7 @@
         </solution>
         
       </webwork>
+    </task>
 
     </exercise>
     
@@ -943,7 +971,8 @@
         Factor.
       </introduction>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -1013,8 +1042,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -1084,8 +1115,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1137,8 +1170,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1184,8 +1219,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1237,8 +1274,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1299,6 +1338,7 @@
         </solution>
 
       </webwork>
+    </task>
 
     </exercise>
 
@@ -1377,7 +1417,8 @@
         <p>Factor as completely as you can.  When in doubt, start by looking for a common factor!</p>
       </introduction>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1413,8 +1454,10 @@
           </p>
         </solution>
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1459,8 +1502,10 @@
           </p>
         </solution>
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1497,8 +1542,10 @@
           </p>
         </solution>
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors-Strict");
@@ -1542,8 +1589,10 @@
         </solution>
 
       </webwork>
+    </task>
 
-      <webwork>
+      <task>
+    <webwork>
 
         <pg-code>
           Context("PolynomialFactors");
@@ -1616,6 +1665,7 @@
           </p>
         </solution>
       </webwork>
+    </task>
 
 
 
