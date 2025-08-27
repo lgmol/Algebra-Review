@@ -31,6 +31,12 @@
     <title>Finding <m>n</m>th roots</title>
 
     <introduction>
+
+      <figure xml:id="figure-finding-nth-roots">
+        <caption>Finding <m>n</m>th roots</caption>
+        <video youtube="2IUdLTCj9hw"/>
+      </figure>
+      
       <p>Find all of the indicated roots.
       <ul>
         <li>
@@ -66,7 +72,9 @@
       </statement>
 
       <solution>
-        We have <m><var name="$a"/>^2=<var name="$a2"/></m> and <m>(-<var name="$a"/>)^2=<var name="$a2"/></m>, so the square roots of <m><var name="$a2"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
+        <p>
+          We have <m><var name="$a"/>^2=<var name="$a2"/></m> and <m>(-<var name="$a"/>)^2=<var name="$a2"/></m>, so the square roots of <m><var name="$a2"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
+        </p>
       </solution>
 
     </webwork>
@@ -92,7 +100,9 @@
       </statement>
 
       <solution>
-        We have <m><var name="$a"/>^3=<var name="$a3"/></m>; the unique cube root of <m><var name="$a3"/></m> is <m><var name="$a"/></m>.
+        <p>
+          We have <m><var name="$a"/>^3=<var name="$a3"/></m>; the unique cube root of <m><var name="$a3"/></m> is <m><var name="$a"/></m>.
+        </p>
       </solution>
 
     </webwork>
@@ -118,7 +128,9 @@
       </statement>
 
       <solution>
-        We have <m><var name="$a"/>^4=<var name="$a4"/></m> and <m>(-<var name="$a"/>)^4=<var name="$a4"/></m>, so the <m>4</m>th roots of <m><var name="$a4"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
+        <p>
+          We have <m><var name="$a"/>^4=<var name="$a4"/></m> and <m>(-<var name="$a"/>)^4=<var name="$a4"/></m>, so the <m>4</m>th roots of <m><var name="$a4"/></m> are <m><var name="$a"/></m> and <m>-<var name="$a"/></m>.
+        </p>
       </solution>
     </webwork>
     </task>
@@ -143,8 +155,10 @@
       </statement>
 
       <solution>
-        Note that every number times itself is positive, so squaring a number will never produce <var name="$a2"/>.
-        This means that <var name="$a2"/> has no square roots.
+        <p>
+          Note that every number times itself is positive, so squaring a number will never produce <var name="$a2"/>.
+          This means that <var name="$a2"/> has no square roots.
+        </p>
       </solution>
 
     </webwork>
@@ -170,7 +184,9 @@
       </statement>
 
       <solution>
-        We have <m>(-<var name="$a"/>)^3=<var name="$a3"/></m>; the unique cube root of <m><var name="$a3"/></m> is <m>-<var name="$a"/></m>.
+        <p>
+          We have <m>(-<var name="$a"/>)^3=<var name="$a3"/></m>; the unique cube root of <m><var name="$a3"/></m> is <m>-<var name="$a"/></m>.
+        </p>
       </solution>
       
     </webwork>
@@ -195,7 +211,9 @@
       </statement>
 
       <solution>
-        We have <m><var name="$a"/>^3=<var name="$a"/></m>; the unique cube root of <m><var name="$a"/></m> is <m><var name="$a"/></m>.
+        <p>
+          We have <m><var name="$a"/>^3=<var name="$a"/></m>; the unique cube root of <m><var name="$a"/></m> is <m><var name="$a"/></m>.
+        </p>
       </solution>
       
     </webwork>
@@ -241,6 +259,13 @@
     <title>Finding principal <m>n</m>th roots</title>
 
     <introduction>
+
+      <figure xml:id="figure-finding-principal-nth-roots">
+        <caption>Finding principal <m>n</m>th roots</caption>
+        <video youtube="bT8fiVJeIPU"/>
+      </figure>
+
+
       <p>Evaluate without the use of a calculator, or enter <c>Undefined</c> if the expression is not defined.</p>
     </introduction>
 
@@ -264,7 +289,9 @@
       </statement>
 
       <solution>
-        We have <m><var name="$a"/>^3=<var name="$a3"/></m>, so <m>\sqrt[3]{<var name="$a3"/>}=<var name="$a"/></m>.
+        <p>
+          We have <m><var name="$a"/>^3=<var name="$a3"/></m>, so <m>\sqrt[3]{<var name="$a3"/>}=<var name="$a"/></m>.
+        </p>
       </solution>
       
     </webwork>
@@ -290,7 +317,9 @@
       </statement>
 
       <solution>
-        We have <m>(-<var name="$a"/>)^3=<var name="$a3"/></m>, so <m>\sqrt[3]{<var name="$a3"/>}=-<var name="$a"/></m>.
+        <p>
+          We have <m>(-<var name="$a"/>)^3=<var name="$a3"/></m>, so <m>\sqrt[3]{<var name="$a3"/>}=-<var name="$a"/></m>.
+        </p>
       </solution>
       
     </webwork>
@@ -316,7 +345,9 @@
       </statement>
 
       <solution>
-        The square root of a negative number is undefined.
+        <p>
+          The square root of a negative number is undefined.
+        </p>
       </solution>
       
     </webwork>
@@ -342,8 +373,10 @@
       </statement>
 
       <solution>
-        Since <m><var name="$a"/>^2=<var name="$a2"/></m>, we have <m>\sqrt{<var name="$a2"/>}=<var name="$a"/></m>.  
-        (Note that <m>-<var name="$a"/></m> is also a square root of <m><var name="$a2"/></m>, but it is not the <em>principal</em> square root.)
+        <p>
+          Since <m><var name="$a"/>^2=<var name="$a2"/></m>, we have <m>\sqrt{<var name="$a2"/>}=<var name="$a"/></m>.  
+          (Note that <m>-<var name="$a"/></m> is also a square root of <m><var name="$a2"/></m>, but it is not the <em>principal</em> square root.)
+        </p>
       </solution>
       
     </webwork>
@@ -369,8 +402,10 @@
       </statement>
 
       <solution>
-        Since <m><var name="$a"/>^4=<var name="$a4"/></m>, we have <m>\sqrt[4]{<var name="$a4"/>}=<var name="$a"/></m>.  
-        (Note that <m>-<var name="$a"/></m> is also a <m>4</m>th root of <m><var name="$a4"/></m>, but it is not the <em>principal</em> <m>4</m>th root.)
+        <p>
+          Since <m><var name="$a"/>^4=<var name="$a4"/></m>, we have <m>\sqrt[4]{<var name="$a4"/>}=<var name="$a"/></m>.  
+          (Note that <m>-<var name="$a"/></m> is also a <m>4</m>th root of <m><var name="$a4"/></m>, but it is not the <em>principal</em> <m>4</m>th root.)
+        </p>
       </solution>
       
     </webwork>
@@ -396,7 +431,9 @@
       </statement>
 
       <solution>
-        The <m>4</m>th root of a negative number is undefined (since <m>4</m> is even).   
+        <p>
+          The <m>4</m>th root of a negative number is undefined (since <m>4</m> is even).   
+        </p>
       </solution>
       
     </webwork>
@@ -422,7 +459,9 @@
       </statement>
 
       <solution>
-        We have <m>(-<var name="$a"/>)^5=<var name="$a5"/></m>, so <m>\sqrt[5]{<var name="$a5"/>}=-<var name="$a"/></m>.
+        <p>
+          We have <m>(-<var name="$a"/>)^5=<var name="$a5"/></m>, so <m>\sqrt[5]{<var name="$a5"/>}=-<var name="$a"/></m>.
+        </p>
       </solution>
       
     </webwork>
@@ -450,7 +489,9 @@
       </statement>
 
       <solution>
-        We have <m>\displaystyle\left(\frac{1}{<var name="$a"/>}\right)^2=\frac{1}{<var name="$a"/>}\cdot \frac{1}{<var name="$a"/>}=\frac{1}{<var name="$a2"/>}</m>, so <m>\displaystyle\sqrt{\frac{1}{<var name="$a2"/>}}=\frac{1}{<var name="$a"/>}</m>.
+        <p>
+          We have <m>\displaystyle\left(\frac{1}{<var name="$a"/>}\right)^2=\frac{1}{<var name="$a"/>}\cdot \frac{1}{<var name="$a"/>}=\frac{1}{<var name="$a2"/>}</m>, so <m>\displaystyle\sqrt{\frac{1}{<var name="$a2"/>}}=\frac{1}{<var name="$a"/>}</m>.
+        </p>
       </solution>
       
     </webwork>
@@ -476,7 +517,9 @@
       </statement>
 
       <solution>
-        Since <m><var name="$a"/>^2=<var name="$a2"/></m>, we have <m>\sqrt{<var name="$a2"/>}=<var name="$a"/></m>.
+        <p>
+          Since <m><var name="$a"/>^2=<var name="$a2"/></m>, we have <m>\sqrt{<var name="$a2"/>}=<var name="$a"/></m>.
+        </p>
       </solution>
       
     </webwork>
@@ -499,6 +542,12 @@
     <title>Evaluating rational exponents</title>
 
     <introduction>
+
+      <figure xml:id="figure-evaluating-rational-exponents">
+        <caption>Evaluating rational exponents</caption>
+        <video youtube="p2m7oJd9o6k"/>
+      </figure>
+
       <p>Evaluate without the use of a calculator, or enter <c>Undefined</c> if the expression is not defined.</p>
     </introduction>
 
@@ -522,7 +571,9 @@
       </statement>
 
       <solution>
-        <m><var name="$a3"/>^{1/3}=\sqrt[3]{<var name="$a3"/>}=<var name="$a"/></m>
+        <p>
+          <m><var name="$a3"/>^{1/3}=\sqrt[3]{<var name="$a3"/>}=<var name="$a"/></m>
+        </p>
       </solution>
       
     </webwork>
@@ -548,7 +599,9 @@
       </statement>
 
       <solution>
-        <m><var name="$a2"/>^{1/2}=\sqrt{<var name="$a2"/>}=<var name="$a"/></m>
+        <p>
+          <m><var name="$a2"/>^{1/2}=\sqrt{<var name="$a2"/>}=<var name="$a"/></m>
+        </p>
       </solution>
       
     </webwork>
@@ -574,7 +627,9 @@
       </statement>
 
       <solution>
-        <m><var name="$a3"/>^{2/3}=\left(\sqrt[3]{<var name="$a3"/>}\right)^2=(<var name="$a"/>)^2=<var name="$ans"/></m>
+        <p>
+          <m><var name="$a3"/>^{2/3}=\left(\sqrt[3]{<var name="$a3"/>}\right)^2=(<var name="$a"/>)^2=<var name="$ans"/></m>
+        </p>
       </solution>
       
     </webwork>
@@ -600,7 +655,9 @@
       </statement>
 
       <solution>
-        <m>(<var name="$a3"/>)^{2/3}=\left(\sqrt[3]{<var name="$a3"/>}\right)^2=(-<var name="$a"/>)^2=<var name="$ans"/></m>
+        <p>
+          <m>(<var name="$a3"/>)^{2/3}=\left(\sqrt[3]{<var name="$a3"/>}\right)^2=(-<var name="$a"/>)^2=<var name="$ans"/></m>
+        </p>
       </solution>
       
     </webwork>
@@ -626,7 +683,9 @@
       </statement>
 
       <solution>
-        The square root of a negative number is undefined.
+        <p>
+          The square root of a negative number is undefined.
+        </p>
       </solution>
       
     </webwork>
@@ -652,7 +711,9 @@
       </statement>
 
       <solution>
-        <m><var name="$a2"/>^{3/2}=\left(\sqrt{<var name="$a2"/>}\right)^3=<var name="$a"/>^3=<var name="$ans"/></m>
+        <p>
+          <m><var name="$a2"/>^{3/2}=\left(\sqrt{<var name="$a2"/>}\right)^3=<var name="$a"/>^3=<var name="$ans"/></m>
+        </p>
       </solution>
       
     </webwork>
@@ -680,14 +741,18 @@
       </statement>
 
       <hint>
-        Negative rational exponents are defined similarly to negative integer exponents.  Here we have
-        <me>
-          <var name="$a2"/>^{-1/2}=\frac{1}{<var name="$a2"/>^{1/2}}
-        </me>
+        <p>
+          Negative rational exponents are defined similarly to negative integer exponents.  Here we have
+          <me>
+            <var name="$a2"/>^{-1/2}=\frac{1}{<var name="$a2"/>^{1/2}}
+          </me>
+        </p>
       </hint>
 
       <solution>
-        <m>\displaystyle<var name="$a2"/>^{-1/2}=\frac{1}{<var name="$a2"/>^{1/2}}=\frac{1}{\sqrt{<var name="$a2"/>}}=\frac{1}{<var name="$a"/>}</m>
+        <p>
+          <m>\displaystyle<var name="$a2"/>^{-1/2}=\frac{1}{<var name="$a2"/>^{1/2}}=\frac{1}{\sqrt{<var name="$a2"/>}}=\frac{1}{<var name="$a"/>}</m>
+        </p>
       </solution>
       
     </webwork>
@@ -716,14 +781,18 @@
       </statement>
 
       <hint>
-        Negative rational exponents are defined similarly to negative integer exponents.  Here we have
-        <me>
-          <var name="$a4"/>^{-3/4}=\frac{1}{<var name="$a4"/>^{3/4}}
-        </me>
+        <p>
+          Negative rational exponents are defined similarly to negative integer exponents.  Here we have
+          <me>
+            <var name="$a4"/>^{-3/4}=\frac{1}{<var name="$a4"/>^{3/4}}
+          </me>
+        </p>
       </hint>
 
       <solution>
-        <m>\displaystyle<var name="$a4"/>^{-3/4}=\frac{1}{<var name="$a4"/>^{3/4}}=\frac{1}{\left(\sqrt[4]{<var name="$a4"/>}\right)^3}=\frac{1}{<var name="$a"/>^3}=\frac{1}{<var name="$a3"/>}</m>
+        <p>
+          <m>\displaystyle<var name="$a4"/>^{-3/4}=\frac{1}{<var name="$a4"/>^{3/4}}=\frac{1}{\left(\sqrt[4]{<var name="$a4"/>}\right)^3}=\frac{1}{<var name="$a"/>^3}=\frac{1}{<var name="$a3"/>}</m>
+        </p>
       </solution>
       
     </webwork>
@@ -753,7 +822,9 @@
       </statement>
 
       <solution>
-        <m>\displaystyle\left(\frac{<var name="$a2"/>}{<var name="$b2"/>}\right)^{1/2}=\sqrt{\frac{<var name="$a2"/>}{<var name="$b2"/>}}=\frac{<var name="$a"/>}{<var name="$b"/>}</m>
+        <p>
+          <m>\displaystyle\left(\frac{<var name="$a2"/>}{<var name="$b2"/>}\right)^{1/2}=\sqrt{\frac{<var name="$a2"/>}{<var name="$b2"/>}}=\frac{<var name="$a"/>}{<var name="$b"/>}</m>
+        </p>
       </solution>
       
     </webwork>
@@ -769,6 +840,12 @@
     <title>Exponent rules with rational exponents</title>
 
     <introduction>
+
+      <figure xml:id="figure-exponent-rules-with-rational-exponents">
+        <caption>Exponent rules with rational exponents</caption>
+        <video youtube="tTJOLN11ag0"/>
+      </figure>
+
       <p>Simplify.  Do not leave negative exponents in your answer.  You may assume that all variables represent positive numbers.</p>
     </introduction>
 
@@ -820,20 +897,26 @@
       </pg-code>
 
       <statement>
-        <m>\displaystyle\sqrt{x}\cdot \sqrt[<var name="$a"/>]{x}=</m> <var name="$ans" width="15"/>
+        <p>
+          <m>\displaystyle\sqrt{x}\cdot \sqrt[<var name="$a"/>]{x}=</m> <var name="$ans" width="15"/>
+        </p>
       </statement>
 
       <hint>
-        Start by expressing the roots as rational exponents.
+        <p>
+          Start by expressing the roots as rational exponents.
+        </p>
       </hint>
 
       <solution>
-        <md>
-          <mrow> \sqrt{x}\cdot \sqrt[<var name="$a"/>]{x} \amp = x^\frac{1}{2}\cdot x^\frac{1}{<var name="$a"/>}</mrow>
-          <mrow> \amp = x^{\frac{1}{2}+\frac{1}{<var name="$a"/>}}</mrow>
-          <mrow> \amp = x^{\frac{<var name="$a"/>}{<var name="$a2"/>}+\frac{2}{<var name="$a2"/>}}</mrow>
-          <mrow> \amp = x^\frac{<var name="$b"/>}{<var name="$a2"/>}</mrow>
-        </md>
+        <p>
+          <md>
+            <mrow> \sqrt{x}\cdot \sqrt[<var name="$a"/>]{x} \amp = x^\frac{1}{2}\cdot x^\frac{1}{<var name="$a"/>}</mrow>
+            <mrow> \amp = x^{\frac{1}{2}+\frac{1}{<var name="$a"/>}}</mrow>
+            <mrow> \amp = x^{\frac{<var name="$a"/>}{<var name="$a2"/>}+\frac{2}{<var name="$a2"/>}}</mrow>
+            <mrow> \amp = x^\frac{<var name="$b"/>}{<var name="$a2"/>}</mrow>
+          </md>
+        </p>
       </solution>
 
     </webwork>
@@ -888,20 +971,26 @@
       </pg-code>
 
       <statement>
-        <m>\displaystyle\frac{\sqrt[<var name="$a3"/>]{y}}{\sqrt[3]{y}}=</m> <var name="$ans" width="15"/>
+        <p>
+          <m>\displaystyle\frac{\sqrt[<var name="$a3"/>]{y}}{\sqrt[3]{y}}=</m> <var name="$ans" width="15"/>
+        </p>
       </statement>
 
       <hint>
-        Start by expressing the roots as rational exponents.
+        <p>
+          Start by expressing the roots as rational exponents.
+        </p>
       </hint>
 
       <solution>
-        <m>
-          \displaystyle\frac{\sqrt[<var name="$a3"/>]{y}}{\sqrt[3]{y}} \amp = \frac{y^\frac{1}{<var name="$a3"/>}}{y^\frac{1}{3}} = y^{\frac{1}{9}-\frac{1}{3}}
-          = y^{\frac{1}{9}-\frac{3}{9}}
-          = y^{-\frac{2}{9}}
-          = \frac{1}{y^\frac{2}{9}}
-        </m>
+        <p>
+          <m>
+            \displaystyle\frac{\sqrt[<var name="$a3"/>]{y}}{\sqrt[3]{y}} = \frac{y^\frac{1}{<var name="$a3"/>}}{y^\frac{1}{3}} = y^{\frac{1}{9}-\frac{1}{3}}
+            = y^{\frac{1}{9}-\frac{3}{9}}
+            = y^{-\frac{2}{9}}
+            = \frac{1}{y^\frac{2}{9}}
+          </m>
+        </p>
       </solution>
 
     </webwork>
@@ -988,17 +1077,21 @@
       </pg-code>
 
       <statement>
-        <m>\displaystyle\sqrt[3]{\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}}=</m> <var name="$ans" width="15"/>
+        <p>
+          <m>\displaystyle\sqrt[3]{\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}}=</m> <var name="$ans" width="15"/>
+        </p>
       </statement>
 
       <solution>
-        <m>
-          \displaystyle\sqrt[3]{\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}}
-          =\left(\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}\right)^\frac{1}{3}
-          =\frac{\left(x^<var name="$a3"/>\right)^\frac{1}{3}\left(y^{-<var name="$b3"/>}\right)^\frac{1}{3}}{<var name="$c3"/>^\frac{1}{3}}
-          =\frac{x^<var name="$a"/>y^{-<var name="$b"/>}}{<var name ="$c"/>}
-          =\frac{x^<var name="$a"/>}{<var name="$c"/>y^<var name="$b"/>}
-        </m>
+        <p>
+          <m>
+            \displaystyle\sqrt[3]{\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}}
+            =\left(\frac{x^<var name="$a3"/>y^{-<var name="$b3"/>}}{<var name="$c3"/>}\right)^\frac{1}{3}
+            =\frac{\left(x^<var name="$a3"/>\right)^\frac{1}{3}\left(y^{-<var name="$b3"/>}\right)^\frac{1}{3}}{<var name="$c3"/>^\frac{1}{3}}
+            =\frac{x^<var name="$a"/>y^{-<var name="$b"/>}}{<var name ="$c"/>}
+            =\frac{x^<var name="$a"/>}{<var name="$c"/>y^<var name="$b"/>}
+          </m>
+        </p>
       </solution>
 
     </webwork>
@@ -1058,18 +1151,22 @@
       </pg-code>
 
       <statement>
-        <m>\left(<var name="$c2"/>x^<var name="$a2"/>y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}=</m> <var name="$ans" width="15"/>
+        <p>
+          <m>\left(<var name="$c2"/>x^<var name="$a2"/>y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}=</m> <var name="$ans" width="15"/>
+        </p>
       </statement>
 
       <solution>
-        We distribute the power and then simplify:
-        <md>
-          <mrow>\left(<var name="$c2"/>x^<var name="$a2"/>y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}
-          \amp =<var name="$c2"/>^{-\frac{1}{2}}\cdot \left(x^<var name="$a2"/>\right)^{-\frac{1}{2}}\cdot \left(y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}</mrow>
-          <mrow> \amp =\frac{1}{<var name="$c2"/>^\frac{1}{2}}\cdot x^{-<var name="$a"/>}\cdot y^\frac{1}{<var name="$b2"/>} </mrow>
-          <mrow> \amp =\frac{1}{<var name="$c"/>}\cdot\frac{1}{x^<var name="$a"/>}\cdot y^\frac{1}{<var name="$b2"/>} </mrow>
-          <mrow> \amp =\frac{y^\frac{1}{<var name="$b2"/>}}{<var name="$c"/>x^<var name="$a"/>} </mrow>
-        </md>
+        <p>
+          We distribute the power and then simplify:
+          <md>
+            <mrow>\left(<var name="$c2"/>x^<var name="$a2"/>y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}
+            \amp =<var name="$c2"/>^{-\frac{1}{2}}\cdot \left(x^<var name="$a2"/>\right)^{-\frac{1}{2}}\cdot \left(y^{-\frac{1}{<var name="$b"/>}}\right)^{-\frac{1}{2}}</mrow>
+            <mrow> \amp =\frac{1}{<var name="$c2"/>^\frac{1}{2}}\cdot x^{-<var name="$a"/>}\cdot y^\frac{1}{<var name="$b2"/>} </mrow>
+            <mrow> \amp =\frac{1}{<var name="$c"/>}\cdot\frac{1}{x^<var name="$a"/>}\cdot y^\frac{1}{<var name="$b2"/>} </mrow>
+            <mrow> \amp =\frac{y^\frac{1}{<var name="$b2"/>}}{<var name="$c"/>x^<var name="$a"/>} </mrow>
+          </md>
+        </p>
       </solution>
 
     </webwork>
